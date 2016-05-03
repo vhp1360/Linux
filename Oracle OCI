@@ -1,0 +1,46 @@
+
+how to install oracle oci on linux without complete installing Oracle
+
+چگونه کتابخانه های OCI را برروی لینوکس بدون نصب کامل اوراکل انجام دهیم
+
+first get required files from : (they are in this repository for oracle 12)
+
+ابتدا فایل های مورد نیاز را از آدرس زیر تهیه نمایید(فایلهای مورد نیاز برای نسخه ۱۲ در اینجا موجود است).
+
+web: http://www.unixmen.com/install-oracle-client-centos/ 
+
+then install them with yum,
+
+با دستور زیر آنها را نصب کنید
+
+>    yum -y install oracle-instantclient12*
+
+make below links in address if they are not,
+
+لینک های زیر را درصورت عدم ساخته شدن ایجاد نمایید.
+
+>    ln -s /usr/lib/oracle/12.1/client64/lib/libclntsh.so.12.1 /usr/lib/oracle/12.1/client64/lib/libclntsh.so 
+
+>    ln -s /usr/lib/oracle/12.1/client64/lib/libocci.so.12.1 /usr/lib/oracle/12.1/client64/lib/libocci.so 
+
+>    mkdir -p /usr/lib/oracle/12.1/client64/rdbms
+
+>    ln -s /usr/include/oracle/12.1/client64 /usr/lib/oracle/12.1/client64/rdbms/public
+
+add below to /etc/profile
+
+دو خط زیر را به فایل پروفایل اضافه نمایید
+
+
+>    vim /etc/profile
+
+>    export ORACLE_HOME=/usr/lib/oracle/12.1/client64 
+
+>    export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+
+>    source /etc/profile
+
+
+Thanks
+
+
