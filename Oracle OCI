@@ -3,9 +3,16 @@ how to install oracle oci on linux without complete installing Oracle
 
 چگونه کتابخانه های OCI را برروی لینوکس بدون نصب کامل اوراکل انجام دهیم
 
-first get required files from : (they are in this repository for oracle 12)
+first prepare required files:
 
-ابتدا فایل های مورد نیاز را از آدرس زیر تهیه نمایید(فایلهای مورد نیاز برای نسخه ۱۲ در اینجا موجود است).
+ابتدا فایل های مورد نیاز را باید تهیه کنیم.
+
+1-oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm, 2-oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm, 
+3-oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
+
+first get required files from :
+
+ابتدا فایل های مورد نیاز را از آدرس زیر تهیه نمایید.
 
 web: http://www.unixmen.com/install-oracle-client-centos/ 
 
