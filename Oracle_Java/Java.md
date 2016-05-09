@@ -12,6 +12,7 @@ yum install java :-)
 Now,we need reconfigure OS setting to use which Java.
 
 alternative --config java
+
 alternative --config javac
 
 <div dir='rtl' align='right'>حالا خطهای زیر را لازم است که در فایل پروفایل اضافه کنید</div>
