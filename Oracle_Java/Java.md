@@ -1,5 +1,5 @@
 
-<div dir='rtl' align='right'>بنام خدا</div>
+<div dir='rtl' align='right'><b>بنام خدا</b></div>
 
 <div dir='rtl' align='right'>نصب جاوا</div>
 
