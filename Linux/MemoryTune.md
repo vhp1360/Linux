@@ -19,11 +19,11 @@ free -whlt
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div><br/>
 Page Cache:<br/>
-echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf or sysctl vm.vfs_cache_pressure=0<br/>
+echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf<br/>
 
 <div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div><br/>
 _swappiness_ value:<br/>
-vm.swappiness=0<br/>
+echo vm.swappiness=0 >> /etc/sysctl.conf<br/>
 
 <div dir="rtl">مقدار حافظه ای که برای فایل های کلان درنظر گرفته شده است</div><br/>
 _Number_ of Huge Pages:<br/>
