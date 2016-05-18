@@ -4,8 +4,7 @@
 
 <div dir="rtl">ابتدا می خواهیم گزارشی کامل از مقدار حافظه تصادی داشته باشیم</div><br/>
 
-find out memory size complete<br/>
-
+_First_ *find out memory size complete*<br/>
 free -whlt
 
 <table border="0" cellpadding="0" cellspacing="0">
@@ -18,30 +17,32 @@ free -whlt
 </table>
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div><br/>
+_Changing_ *Page cache size*:<br/>
 Page Cache:<br/>
 echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf<br/>
 
 <div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div><br/>
+_Now_ *swap*:<br/>
 _swappiness_ value:<br/>
 echo vm.swappiness=0 >> /etc/sysctl.conf<br/>
 
 <div dir="rtl">مقدار حافظه ای که برای فایل های کلان درنظر گرفته شده است</div><br/>
+_There_ *is a setting to keep Huge File Pasge Size Cache*:<br/>
 _Number_ of Huge Pages:<br/>
 echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo<br/>
 
 <div dir="rtl">چه تعداد فایل بتواند بطور همزمان در سیستم عامل باز باشد</div><br/>
-_Number_ of open File<br/>
+_Number_ *of open Files*<br/>
 ulimite -n 8096<br/>
 
-Limit page cache dirty bytes<br/>
-_dirty_ratio_ : Defines a percentage value. Writeout of dirty data begins (via pdflush) when dirty data comprises this percentage of total system memory. The default value is 20.
-    Red Hat recommends a slightly lower value of 15 for database workloads. 
-dirty_background_ratio
-    Defines a percentage value. Writeout of dirty data begins in the background (via pdflush) when dirty data comprises this percentage of total memory. The default value is 10. For database workloads, Red Hat recommends a lower value of 3. 
-dirty_expire_centisecs
-    Specifies the number of centiseconds (hundredths of a second) dirty data remains in the page cache before it is eligible to be written back to disk. Red Hat does not recommend tuning this parameter. 
-dirty_writeback_centisecs
-    Specifies the length of the interval between kernel flusher threads waking and writing eligible data to disk, in centiseconds (hundredths of a second). Setting this to 0 disables periodic write behavior. Red Hat does not recommend tuning this parameter. 
+<div dir="rtl">تنظیم مقدار فضای تصادفی جهت ذخیره اطلاعات  معروف به صفحات کثیف</div><br/>
+<div dir="rtl">ابتدا گزارش کلی از مقادیر تخصیص داده شده را بدست می آوریم</div><br/>
+_First_ report of Dirty Page<br/>
+_Limit_ *page cache dirty bytes*:<br/>
+sysctl _vm.dirty\_ratio_=percentage --> Writeout of dirty data when riched to this value, _recommended a slightly lowerthan of 15_<br/>.
+sysctl _vm.dirty\_background\_ratio_=percentage --> Writeout of dirty data in the background when ... ., _For database recommended a lower value of 3_<br/>
+sysctk _vm.dirty\_expire\_centisecs_=Sec.No --> hundredths of a second dirty data remains in the page cache, _does not recommend tuning this parameter_<br/>
+sysctl _vm.dirty\_writeback\_centisecs_=length of the interval between kernel flusher threads waking and writing eligible data to disk, _does not recommend tuning this parameter_ <br/>
 
 
 <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div><br/>
