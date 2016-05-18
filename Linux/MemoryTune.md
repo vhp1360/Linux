@@ -33,6 +33,17 @@ echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesiz
 _Number_ of open File<br/>
 ulimite -n 8096<br/>
 
+Limit page cache dirty bytes<br/>
+_dirty_ratio_ : Defines a percentage value. Writeout of dirty data begins (via pdflush) when dirty data comprises this percentage of total system memory. The default value is 20.
+    Red Hat recommends a slightly lower value of 15 for database workloads. 
+dirty_background_ratio
+    Defines a percentage value. Writeout of dirty data begins in the background (via pdflush) when dirty data comprises this percentage of total memory. The default value is 10. For database workloads, Red Hat recommends a lower value of 3. 
+dirty_expire_centisecs
+    Specifies the number of centiseconds (hundredths of a second) dirty data remains in the page cache before it is eligible to be written back to disk. Red Hat does not recommend tuning this parameter. 
+dirty_writeback_centisecs
+    Specifies the length of the interval between kernel flusher threads waking and writing eligible data to disk, in centiseconds (hundredths of a second). Setting this to 0 disables periodic write behavior. Red Hat does not recommend tuning this parameter. 
+
+
 <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div><br/>
 _Free_ out RAM:<br/>
 sync;echo 1 > /proc/sys/vm/drop_caches --> free all page caches memory<br/>
