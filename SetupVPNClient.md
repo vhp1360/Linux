@@ -4,8 +4,8 @@
 Setting up a VPN,please follow below steps<br/>
 1-#yum install pptp -y<br/>
 2-#modprobe nf_conntrack_pptp<br/>
-echo 'VPN.UserName PPTP VPN.Password *' >> /etc/ppp/chap-secrets
-Create VPN.conf File and add six below lines: #vim /etc/ppp/peers/VPN.conf<br/>
+3-#echo 'VPN.UserName PPTP VPN.Password *' >> /etc/ppp/chap-secrets<br/>
+4-Create VPN.conf File and add six below lines: #vim /etc/ppp/peers/VPN.conf<br/>
 >pty "pptp 123.123.1.1 --nolaunchpppd"<br/>
 >name VPN.UserName<br/>
 >remotename PPTP<br/>
