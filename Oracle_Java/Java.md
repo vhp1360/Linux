@@ -5,7 +5,7 @@
 
 Java Installation
 
-yum install java :-)
+yum install java java-devel:-)
 
 <div dir='rtl' align='right'>پس از نصب لازم است که به سیستم عامل خود بگویید از کدام جاواباید استفاده کند.چون معمولا بیش از یک جاوا برروی سیسنم عامل نصب است.</div>
 
