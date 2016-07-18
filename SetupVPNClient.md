@@ -16,3 +16,7 @@ save file<br/>
 Connect to VPN: pppd call VPN.conf<br/>
 Check Connection: #ip a s or #ifconfig<br/>
 Disconnect: #pkill pppd<br/>
+
+<div dir="rtl">درضمن ممکن است که نیاز به openconnectپیدا کنیم که برای این امر می بایست منبع مربوطه نصب شود.</div><br/>
+Also we may need openconnect on CentOS so, we need and EPEL repo<br/>
+#rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-7.noarch.rpm
