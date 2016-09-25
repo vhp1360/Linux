@@ -8,3 +8,9 @@ search :
          3-special Lines  --> :N1,N2%s/OldWord/NewWord/
          4-
 ```
+Text Highlight
+
+```
+         :syntax on
+         :set syntax=php
+```
