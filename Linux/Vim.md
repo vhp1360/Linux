@@ -14,3 +14,11 @@ Text Highlight
          :syntax on
          :set syntax=php
 ```
+* Macro
+```
+qd   -> to start macro
+...  -> Doing your commands
+q    -> Exit macro
+@d   -> to first run
+n@@  -> n times repeated
+```
