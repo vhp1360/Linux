@@ -15,10 +15,17 @@ Text Highlight
          :set syntax=php
 ```
 * Macro
-```
-qd   -> to start macro
-...  -> Doing your commands
-q    -> Exit macro
-@d   -> to first run
-n@@  -> n times repeated
-```
+ - <kbd>qd</kbd>   -> to start macro
+ - ...  -> Doing your commands
+ - <kbd>q</kbd>    -> Exit macro
+ - <kbd>@</kbd><kbd>d</kbd>   -> to first run
+ - <kbd>n</kbd><kbd>@</kbd><kbd>@</kbd>  -> n times repeated
+
+* Scroll
+ - <kbd>z</kbd><kbd>z</kbd> - move current line to the middle
+   of the screen 
+ - <kbd>z</kbd><kbd>t</kbd> - move current line
+   to the top of the screen 
+ - <kbd>z</kbd><kbd>b</kbd> - move
+   current line to the bottom of the
+   screen
