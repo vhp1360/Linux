@@ -22,7 +22,11 @@
  - `ausearch -f /etc/ssh/sshd_config -i`
  - `aureport -x --summary`
  - `aureport --failed`
- - 
+- `find` command:
+ - find and show contain, which text file modified in last 8 days -> `find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; `
+ - count of above -> `find /home/you -iname "*.txt" -mtime -8 | wc -l`
+ - files last accessed in 8 days ago -> `ind /home/you -iname "*.pdf" -atime -8 -type -f`
+ 
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
