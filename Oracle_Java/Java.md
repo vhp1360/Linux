@@ -15,12 +15,9 @@ alternative --config java
 
 alternative --config javac
 ```
-here if you did not see last version for javac, try below
+if you did not see last version for javac, try below
 ```bash
-# alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_101/bin/jar 2
-# alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_101/bin/javac 2
-# alternatives --set jar /opt/jdk1.8.0_101/bin/jar
-# alternatives --set javac /opt/jdk1.8.0_101/bin/javac
+yum search java | grep openjdk
 ```
 <div dir='rtl' align='right'>حالا خطهای زیر را لازم است که در فایل پروفایل اضافه کنید</div>
 
