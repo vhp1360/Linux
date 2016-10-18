@@ -29,6 +29,7 @@
 - generate Cert
  - 1: openssl genrsa -des3 -out server.key 1024
  - 2: openssl req -new -key server.key -out server.csr
+ - 4: you may need remove pass phrase -> cp server.key server.key.org && openssl rsa -in server.key.org -out server.key
  - 3: openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
 <div dir="rtl"></div>
