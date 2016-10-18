@@ -25,8 +25,11 @@
 - `find` command:
  - find and show contain, which text file modified in last 8 days -> `find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; `
  - count of above -> `find /home/you -iname "*.txt" -mtime -8 | wc -l`
- - files last accessed in 8 days ago -> `ind /home/you -iname "*.pdf" -atime -8 -type -f`
- 
+ - files last accessed in 8 days ago -> ` find /home/you -iname "*.pdf" -atime -8 -type -f `
+- generate Cert
+ - 1: openssl genrsa -des3 -out server.key 1024
+ - 2: openssl req -new -key server.key -out server.csr
+ - 3: openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
