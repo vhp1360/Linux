@@ -62,7 +62,13 @@
       4. checkmodule -M -m -o postfixlocal.mod postfixlocal.te
       5. semodule_package -o postfixlocal.pp -m postfixlocal.mod
       6. semodule -i postfixlocal.pp 
-  - 
+  - getsebool -a
+  - seinfo --portcon=80
+  - semanage port -l | grep 9001
+  - setsebool -P BooleanParameter 1
+
+
+
 <div dir="rtl"></div>
 <div dir="rtl"></div>
 <div dir="rtl"></div>
