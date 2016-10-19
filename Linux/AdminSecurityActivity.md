@@ -52,16 +52,16 @@
     - touch /.autorelabel --> to automaticaly relabled FileSystem after reboot
     - semanage port -a -t http_port_t -p tcp 81 --> open a port
     - Way 1:
-      1.grep smtpd_t /var/log/audit/audit.log | audit2allow -m postgreylocal > postgreylocal.te && cat postgreylocal.te
-      2.grep smtpd_t /var/log/audit/audit.log | audit2allow -M postgreylocal 
-      3.semodule -i postgreylocal.pp 
+      1. grep smtpd_t /var/log/audit/audit.log | audit2allow -m postgreylocal > postgreylocal.te && cat postgreylocal.te
+      2. grep smtpd_t /var/log/audit/audit.log | audit2allow -M postgreylocal 
+      3. semodule -i postgreylocal.pp 
     - Way 2:
-      1.grep postdrop /var/log/audit/audit.log | audit2allow -M postfixlocal
-      2.cat postfixlocal.te
-      3.in .te file -> dontaudit postfix_postdrop_t httpd_log_t:file getattr; 
-      4.checkmodule -M -m -o postfixlocal.mod postfixlocal.te
-      5.semodule_package -o postfixlocal.pp -m postfixlocal.mod
-      6.semodule -i postfixlocal.pp 
+      1. grep postdrop /var/log/audit/audit.log | audit2allow -M postfixlocal
+      2. cat postfixlocal.te
+      3. in .te file -> dontaudit postfix_postdrop_t httpd_log_t:file getattr; 
+      4. checkmodule -M -m -o postfixlocal.mod postfixlocal.te
+      5. semodule_package -o postfixlocal.pp -m postfixlocal.mod
+      6. semodule -i postfixlocal.pp 
   - 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
