@@ -32,6 +32,17 @@
  - 3: you may need remove pass phrase -> cp server.key server.key.org && openssl rsa -in server.key.org -out server.key
  - 4: openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
+- SeLinux
+ - Note:
+   + SELinux Access Control : 1-Type Enforcement (TE) 2-Role-Based Access Control (RBAC) 3-Multi-Level Security (MLS)
+   + ls -Z --> user:role:type:mls
+   + fundamental reason may seLinux prevent access to file or service or app:
+     * a mislabled file
+     * a process running under wrong selinux security context
+     * a bug in policy.an app needs acesses to a file that wasn't anticipaited
+     * an intrusion attempt
+ - sestatus
+ - 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
 <div dir="rtl"></div>
