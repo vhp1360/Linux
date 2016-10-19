@@ -66,7 +66,10 @@
   - seinfo --portcon=80
   - semanage port -l | grep 9001
   - setsebool -P BooleanParameter 1
-
+- Fail2Ban:
+  - Default:bantime,maxretry,enabled,banaction,action
+  - [ssh_d_]:filter,port,maxretry 
+  - [...]: filter=[...]
 
 
 <div dir="rtl"></div>
