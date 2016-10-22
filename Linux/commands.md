@@ -27,13 +27,13 @@
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
  +  eth0 is device to gateway
- ```
+```
   ip rule add table 128 from 50.1.2.3
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
- ```
+```
 * Scans
- ```
+```
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
