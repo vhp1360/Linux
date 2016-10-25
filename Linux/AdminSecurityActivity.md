@@ -70,7 +70,10 @@
   - Default:bantime,maxretry,enabled,banaction,action
   - [ssh_d_]:filter,port,maxretry 
   - [...]: filter=[...]
-
+- Check if you are under DDoS attack:
+    ```
+      netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort –n
+    ```
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
