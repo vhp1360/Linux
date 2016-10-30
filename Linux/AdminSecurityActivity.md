@@ -1,6 +1,6 @@
 <div dir="rtl">بنام خدا</div>
 
-# Color
+#Color
 
 - who: who connected.
 - w: who are connected and what is last command
@@ -35,7 +35,7 @@
  - 3: you may need remove pass phrase -> cp server.key server.key.org && openssl rsa -in server.key.org -out server.key
  - 4: openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
-## [Anchor](# Color)
+## [Anchor](#Color)
 
 > _also we could generate them in one line_
 
