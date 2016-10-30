@@ -1,6 +1,6 @@
 <div dir="rtl">بنام خدا</div>
 
-#Color
+# Color
 
 - who: who connected.
 - w: who are connected and what is last command
