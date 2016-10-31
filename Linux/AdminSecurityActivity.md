@@ -80,9 +80,7 @@
  - is module loaded : `modeprobe nf_conntrack_ipv4`
  - installation `yum install conntrack-tools libnetfilter_conntrack`
  - report `conntrack -L -C  -E -e NEW  -p tcp --state ESTABLISHED --dport 22`
- - there is contrack app as daemon with 
-  >conntrackd 
-  name that you could find it's info.
+ - there is contrack app as daemon with _conntrackd_ name that you could find it's info.
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
