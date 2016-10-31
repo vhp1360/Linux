@@ -22,7 +22,7 @@
   net.ipv6.conf.default.disable_ipv6 = 1
   sysctl -p
 ```
-* coonect client to server which will connected to vpn:
+* [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
  + Public IP is 50.1.2.3
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
