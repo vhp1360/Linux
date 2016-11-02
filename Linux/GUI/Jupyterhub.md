@@ -41,18 +41,18 @@
     systemctl start jupyterhub.service
   ```
 9- [Existing Kernel for Jupyter](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages)
-  1- install Python2 kernel:
+  1. install Python2 kernel:
     ```
       python2 -m pip install ipykernel
       python2 -m ipykernel install --user
     ```
-  2- [install scala kernel](https://github.com/alexarchambault/jupyter-scala)
+  2. [install scala kernel](https://github.com/alexarchambault/jupyter-scala)
     ```
       curl -L -o jupyter-scala https://git.io/vrHhi && chmod +x jupyter-scala && ./jupyter-scala && rm -f jupyter-scala
     ```
-  3- [install Apache-toree(for Spark)](https://github.com/apache/incubator-toree)
+  3. [install Apache-toree(for Spark)](https://github.com/apache/incubator-toree)
     ```
     pip install --pre toree
     jupyter toree install
     ```
-  4- []()
+  4. []()
