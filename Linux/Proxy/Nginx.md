@@ -1,14 +1,14 @@
 <div dir="rtl">بنام خدا</div>
 
 - in http:
-```json
+```ruby
     map $http_upgrade $connection_upgrade {
         default upgrade;
         ''      close;
     }
 ```
 - some server config:
-```json
+```ruby
    ssl    on;
    server_tokens off;
    ssl_session_timeout  5m;
@@ -38,7 +38,7 @@
   - $request_uri --> return the subpage requested by client after /Location/ palce
   - keep order : _rewrite_,_proxy\_pass_,_proxy\_redirect_.
   - very very careful on Trailing sign. ("/").
-  - use awesome <font color="red">**echo**</font> module.
+  - use awesome **echo** module.
   
   
   
