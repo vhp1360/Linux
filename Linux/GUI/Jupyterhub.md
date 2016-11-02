@@ -18,4 +18,5 @@
   >
    [Install]
    WantedBy=multi-user.target
+   
 7- some parameters in /etc/jupyterhub/jupyterhub/jupyterhub_config.py:
