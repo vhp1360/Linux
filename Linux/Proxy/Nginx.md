@@ -1,14 +1,14 @@
 <div dir="rtl">بنام خدا</div>
 
-- 
-  ```json
-      map $http_upgrade $connection_upgrade {
-          default upgrade;
-          ''      close;
-      }
+- in http:
+  ```javascript
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''      close;
+    }
   ```
 - some server config:
-  ```json
+  ```js
      ssl    on;
      server_tokens off;
      ssl_session_timeout  5m;
@@ -16,7 +16,6 @@
      ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
      ssl_prefer_server_ciphers   on;
      client_max_body_size 21m;
-
      ssl_certificate        /Path to .crt;
      ssl_certificate_key    /Path to .key;
   ```
