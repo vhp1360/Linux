@@ -52,7 +52,10 @@ sync;echo 2 > /proc/sys/vm/drop_caches --> free all unused slab caches memory<br
 sync;echo 3 > /proc/sys/vm/drop_caches --> 1,2<br/>
 swapoff -a && swapon -a               --> free all swap data<br/>
 
-
+. some other command:
+  . vmstate -s
+  . iostate
+  
 
 
 
