@@ -1,8 +1,8 @@
 <div dir="rtl">بنام خدا</div>
 . [Regex Table](#regex-table)
-. (AWK)[#awk]
-. (CUT)[#cut)
-. (SED)[#sed]
+. [AWK](#awk)
+. [CUT](#cut)
+. [SED](#sed)
 
 
 
