@@ -25,7 +25,13 @@
  - find and show contain, which text file modified in last 8 days -> `find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; `
  - count of above -> `find /home/you -iname "*.txt" -mtime -8 | wc -l`
  - files last accessed in 8 days ago -> ` find /home/you -iname "*.pdf" -atime -8 -type -f `
-
+- netstate :
+ - `netstat -tulpn`
+ 
+- LSOF:
+ - list of Established Connection : lsof -i TCP:80 | grep ESTABLISHED` or `watch "lsof -i TCP:80"`
+ 
+ 
 #### Audit Issues
 - Configuring Audit:
  - num_logs=No.
@@ -41,6 +47,18 @@
  - `ausearch -f /etc/ssh/sshd_config -i`
  - `aureport -x --summary`
  - `aureport --failed`
+ 
+- remove Unnecessary packages: `yum erase inetd xinetd ypserv tftp-server telnet-server rsh-serve`
+- Pawword Policy
+ - User Accounts and Strong Password Policy:
+  - Password Aging with `chage` command. Like `chage -M 60 -m 7 -W 7 userName`
+  - use >/etc/login.defs
+  - in ;/etc/shadow; file: {userName}:{password}:{lastpasswdchanged}:{Minimum_days}:{Maximum_days}:{Warn}:{Inactive}:{Expire}:
+ - Restricting Use of Previous Passwords:
+ - Locking User Accounts After Login Failures:
+ - How Do I Verify No Accounts Have Empty Passwords?: `awk -F: '($2 == "") {print}' /etc/shadow` and Lock them `passwd -l UserName`
+ - Make Sure No Non-Root Accounts Have UID Set To 0 : `awk -F: '($3 == "0") {print}' /etc/passwd`
+ 
 
 #### Certified Issue
 - generate Cert
@@ -105,7 +123,8 @@
 - DDoS Attack : `netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort`
 - DDoS on Port : netstat -n | grep :80 |wc -l
 - on Packet Type : netstat -n | grep :80 | grep SYN |wc -l
-
+- Under ICMP : `while :; do netstat -s| grep -i icmp | egrep 'received|sent' ; sleep 1; done`
+- Under a SYN flood : netstat -nap | grep SYN
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
