@@ -1,14 +1,32 @@
 <div dir="rtl">بنام خدا</div>
 
+- [Who Login](#who-login)
+- [Some Logs](#some-logs)
+- [Some Commands](#some-commands)
+- [Audit Issues](#audit-issues)
+- [Certified Issue](#
+- [SeLinux](#selinux)
+- [Fail2Ban](#fail2ban)
+- [Are you Under Attack](#Are-you-under-attack)
+
+#### Who Login
 - who: who connected.
 - w: who are connected and what is last command
 - last: last commands for each users
 - lastlog: 
 - cat /var/log/messages
+
+#### Some Commands
 - psacct
  - `ac -d -p username`
  - `sa -u -m -c`
  - `lastcome username ls`
+- `find` command:
+ - find and show contain, which text file modified in last 8 days -> `find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; `
+ - count of above -> `find /home/you -iname "*.txt" -mtime -8 | wc -l`
+ - files last accessed in 8 days ago -> ` find /home/you -iname "*.pdf" -atime -8 -type -f `
+
+#### Audit Issues
 - Configuring Audit:
  - num_logs=No.
  - max_log_file = No. --> in MB
@@ -23,10 +41,8 @@
  - `ausearch -f /etc/ssh/sshd_config -i`
  - `aureport -x --summary`
  - `aureport --failed`
-- `find` command:
- - find and show contain, which text file modified in last 8 days -> `find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; `
- - count of above -> `find /home/you -iname "*.txt" -mtime -8 | wc -l`
- - files last accessed in 8 days ago -> ` find /home/you -iname "*.pdf" -atime -8 -type -f `
+
+#### Certified Issue
 - generate Cert
  - 1: openssl genrsa -des3 -out server.key 1024
  - 2: openssl req -new -key server.key -out server.csr
@@ -37,7 +53,8 @@
 
 `openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout server.key -out server.crt`
 
-- SeLinux
+
+#### SeLinux
   - Note:
     + SELinux Access Control : 1-Type Enforcement (TE) 2-Role-Based Access Control (RBAC) 3-Multi-Level Security (MLS)
     + ls -Z --> user:role:type:mls
@@ -71,7 +88,9 @@
   - seinfo --portcon=80
   - semanage port -l | grep 9001
   - setsebool -P BooleanParameter 1
-- Fail2Ban:
+  
+  
+#### Fail2Ban:
   - Default:bantime,maxretry,enabled,banaction,action
   - [ssh_d_]:filter,port,maxretry 
   - [...]: filter=[...]
@@ -81,6 +100,12 @@
  - installation `yum install conntrack-tools libnetfilter_conntrack`
  - report `conntrack -L -C  -E -e NEW  -p tcp --state ESTABLISHED --dport 22`
  - there is contrack app as daemon with _conntrackd_ name that you could find it's info.
+
+#### Are you Under Attack
+- DDoS Attack : `netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort`
+- DDoS on Port : netstat -n | grep :80 |wc -l
+- on Packet Type : netstat -n | grep :80 | grep SYN |wc -l
+
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
