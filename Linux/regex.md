@@ -22,8 +22,13 @@ Character|Meaning|Example
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
 
 #### AWK
+- kill -9 `ps faux | grep Name | awk -F\  '{print $2}'`
 
 #### CUT
+- cut -cNo1-No2 File : return carachters No1 to No2 for each line.
+- cut -d'Seperator' -fColNo1-ColNo2,ColNo3 : return column No while Seperator is Col seperator.
+- cut -d'Seperator' --complement -s -fNos : show all cols except specified fields.
+- cut ... --output-delimiter=$'\n' : Change delemiter out put to _Return_
 
 #### SED
 
