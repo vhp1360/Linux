@@ -1,6 +1,8 @@
 <div dir="rtl">بنام خدا</div>
-. [Regex Table](#regextable)
-
+. [Regex Table](#regex-table)
+. (AWK)[#awk]
+. (CUT)[#cut)
+. (SED)[#sed]
 
 
 
@@ -19,7 +21,11 @@ Character|Meaning|Example
 ^|Beginning of a string Or within a<br/>character range [] negation|^http matches strings that begin with http,such as a url<br/>[^0-9] matches any character not 0-9.                   
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
 
+# AWK
 
+## CUT
+
+### SED
 
 
 
