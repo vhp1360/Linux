@@ -7,14 +7,13 @@
 _First_ *find out memory size complete*<br/>
 free -whlt
 
-<table border="0" cellpadding="0" cellspacing="0">
-<tr><td></td><td></td><td>total</td><td>used</td><td>free</td><td>shared</td><td>buffers</td><td>cache</td><td>available</td></tr>
-<tr><td>Mem:</td><td></td><td>7.6G</td><td>5.4G</td><td>663M</td><td>2.7M</td><td>3.0M</td><td>1.6G</td><td>2.0G</td></tr>        
-<tr><td>Low:</td><td></td><td>7.6G</td><td>7.0G</td><td>663M</td><td></td><td></td><td></td><td></td></tr>
-<tr><td>High:</td><td></td><td>0B</td><td>0B</td><td>0B</td><td></td><td></td><td></td><td></td></tr>
-<tr><td>Swap:</td><td></td><td>3.9G</td><td>534M</td><td>3.4G</td><td></td><td></td><td></td><td></td></tr>
-<tr><td>Total:</td><td></td><td>11G</td><td>5.9G</td><td>4.0G</td><td></td><td></td><td></td><td></td></tr>
-</table>
+name|total|used|free|shared|buffers|cache|available
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+Mem:|7.6G|5.4G|663M|2.7M|3.0M|1.6G|2.0G        
+Low:|7.6G|7.0G|663M
+High:|0B|0B|0B
+Swap:|3.9G|534M|3.4G
+Total:|11G|5.9G|4.0G
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div><br/>
 _Changing_ *Page cache size*:<br/>
