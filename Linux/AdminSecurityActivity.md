@@ -86,11 +86,15 @@
   - chcon:
     - chcon -v --type=httpd_sys_content_t /html
     - chcon -Rv --type=httpd_sys_content_t /html --> recursively
-    - semanage fcontext -a -t httpd_sys_content_t "/html(/.\*)?" --> add new labled for futurs files will be coming.
+  - restorecon :
     - restorecon -Rv /var/www/html
     - restorecon -Rv -n /var/www/html --> only show the default
     - touch /.autorelabel --> to automaticaly relabled FileSystem after reboot
-    - semanage port -a -t http_port_t -p tcp 81 --> open a port
+  - semanage:
+    - open port : `semanage port -a -t http_port_t -p tcp 81`
+    - Check Port is reserved : `semanage port -l`
+    - add new labled for futurs files will be coming: `semanage fcontext -a -t httpd_sys_content_t "/html(/.\*)?"`
+  - Create SeModule:
     - Way 1:
       1. grep smtpd_t /var/log/audit/audit.log | audit2allow -m postgreylocal > postgreylocal.te && cat postgreylocal.te
       2. grep smtpd_t /var/log/audit/audit.log | audit2allow -M postgreylocal 
@@ -104,7 +108,6 @@
       6. semodule -i postfixlocal.pp 
   - getsebool -a
   - seinfo --portcon=80
-  - semanage port -l | grep 9001
   - setsebool -P BooleanParameter 1
   
   
