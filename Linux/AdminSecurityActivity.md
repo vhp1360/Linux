@@ -60,7 +60,7 @@
  - Make Sure No Non-Root Accounts Have UID Set To 0 : `awk -F: '($3 == "0") {print}' /etc/passwd`
  
 
-#### Certified Issue
+#### Certified Issues
 - generate Cert
  - 1: openssl genrsa -des3 -out server.key 1024
  - 2: openssl req -new -key server.key -out server.csr
