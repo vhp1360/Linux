@@ -4,7 +4,7 @@
 - [Some Logs](#some-logs)
 - [Some Commands](#some-commands)
 - [Audit Issues](#audit-issues)
-- [Certified Issue](#
+- [Certified Issue](#certified-issues)
 - [SeLinux](#selinux)
 - [Fail2Ban](#fail2ban)
 - [Are you Under Attack](#Are-you-under-attack)
@@ -29,7 +29,7 @@
  - `netstat -tulpn`
  
 - LSOF:
- - list of Established Connection : lsof -i TCP:80 | grep ESTABLISHED` or `watch "lsof -i TCP:80"`
+ - list of Established Connection : `lsof -i TCP:80 | grep ESTABLISHED` or `watch "lsof -i TCP:80"`
  
  
 #### Audit Issues
