@@ -29,3 +29,13 @@ Text Highlight
  - <kbd>z</kbd><kbd>b</kbd> - move
    current line to the bottom of the
    screen
+- edit :
+  - edit a word : 
+    - <kbd>c</kbd><kbd>i</kbd>\{<kbd>w</kbd>|<kbd>[</kbd>|<kbd>(</kbd>|<kbd>{</kbd>} --> change inner word|all between ()|...
+    - <kbd>c</kbd><kbd>w</kbd> --> change word from cursor to end
+    - <kbd>c</kbd><kbd>a</kbd><kbd>w</kbd> --> change word
+  - edit line :
+    - <kbd>Shift</kbd><kbd>c</kbd> --> change current line to end
+    - <kbd>c</kbd><kbd>c</kbd> --> change whole of current line
+  
+         
