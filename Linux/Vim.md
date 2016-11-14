@@ -30,5 +30,11 @@ remove last search highlight --> :noh<br/>
   - edit line :
     - <kbd>Shift</kbd><kbd>c</kbd> --> change current line to end
     - <kbd>c</kbd><kbd>c</kbd> --> change whole of current line
+- Charate Case
+  - change case of current char : <kbd>~</kbd>
+  - change case of current word from cursor : <kbd>g</kbd><kbd>~</kbd><kbd>w</kbd>
+  - change case of whole of current word : <kbd>g</kbd><kbd>~</kbd><kbd>i</kbd><kbd>w</kbd>
+  - to upper/lower current word : <kbd>g</kbd><kbd>U/u</kbd><kbd>i</kbd><kbd>w</kbd>
+  - you can use visualy, <kbd>v</kbd> select word and use <kbd>~</kbd>
   
          
