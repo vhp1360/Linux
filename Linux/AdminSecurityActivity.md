@@ -121,7 +121,10 @@
  - installation `yum install conntrack-tools libnetfilter_conntrack`
  - report `conntrack -L -C  -E -e NEW  -p tcp --state ESTABLISHED --dport 22`
  - there is contrack app as daemon with _conntrackd_ name that you could find it's info.
-
+ - go out from jail : 
+  1- `iptables -L -n`
+  2- `fail2ban-client set YOURJAILNAMEHERE unbanip IPADDRESSHERE`
+  
 #### Are you Under Attack
 - DDoS Attack : `netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort`
 - DDoS on Port : netstat -n | grep :80 |wc -l
