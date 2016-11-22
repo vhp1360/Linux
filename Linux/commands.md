@@ -3,7 +3,7 @@
 + [Users](#users)
 + [IPV6](#ipv6)
 + [VPN Routes](#vpn-routes)
-
++ [Partitioning](#partitioning)
 
 ##### Jobs
 - \& :
@@ -57,6 +57,21 @@
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
+
+### Partitioning
+- [Parted](#parted)
+
+
+###### Parted
+- add partition to existing free space(may raid) :
+  1- `# parted` --> so you intered in (parted) mode.
+  2- `select /dev/md100` --> inside of disk.
+  3- `unit s print free` --> give fisrt and last sector number for free unpatitioned space on disk.
+  4- `mkpart`  --> and go ahead and answer questions.
+  5- `quit` --> goback to __bash__ mode.
+  6- `mkfs. ... NewPartitionName`
+  
+
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
