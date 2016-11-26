@@ -9,6 +9,7 @@
 - [SeLinux](#selinux)
 - [Fail2Ban](#fail2ban)
 - [Are you Under Attack](#Are-you-under-attack)
+- [SSH](#ssh)
 
 [Top](#top)  
 #### Who Login
@@ -18,7 +19,7 @@
 - lastlog: 
 - cat /var/log/messages
 
-[Top](#top)  
+######### Top
 #### Some Commands
 - psacct
  - `ac -d -p username`
@@ -35,7 +36,7 @@
  - list of Established Connection : `lsof -i TCP:80 | grep ESTABLISHED` or `watch "lsof -i TCP:80"`
  
  
-[Top](#top)  
+######### Top
 #### Audit Issues
 - Configuring Audit:
  - num_logs=No.
@@ -64,7 +65,7 @@
  - Make Sure No Non-Root Accounts Have UID Set To 0 : `awk -F: '($3 == "0") {print}' /etc/passwd`
  
 
-[Top](#top)  
+######### Top
 #### Certified Issues
 - generate Cert
  - 1: openssl genrsa -des3 -out server.key 1024
@@ -77,7 +78,7 @@
 `openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout server.key -out server.crt`
 
 
-[Top](#top)  
+######### Top
 #### SeLinux
   - Note:
     + SELinux Access Control : 1-Type Enforcement (TE) 2-Role-Based Access Control (RBAC) 3-Multi-Level Security (MLS)
@@ -117,7 +118,7 @@
   - setsebool -P BooleanParameter 1
   
   
-[Top](#top)  
+######### Top
 #### Fail2Ban:
   - Default:bantime,maxretry,enabled,banaction,action
   - [ssh_d_]:filter,port,maxretry 
@@ -132,7 +133,7 @@
   1. `iptables -L -n`
   2. `fail2ban-client set YOURJAILNAMEHERE unbanip IPADDRESSHERE`
   
-[Top](#top)  
+######### Top
 #### Are you Under Attack
 - DDoS Attack : `netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort`
 - DDoS on Port : netstat -n | grep :80 |wc -l
@@ -140,6 +141,18 @@
 - Under ICMP : `while :; do netstat -s| grep -i icmp | egrep 'received|sent' ; sleep 1; done`
 - Under a SYN flood : netstat -nap | grep SYN
 
+######### Top
+#### SSH
+- ssh_config:
+ - Port:
+ - AuthenticationMethods "publickey,password" "publickey,keyboard-interactive"
+ - RSAAuthentication yes
+ - PubkeyAuthentication yes
+- Key:
+ 1. ssh-keygen -t RSA
+ 2. ssh-copy-id -i PathToSSHKey User@Server
+
+######### Top
 <div dir="rtl"></div>
 <div dir="rtl"></div>
 <div dir="rtl"></div>
