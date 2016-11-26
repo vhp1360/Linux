@@ -1,9 +1,9 @@
 <div dir="rtl">بنام خدا</div>
-+ [Jobs](#jobs)
-+ [Users](#users)
-+ [IPV6](#ipv6)
-+ [VPN Routes](#vpn-routes)
-+ [Partitioning](#partitioning)
+- [Jobs](#jobs)
+- [Users](#users)
+- [IPV6](#ipv6)
+- [VPN Routes](#vpn-routes)
+- [Partitioning](#partitioning)
 
 ##### Jobs
 - \& :
