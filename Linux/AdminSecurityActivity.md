@@ -143,7 +143,7 @@
 
 - [Top](#top)
 #### SSH
-- ssh_config:
+- sshd_config:
  - Port:
  - AuthenticationMethods "publickey,password" "publickey,keyboard-interactive"
  - RSAAuthentication yes
@@ -151,6 +151,15 @@
 - Key:
  1. ssh-keygen -t RSA
  2. ssh-copy-id -i PathToSSHKey User@Server
+- ssh_config
+ - Special Host:
+ ```go
+  Host Name
+    HostName IP
+    Port
+  Host IP
+    Port
+ ```
 
 - [Top](#top)
 <div dir="rtl"></div>
