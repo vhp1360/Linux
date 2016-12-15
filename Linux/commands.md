@@ -19,6 +19,8 @@
   usermod -l NewName OldName
   groupmod -n NewName oldName
   usermod -d /home/NewName -m NewName
+  find / -group OldGroupID -exec chgrp -h NewName {} \;
+  find / -user OldUserID -exec chown -h Newname {} \;
 ```
 * useradd
 ```
