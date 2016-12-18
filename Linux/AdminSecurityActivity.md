@@ -145,9 +145,16 @@
 #### SSH
 - sshd_config:
  - Port:
+ - PermitRootLogin yes|no
  - AuthenticationMethods "publickey,password" "publickey,keyboard-interactive"
  - RSAAuthentication yes
  - PubkeyAuthentication yes
+ - Specified Special Hosts: to make type of connect , Which Users Allowed , ... .
+ ```
+   Match Address IPAddress
+     AlloewUsers UserName1 UserName2
+     AuthenticationMethodes "publickey"|"authentication"
+ ```
 - Key:
  1. ssh-keygen -t RSA
  2. ssh-copy-id -i PathToSSHKey User@Server
@@ -160,6 +167,18 @@
   Host IP
     Port
  ```
+- config: to specify which Host should use wich Key to connect
+```
+  Host HostName
+    IdentityFile ~/.ssh/Host_Private_Key_Name
+```
+- Save Key Passphrase:
+```
+  ssh-agent
+  ssh-add /Path to Key
+```
+  - may you need ssh to destination before above commands.
+
 
 - [Top](#top)
 <div dir="rtl"></div>
