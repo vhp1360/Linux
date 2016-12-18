@@ -22,10 +22,11 @@
 	8. `gluster volume create GlusterFSDriveName replica No. transport tcp,rdma ThisMachine:/path to GlusterFsfileMountPoint NextMachine:\
 	/path to GlusterFsfileMountPoint ...` --> only on one machine.
 	9. `gluster volume start GlusterFSDriveName`
-	10. finally you need mount new GlusterFSPartition on each machine or client and check permissions.
+	10. finally you need mount new GlusterFSPartition on each machine or client and check permissions.\
+	`mount -t glusterfs MachineName:/GlusterFSDriveName /Path to Mount Point`
 	11. if you need remove GlusterFSDriveName --> `gluster volume stop GlusterFSDriveName && gluster volume delete GlusterFSDriveName`
 	12. if you need remove machine --> `gluster peer detach MachineName`
-	
+	13. be care on hosts file: you need complete it and fill loopback IP line with itself machine name too.
 
 
 [Top](#top)
