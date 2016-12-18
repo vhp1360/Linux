@@ -1,9 +1,12 @@
 <div dir="rtl">بنام خدا</div>
+##### top
+
 - [Jobs](#jobs)
 - [Users](#users)
 - [IPV6](#ipv6)
 - [VPN Routes](#vpn-routes)
 - [Partitioning](#partitioning)
+- [NetWork](#network)
 
 ##### Jobs
 - \& :
@@ -12,7 +15,7 @@
 - disown :
   `run command`,<kbd>Ctrl</kbd><kbd>Z</kbd>,`disown -h Job-ID`
 
-
+[Top](#top)
 ##### Users
 * Change username
 ```
@@ -33,6 +36,7 @@
   -L without loggin permission
 ```
 
+[Top](#top)
 ##### IPv6
 * disabling IPv6
 ```
@@ -43,6 +47,7 @@
 ```
 
 
+[Top](#top)
 ##### VPN Routes
 * [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
  + Public IP is 50.1.2.3
@@ -60,6 +65,7 @@
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
 
+[Top](#top)
 ### Partitioning
 - [Parted](#parted)
 
@@ -74,9 +80,11 @@
   6- `mkfs. ... NewPartitionName`
   
 
+[Top](#top)
+#### NetWork
+- ncat: to send data on machine port and listening.
+  1. listening: nc -l PortNo.
+  2. sending: cat File | nc IP PortNo.
 
-<div dir="rtl"></div>
-<div dir="rtl"></div>
-<div dir="rtl"></div>
-<div dir="rtl"></div>
+[Top](#top)
 <div dir="rtl"></div>
