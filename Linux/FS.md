@@ -1,2 +1,2 @@
-<html dir=rtl>بنام خدا</html>
+<div dir="rtl">بنام خدا</div>
 
