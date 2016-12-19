@@ -154,6 +154,8 @@
    Match Address IPAddress
      AlloewUsers UserName1 UserName2
      AuthenticationMethodes "publickey"|"authentication"
+   Match User Name1,Name2 Address IP
+     AuthenticationMethodes 
  ```
 - Key:
  1. ssh-keygen -t RSA
