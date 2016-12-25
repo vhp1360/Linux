@@ -17,7 +17,8 @@
 
 [Top](#top)
 ##### Users
-* Change username
+* Change username:
+ - becare first find OldName user and group ID.
 ```
   usermod -l NewName OldName
   groupmod -n NewName oldName
