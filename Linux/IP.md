@@ -2,8 +2,8 @@
 
 
 
-- Scans
-```
+- Privent Ports Scan
+```bash
   iptables -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   iptables -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
