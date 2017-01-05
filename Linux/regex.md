@@ -1,4 +1,6 @@
 <div dir="rtl">بنام خدا</div>
+######## top
+
 -  [Regex Table](#regex-table)
 -  [AWK](#awk)
 -  [CUT](#cut)
@@ -20,13 +22,14 @@ Character|Meaning|Example
 { }|Matches a specified number of<br/>occurrences|[0-9]{3} matches "315" but not "31"<br/>[0-9]{2,4} matches "12", "123", and "1234"<br/>[0-9]{2,} matches "1234567..."                          
 ^|Beginning of a string Or within a<br/>character range [] negation|^http matches strings that begin with http,such as a url<br/>[^0-9] matches any character not 0-9.                   
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
-
+[Top](#top)
 #### AWK
 - ```vim
-    kill -9 `ps faux | grep Name | awk -F\  '{print $2}''
+    kill -9 `ps faux | grep Name | awk -F\  '{print $2}''`
   ```
 
 #### CUT
+
 - return carachters No1 to No2 for each line:
 ```vim
   cut -cNo1-No2 File
@@ -44,6 +47,7 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
   cut ... --output-delimiter=$'\n'
 ```
 
+[Top](#top)
 #### SED
 - replace a word in file:
 ```vim
