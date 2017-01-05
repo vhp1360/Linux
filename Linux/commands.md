@@ -19,7 +19,7 @@
 ##### Users
 * Change username:
  - becare first find OldName user and group ID.
-```
+```shell
   usermod -l NewName OldName
   groupmod -n NewName oldName
   usermod -d /home/NewName -m NewName
@@ -27,7 +27,7 @@
   find / -user OldUserID -exec chown -h Newname {} \;
 ```
 * useradd
-```
+```shell
   -e Account Expir Date
   -f Password Expire
   -M without Home Directory
@@ -40,7 +40,7 @@
 [Top](#top)
 ##### IPv6
 * disabling IPv6
-```
+```shell
   vim /etc/sysctl.conf
   net.ipv6.conf.all.disable_ipv6 = 1
   net.ipv6.conf.default.disable_ipv6 = 1
@@ -55,13 +55,13 @@
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
  +  eth0 is device to gateway
-```
+```shell
   ip rule add table 128 from 50.1.2.3
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
 ```
 * Scans
-```
+```shell
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
