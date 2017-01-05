@@ -28,9 +28,9 @@
   - after logging you should tell iptables to what does do: `iptables -A INPUT -s a.a.a.a -j DROP`
  - connlimit:
   - limit number of ssh connection:
-     ```vim
-       iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT
-     ```
+  ```vim
+    iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT
+  ```
 
 
 
