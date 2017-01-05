@@ -17,19 +17,23 @@ Total:|11G|5.9G|4.0G
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div><br/>
 _Changing_ *Page cache size*:
+
 Page Cache:
 ```vim
   echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf
 ```
 <div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div><br/>
 _Now_ *swap*:
+
 _swappiness_ value:
-echo vm.swappiness=0 >> /etc/sysctl.conf<br/>
+`echo vm.swappiness=0 >> /etc/sysctl.conf`
 
 <div dir="rtl">مقدار حافظه ای که برای فایل های کلان درنظر گرفته شده است</div><br/>
 _There_ *is a setting to keep Huge File Pasge Size Cache*:<br/>
 _Number_ of Huge Pages:<br/>
-echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo<br/>
+```vim
+  echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo
+```
 
 <div dir="rtl">چه تعداد فایل بتواند بطور همزمان در سیستم عامل باز باشد</div><br/>
 _Number_ *of open Files*<br/>
@@ -39,22 +43,27 @@ ulimite -n 8096<br/>
 <div dir="rtl">ابتدا گزارش کلی از مقادیر تخصیص داده شده را بدست می آوریم</div><br/>
 _First_ report of Dirty Page<br/>
 _Limit_ *page cache dirty bytes*:<br/>
-sysctl _vm.dirty\_ratio_=percentage --> Writeout of dirty data when riched to this value, _recommended a slightly lowerthan of 15_<br/>.
-sysctl _vm.dirty\_background\_ratio_=percentage --> Writeout of dirty data in the background when ... ., _For database recommended a lower value of 3_<br/>
-sysctk _vm.dirty\_expire\_centisecs_=Sec.No --> hundredths of a second dirty data remains in the page cache, _does not recommend tuning this parameter_<br/>
-sysctl _vm.dirty\_writeback\_centisecs_=length of the interval between kernel flusher threads waking and writing eligible data to disk, _does not recommend tuning this parameter_ <br/>
-
-
+```vim
+  sysctl vm.dirtyratio=percentage # Writeout of dirty data when riched to this value, \
+                                        recommended a slightly lowerthan of 15
+  sysctl vm.dirtybackgroundratio=percentage # Writeout of dirty data in the background when ... ., \
+                                              For database recommended a lower value of 3
+  sysctk vm.dirtyexpirecentisecs=Sec.No # hundredths of a second dirty data remains in the page cache, \
+                                          does not recommend tuning this parameter
+  sysctl vm.dirtywritebackcentisecs=length of the interval between kernel flusher threads waking and \
+                                    writing eligible data to disk, _does not recommend tuning this parameter
+```
 <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div><br/>
 _Free_ out RAM:<br/>
-sync;echo 1 > /proc/sys/vm/drop_caches --> free all page caches memory<br/>
-sync;echo 2 > /proc/sys/vm/drop_caches --> free all unused slab caches memory<br/>
-sync;echo 3 > /proc/sys/vm/drop_caches --> 1,2<br/>
-swapoff -a && swapon -a               --> free all swap data<br/>
-
+```vim
+  sync;echo 1 > /proc/sys/vm/drop_caches # free all page caches memory
+  sync;echo 2 > /proc/sys/vm/drop_caches # free all unused slab caches memory
+  sync;echo 3 > /proc/sys/vm/drop_caches # 1,2
+  swapoff -a && swapon -a                # free all swap data
+```
 . some other command:
-  . vmstate -s
-  . iostate
+  . `vmstate -s`
+  . `iostate`
   
 
 
