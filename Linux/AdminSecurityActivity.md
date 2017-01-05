@@ -162,7 +162,7 @@
  2. ssh-copy-id -i PathToSSHKey User@Server
 - ssh_config
  - Special Host:
- ```bash
+ ```vim
   Host Name
     HostName IP
     Port
@@ -170,12 +170,12 @@
     Port
  ```
 - config: to specify which Host should use wich Key to connect
-```shell
+```vim
   Host HostName
     IdentityFile ~/.ssh/Host_Private_Key_Name
 ```
 - Save Key Passphrase:
-```shell
+```vim
   ssh-agent
   ssh-add /Path to Key
 ```
