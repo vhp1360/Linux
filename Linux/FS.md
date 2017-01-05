@@ -27,9 +27,9 @@
 	11. if you need remove machine --> `gluster peer detach MachineName`
 
 ***
-	1. be care on hosts file: you need complete it and fill loopback IP line with itself machine name too.
+>	1. be care on hosts file: you need complete it and fill loopback IP line with itself machine name too.
 	2. be care on ssh Password Less config
 	3. be care on IPTables
 	4. be care on SeLinux
-
+***
 [Top](#top)
