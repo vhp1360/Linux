@@ -7,7 +7,7 @@ remove last search highlight --> :noh<br/>
   - current word: <kbd>*</kbd>
 
 - Text Highlight
-```
+```vim
   :syntax on
   :set syntax=php
 ```
