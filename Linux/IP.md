@@ -1,5 +1,5 @@
 <div dir="rtl">بنام خدا</div>
-
+######## Top
 
 
 - Privent Ports Scan
@@ -10,17 +10,20 @@
 - Logs: Followed by a level number or name. Valid names are (case-insensitive) __debug__, __info__, __notice__, __warning__, __err__,
         __crit__, __alert__ and __emerg__, corresponding to numbers 7 through 0
   - to change log file save name 
-    1. ```vim
-         echo "kern.warning /var/log/iptables.log">>/etc/syslog.conf
-       ```
-    2. ```vim
-         service rsyslog restart
-       ```
+    1. 
+    ```vim
+      echo "kern.warning /var/log/iptables.log">>/etc/syslog.conf
+    ```
+    2. 
+    ```vim
+      service rsyslog restart
+    ```
   - simple : `iptables -A INPUT -j LOG`
   - next example : `iptables -A INPUT -s a.a.a.a -j LOG --log-prefix 'Source a.a.a.a **' --log-level 6`
   - to prevent flooding log file, limit log line per 5 minutes for 7 bursts
   ```vim
-    iptables -A INPUT -s a.a.a.a -m limit --limit 5/m --limit-burst 7 -j LOG --log-prefix 'Source a.a.a.a **' --log-level 6
+    iptables -A INPUT -s a.a.a.a -m limit --limit 5/m --limit-burst 7 -j LOG --log-prefix \
+    'Source a.a.a.a **' --log-level 6
   ```
   - after logging you should tell iptables to what does do: `iptables -A INPUT -s a.a.a.a -j DROP`
  - connlimit:
