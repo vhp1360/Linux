@@ -150,7 +150,7 @@
  - RSAAuthentication yes
  - PubkeyAuthentication yes
  - Specified Special Hosts: to make type of connect , Which Users Allowed , ... .
- ```go
+ ```shell
    Match Address IPAddress
      AlloewUsers UserName1 UserName2
      AuthenticationMethodes "publickey"|"authentication"
@@ -162,7 +162,7 @@
  2. ssh-copy-id -i PathToSSHKey User@Server
 - ssh_config
  - Special Host:
- ```go
+ ```shell
   Host Name
     HostName IP
     Port
@@ -170,12 +170,12 @@
     Port
  ```
 - config: to specify which Host should use wich Key to connect
-```go
+```shell
   Host HostName
     IdentityFile ~/.ssh/Host_Private_Key_Name
 ```
 - Save Key Passphrase:
-```go
+```shell
   ssh-agent
   ssh-add /Path to Key
 ```
