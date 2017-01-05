@@ -24,10 +24,10 @@ Character|Meaning|Example
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
 [Top](#top)
 #### AWK
-- ```vim
+- Kill Prossecc:
+```vim
     kill -9 `ps faux | grep Name | awk -F\  '{print $2}''`
-  ```
-
+```
 #### CUT
 
 - return carachters No1 to No2 for each line:
