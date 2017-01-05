@@ -28,8 +28,9 @@
 
 ***
 >	1. be care on hosts file: you need complete it and fill loopback IP line with itself machine name too.
-	2. be care on ssh Password Less config
-	3. be care on IPTables
-	4. be care on SeLinux
+>	2. be care on ssh Password Less config
+>	3. be care on IPTables
+>	4. be care on SeLinux
+	
 ***
 [Top](#top)
