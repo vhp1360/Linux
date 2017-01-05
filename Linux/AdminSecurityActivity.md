@@ -150,7 +150,7 @@
  - RSAAuthentication yes
  - PubkeyAuthentication yes
  - Specified Special Hosts: to make type of connect , Which Users Allowed , ... .
- ```shell
+ ```vim
    Match Address IPAddress
      AlloewUsers UserName1 UserName2
      AuthenticationMethodes "publickey"|"authentication"
@@ -162,7 +162,7 @@
  2. ssh-copy-id -i PathToSSHKey User@Server
 - ssh_config
  - Special Host:
- ```shell
+ ```bash
   Host Name
     HostName IP
     Port
