@@ -5,7 +5,7 @@
 <div dir="rtl">ابتدا می خواهیم گزارشی کامل از مقدار حافظه تصادی داشته باشیم</div><br/>
 
 _First_ *find out memory size complete*<br/>
-free -whlt
+`free -whlt`
 
 name|total|used|free|shared|buffers|cache|available
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
@@ -16,13 +16,14 @@ Swap:|3.9G|534M|3.4G
 Total:|11G|5.9G|4.0G
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div><br/>
-_Changing_ *Page cache size*:<br/>
-Page Cache:<br/>
-echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf<br/>
-
+_Changing_ *Page cache size*:
+Page Cache:
+```vim
+  echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf
+```
 <div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div><br/>
-_Now_ *swap*:<br/>
-_swappiness_ value:<br/>
+_Now_ *swap*:
+_swappiness_ value:
 echo vm.swappiness=0 >> /etc/sysctl.conf<br/>
 
 <div dir="rtl">مقدار حافظه ای که برای فایل های کلان درنظر گرفته شده است</div><br/>
