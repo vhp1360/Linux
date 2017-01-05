@@ -19,7 +19,7 @@
 ##### Users
 * Change username:
  - becare first find OldName user and group ID.
-```shell
+```vim
   usermod -l NewName OldName
   groupmod -n NewName oldName
   usermod -d /home/NewName -m NewName
@@ -27,7 +27,7 @@
   find / -user OldUserID -exec chown -h Newname {} \;
 ```
 * useradd
-```shell
+```vim
   -e Account Expir Date
   -f Password Expire
   -M without Home Directory
@@ -40,7 +40,7 @@
 [Top](#top)
 ##### IPv6
 * disabling IPv6
-```shell
+```vim
   vim /etc/sysctl.conf
   net.ipv6.conf.all.disable_ipv6 = 1
   net.ipv6.conf.default.disable_ipv6 = 1
@@ -55,13 +55,13 @@
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
  +  eth0 is device to gateway
-```shell
+```vim
   ip rule add table 128 from 50.1.2.3
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
 ```
 * Scans
-```shell
+```vim
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
@@ -84,8 +84,19 @@
 [Top](#top)
 #### NetWork
 - ncat: to send data on machine port and listening.
-  1. listening: nc -l PortNo.
-  2. sending: cat File | nc IP PortNo.
+  1. listening: `nc -l PortNo.`
+  2. sending: `cat File | nc IP PortNo.`
+- wget: to download
+  1. simple code: `wget http:/.... or ftp://... `
+  2. Username&Pass: 
+  ```vim
+    wget http://userName:Password@Address
+    wget --http-user=User --http-password=Password http://...
+    wget --ftp-user=User --ftp-password=Password ftp://...
+  ```
+  3. Recursively of Web: `wget -r http://... or ftp://... `
+  4. Resumable : `wget -c http://... or ftp://... `
+  5. From Files: `wget -i /Path to Text File `
 
 [Top](#top)
 <div dir="rtl"></div>
