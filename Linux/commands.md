@@ -6,6 +6,7 @@
 - [IPV6](#ipv6)
 - [VPN Routes](#vpn-routes)
 - [Partitioning](#partitioning)
+- [Files Opearting](#files-operating)
 - [NetWork](#network)
 
 ##### Jobs
@@ -73,14 +74,26 @@
 
 ###### Parted
 - add partition to existing free space(may raid) :
-  1- `# parted` --> so you intered in (parted) mode.
-  2- `select /dev/md100` --> inside of disk.
-  3- `unit s print free` --> give fisrt and last sector number for free unpatitioned space on disk.
-  4- `mkpart`  --> and go ahead and answer questions.
-  5- `quit` --> goback to __bash__ mode.
-  6- `mkfs. ... NewPartitionName`
+  1. `# parted` --> so you intered in (parted) mode.
+  2. `select /dev/md100` --> inside of disk.
+  3. `unit s print free` --> give fisrt and last sector number for free unpatitioned space on disk.
+  4. `mkpart`  --> and go ahead and answer questions.
+  5. `quit` --> goback to __bash__ mode.
+  6. `mkfs. ... NewPartitionName`
   
 
+[Top](#top)
+#### Files Operatings
+- rsync :
+  1. Copy/Sync Files and Directory Locally:
+  ```vim
+    rsync -zhv SourceFILE Destination/
+    rsync -azhv SourceDIR Destination/
+  ```
+  > -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD
+  > -z: compress files during transffering.
+  2.
+  
 [Top](#top)
 #### NetWork
 - ncat: to send data on machine port and listening.
