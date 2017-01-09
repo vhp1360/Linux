@@ -1,4 +1,20 @@
 <div dir="rtl">بنام خدا</div>
+- Test\-
+> qqqq
+>eeeee
+
+>srdgfsrgfsd
+ 
+ 1. Name:
+   ```go
+     Code
+   ```
+   1. Para1
+   2. Para2
+ 2. Family
+
+
+
 ##### top
 
 - [Jobs](#jobs)
@@ -20,7 +36,7 @@
 ##### Users
 * Change username:
  - becare first find OldName user and group ID.
-```vim
+```go
   usermod -l NewName OldName
   groupmod -n NewName oldName
   usermod -d /home/NewName -m NewName
@@ -28,7 +44,7 @@
   find / -user OldUserID -exec chown -h Newname {} \;
 ```
 * useradd
-```vim
+```go
   -e Account Expir Date
   -f Password Expire
   -M without Home Directory
@@ -41,7 +57,7 @@
 [Top](#top)
 ##### IPv6
 * disabling IPv6
-```vim
+```go
   vim /etc/sysctl.conf
   net.ipv6.conf.all.disable_ipv6 = 1
   net.ipv6.conf.default.disable_ipv6 = 1
@@ -56,13 +72,13 @@
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
  +  eth0 is device to gateway
-```vim
+```go
   ip rule add table 128 from 50.1.2.3
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
 ```
 * Scans
-```vim
+```go
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
@@ -83,16 +99,39 @@
   
 
 [Top](#top)
-#### Files Operatings
+#### Files Operating
 - rsync :
   1. Copy/Sync Files and Directory Locally:
-  ```vim
+  ```go
     rsync -zhv SourceFILE Destination/
     rsync -azhv SourceDIR Destination/
+    rsync -azhv [ssh] SourceDir root@IP:/Path
+    rsync -azhv [ssh] root@IP:/SourceDir Dest/
   ```
-  > -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD
-  > -z: compress files during transffering.
-  2.
+     > -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
+          this option need *Root* Permission.
+     > -z: compress files during transffering.
+     > [ssh]: by this you have secure copy.
+  
+  2. Progrss bar:
+  ```go
+    rsync -azhv --progress SourceDir Destination/
+  ```
+  3. Include & Exclude:
+  ```go
+    rsync -azhv --include '*.R' --exclude '*e*.R' SourceDir/ Destination/
+  ```
+  4. delete source files or destination files
+  ```go
+    rsync -azhv --remove-sourcefiles Source/ Destination/
+    rsync -azhv --delete Source/ Destination/
+  ```
+  > --delete: if folder exist in dest but not remain in source will be delete from Dest.
+  
+  5. Specified files with size: will sync less or equeal than
+  ```go
+    rsync -azhv --max-size='20M' Source/ Destination/
+  ```
   
 [Top](#top)
 #### NetWork
