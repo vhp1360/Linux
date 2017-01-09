@@ -122,35 +122,35 @@
     rsync -azhv --max-size='20M' --bwlimit=100 ssh ...Source/ Destination/
   ```
   7. resumable:
-  ```go
+  ```vim
     rsync --append ...
   ```
     1. depending your version may `--append-verify` command, that the same but with _checksum_ implementing.
     2. `--append-no-verify` is in contract above.
   8. commit partial copied:
-  ```go
+  ```vim
     rsync --partial[-dir] ...
   ```
     1. `--partial-dir` used for directory.
     2. `-P` equeal to `--partial --progress`
   9. write directly: instead of default _rsync_ behavier, write updates directly to dest:
-  ```go
+  ```vim
     rsync --inplace ...
   ```
   10. sync only Directories tree:
-  ```go
+  ```vim
     rsync -d ...
   ```
   11. sync only existing files in destination:
-  ```go
+  ```vim
     rsync --existing ...
   ```
   12.find different between source and destination:
-  ```go
+  ```vim
     rsync -azvh -i ...
   ```
   13.Transfer the Whole File : it spped up transffering.
-  ```go
+  ```vim
     rsync -azvh -W ...
   ```
   
