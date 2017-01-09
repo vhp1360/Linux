@@ -1,20 +1,4 @@
 <div dir="rtl">بنام خدا</div>
-- Test\-
-> qqqq
->eeeee
-
->srdgfsrgfsd
- 
- 1. Name:
-   ```go
-     Code
-   ```
-   1. Para1
-   2. Para2
- 2. Family
-
-
-
 ##### top
 
 - [Jobs](#jobs)
@@ -101,36 +85,73 @@
 [Top](#top)
 #### Files Operating
 - rsync :
-  1. Copy/Sync Files and Directory Locally:
+  1. Only Drive your Code:
+  ```go
+    rsync --drive-run ...
+  ```
+  2. Copy/Sync Files and Directory Locally:
   ```go
     rsync -zhv SourceFILE Destination/
     rsync -azhv SourceDIR Destination/
     rsync -azhv [ssh] SourceDir root@IP:/Path
     rsync -azhv [ssh] root@IP:/SourceDir Dest/
   ```
-     > -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
+    1. -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
           this option need *Root* Permission.
-     > -z: compress files during transffering.
-     > [ssh]: by this you have secure copy.
+    2. -z: compress files during transffering.
+    3. [ssh]: by this you have secure copy.
   
-  2. Progrss bar:
+  3. Progrss bar:
   ```go
     rsync -azhv --progress SourceDir Destination/
   ```
-  3. Include & Exclude:
+  4. Include & Exclude:
   ```go
     rsync -azhv --include '*.R' --exclude '*e*.R' SourceDir/ Destination/
   ```
-  4. delete source files or destination files
+  5. delete source files or destination files
   ```go
-    rsync -azhv --remove-sourcefiles Source/ Destination/
+    rsync -azhv --remove-source-files Source/ Destination/
     rsync -azhv --delete Source/ Destination/
   ```
-  > --delete: if folder exist in dest but not remain in source will be delete from Dest.
+    1. --delete: if folder exist in dest but not remain in source will be delete from Dest.
+    2.you could use `--remove-source-files` instead of `mv` command.
   
-  5. Specified files with size: will sync less or equeal than
+  6. files size & Bandwidth limitation: will sync less or equeal than
   ```go
-    rsync -azhv --max-size='20M' Source/ Destination/
+    rsync -azhv --max-size='20M' --bwlimit=100 ssh ...Source/ Destination/
+  ```
+  7. resumable:
+  ```go
+    rsync --append ...
+  ```
+    1. depending your version may `--append-verify` command, that the same but with _checksum_ implementing.
+    2. `--append-no-verify` is in contract above.
+  8. commit partial copied:
+  ```go
+    rsync --partial[-dir] ...
+  ```
+    1. `--partial-dir` used for directory.
+    2. `-P` equeal to `--partial --progress`
+  9. write directly: instead of default _rsync_ behavier, write updates directly to dest:
+  ```go
+    rsync --inplace ...
+  ```
+  10. sync only Directories tree:
+  ```go
+    rsync -d ...
+  ```
+  11. sync only existing files in destination:
+  ```go
+    rsync --existing ...
+  ```
+  12.find different between source and destination:
+  ```go
+    rsync -azvh -i ...
+  ```
+  13.Transfer the Whole File : it spped up transffering.
+  ```go
+    rsync -azvh -W ...
   ```
   
 [Top](#top)
@@ -141,7 +162,7 @@
 - wget: to download
   1. simple code: `wget http:/.... or ftp://... `
   2. Username&Pass: 
-  ```vim
+  ```go
     wget http://userName:Password@Address
     wget --http-user=User --http-password=Password http://...
     wget --ftp-user=User --ftp-password=Password ftp://...
