@@ -5,25 +5,16 @@
 
 #### Packet Routing
 Tables:arrow_down:/Chains:arrow_right:|**PREROUTING**|**INPUT**|**FORWARD**|**OUTPUT**|**POSTROUTING**
--
+---|---|---|---|---|---|
 (routing decision)|[]|[]|[]|[x]|[]|
--
 raw|[x]|[]|[]|[x]|[]|
--
 (Conntrack enabled)|[x]|[]|[]|[x]|[]|
--
 mangle|[x]|[x]|[x]|[x]|[x]|
--
 nat(DNAT)|[x]|[]|[]|[x]|[]|
--
 (routing decision)|[x]|[]|[]|[x]|[]|
--
 filter|[]|[x]|[x]|[x]|[]|
--
 security|[]|[x]|[x]|[x]|[]|
--
 nat(SNAT)|[]|[x]|[]|[]|[x]|
--
 
 - Privent Ports Scan
 ```vim
