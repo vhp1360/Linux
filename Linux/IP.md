@@ -6,15 +6,15 @@
 #### Packet Routing
 Tables:arrow_down:/Chains:arrow_right:|**PREROUTING**|**INPUT**|**FORWARD**|**OUTPUT**|**POSTROUTING**
 ---|---|---|---|---|---|
-(routing decision)|[]|[]|[]|[x]|[]|
-raw|[x]|[]|[]|[x]|[]|
-(Conntrack enabled)|[x]|[]|[]|[x]|[]|
-mangle|[x]|[x]|[x]|[x]|[x]|
-nat(DNAT)|[x]|[]|[]|[x]|[]|
-(routing decision)|[x]|[]|[]|[x]|[]|
-filter|[]|[x]|[x]|[x]|[]|
-security|[]|[x]|[x]|[x]|[]|
-nat(SNAT)|[]|[x]|[]|[]|[x]|
+(routing decision)||||:heavy_check_mark:||
+raw|:heavy_check_mark:|||:heavy_check_mark:||
+(Conntrack enabled)|:heavy_check_mark:|||:heavy_check_mark:||
+mangle|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+nat(DNAT)|:heavy_check_mark:|||:heavy_check_mark:||
+(routing decision)|:heavy_check_mark:|||:heavy_check_mark:||
+filter||:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+security||:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+nat(SNAT)||:heavy_check_mark:|||:heavy_check_mark:|
 
 - Privent Ports Scan
 ```vim
