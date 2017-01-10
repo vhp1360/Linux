@@ -195,19 +195,32 @@ the package is acl : `yum -y install acl`
 ```
 the Output like
 > getfacl: Removing leading '/' from absolute path names \
-  \# file: Path \
-  \# owner: root \
-  \# group: root \
-  user::rwx \
-  user:cent:r-- \
-  group::--- \
-  mask::r-- \
-  other::--- \
-  default:user::rwx \
-  default:user:cent:r-x \
-  default:group::--- \
-  default:mask::r-x \
-  default:other::---
+
+> \# file: Path \
+
+> \# owner: root \
+  
+> \# group: root \
+
+> user::rwx \
+
+> user:cent:r-- \
+
+> group::--- \
+
+> mask::r-- \
+
+> other::--- \
+
+> default:user::rwx \
+
+> default:user:cent:r-x \
+
+> default:group::--- \
+
+> default:mask::r-x \
+
+> default:other::---
 
 2. Set or Remove Acl:
 ```vim
