@@ -196,29 +196,29 @@ the package is acl : `yum -y install acl`
 the Output like
 > getfacl: Removing leading '/' from absolute path names \
 
-> \# file: Path \
+> \# file: Path
 
-> \# owner: root \
+> \# owner: root
   
-> \# group: root \
+> \# group: root
 
-> user::rwx \
+> user::rwx
 
-> user:cent:r-- \
+> user:cent:r--
 
-> group::--- \
+> group::---
 
-> mask::r-- \
+> mask::r--
 
-> other::--- \
+> other::---
 
-> default:user::rwx \
+> default:user::rwx
 
-> default:user:cent:r-x \
+> default:user:cent:r-x
 
-> default:group::--- \
+> default:group::---
 
-> default:mask::r-x \
+> default\:\mask\::r-x
 
 > default:other::---
 
