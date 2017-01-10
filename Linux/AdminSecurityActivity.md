@@ -186,28 +186,30 @@
 
 - [Top](#top)
 #### Access List
+
 the package is acl : `yum -y install acl`
 1. get the Access List:
-```go
+```vim
   getfacl /Path
 ```
 the Output like
-> getfacl: Removing leading '/' from absolute path names
-\# file: Path
-\# owner: root
-\# group: root
-user::rwx
-user:cent:r--
-group::---
-mask::r--
-other::---
-default:user::rwx
-default:user:cent:r-x
-default:group::---
-default:mask::r-x
-default:other::---
+> getfacl: Removing leading '/' from absolute path names \
+> \# file: Path \
+> \# owner: root \
+> \# group: root \
+> user::rwx \
+> user:cent:r-- \
+> group::--- \
+> mask::r-- \
+> other::--- \
+> default:user::rwx \
+> default:user:cent:r-x \
+> default:group::--- \
+> default:mask::r-x \
+> default:other::---
+
 2. Set or Remove Acl:
-```go
+```vim
   setfacl -m [u|g|o]:RelativeName:(r,w,x) /Path
   setfacl -x [u|g|o]:RelativeName:(r,w,x) /Path
   setfacl -b /Path
