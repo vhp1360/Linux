@@ -4,11 +4,16 @@
 
 #### Packet Traveling
 1. Tables:
- - *PREROUTING*:left_right_arrow:**NF_IP_PRE_ROUTING** hook<p style="size:20px"> will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made</p>
- - *INPUT*:left_right_arrow:**NF_IP_LOCAL_IN** hook<p style="size:20px"> is triggered after an incoming packet has been routed if the packet is destined for the local system.</p>
- - FORWARD:left_right_arrow:**NF_IP_FORWARD** hook<p style="size:20px">is triggered after an incoming packet has been routed if the packet is to be forwarded to another host.</p>
- - OUTPUT:left_right_arrow:**NF_IP_LOCAL_OUT** hook<p style="size:20px">is triggered by any locally created outbound traffic as soon it hits the network stack.</p>
- - POSTROUTING:left_right_arrow:**NF_IP_POST_ROUTING** hook<p style="size:20px"> is triggered by any outgoing or forwarded traffic after routing has taken place and just before being put out on the wire.</p>
+ - *PREROUTING*:left_right_arrow:**NF_IP_PRE_ROUTING** hook
+    will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made
+ - *INPUT*:left_right_arrow:**NF_IP_LOCAL_IN** hook
+    is triggered after an incoming packet has been routed if the packet is destined for the local system.
+ - FORWARD:left_right_arrow:**NF_IP_FORWARD** hook
+    is triggered after an incoming packet has been routed if the packet is to be forwarded to another host.
+ - OUTPUT:left_right_arrow:**NF_IP_LOCAL_OUT** hook
+    is triggered by any locally created outbound traffic as soon it hits the network stack.
+ - POSTROUTING:left_right_arrow:**NF_IP_POST_ROUTING** hook
+    is triggered by any outgoing or forwarded traffic after routing has taken place and just before being put out on the wire.
 
 Tables:arrow_down:/Chains:arrow_right:|**PREROUTING**|**INPUT**|**FORWARD**|**OUTPUT**|**POSTROUTING**
 :---:|:---:|:---:|:---:|:---:|:---:|
@@ -24,7 +29,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   - Incoming packets destined for the local system: **PREROUTING** :arrow_right: **INPUT**
   - Incoming packets destined to another host: **PREROUTING** :arrow_right: **FORWARD** :arrow_right: **POSTROUTING**
   - Locally generated packets: **OUTPUT** :arrow_right: **POSTROUTING**
-  <p style="size:2">so, an <I>incoming</I> packet destined for the <I>local</I> system will first be evaluated against the <B>PREROUTING</B> chains of the <B>raw, mangle</B>, and <B>nat</B> tables. It will then traverse the <B>INPUT</B> chains of the <B>mangle, filter, security</B>, and <B>nat</B> tables before finally being delivered to the local socket.</p>
+     so, an _incoming_ packet destined for the _local_ system will first be evaluated against the **PREROUTING** chains of the **_raw, mangle_**, and **_nat_** tables. It will then traverse the **INPUT** chains of the **_mangle, filter, security_**, and **nat_** tables before finally being delivered to the local socket.
 
 
 
