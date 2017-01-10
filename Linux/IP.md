@@ -7,7 +7,7 @@
  - *PREROUTING*:left_right_arrow:**NF_IP_PRE_ROUTING** hook
    will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made
  - *INPUT*:left_right_arrow:**NF_IP_LOCAL_IN** hook
-    is triggered after an incoming packet has been routed if the packet is destined for the local system.
+...is triggered after an incoming packet has been routed if the packet is destined for the local system.
  - FORWARD:left_right_arrow:**NF_IP_FORWARD** hook
     is triggered after an incoming packet has been routed if the packet is to be forwarded to another host.
  - OUTPUT:left_right_arrow:**NF_IP_LOCAL_OUT** hook
