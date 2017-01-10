@@ -45,12 +45,12 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   * Available States:
       - NEW: When a packet arrives that is not associated with an existing connection, but is not invalid as a first
       - ESTABLISHED: A connection is changed from NEW to ESTABLISHED when it receives a valid response  
-      For TCP connections:arrow_right:means a SYN/ACK,for UDP & ICMP:arrow_right:means a response where source and destination of the original packet are switched.
+      For **TCP**:arrow_right:means a _SYN/ACK_,for **UDP & ICMP**:arrow_right:means a response where source and destination of the original packet are switched.
       - RELATED: Packets that are not part of an existing connection, but are associated with a connection already in the system.This could mean a helper connection, as is the case with FTP data transmission connections, or it could be ICMP responses to connection attempts by other protocols.
-     - INVALID: Packets can be marked INVALID if they are not associated with an existing connection and aren't appropriate for opening a new connection, if they cannot be identified, or if they aren't routable among other reasons.
-     - UNTRACKED: Packets can be marked as UNTRACKED if they've been targeted in a raw table chain to bypass tracking.
-     - SNAT: A virtual state set when the source address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the source addresses back in reply packets.
-     - DNAT: A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
+      - INVALID: Packets can be marked INVALID if they are not associated with an existing connection and aren't appropriate for opening a new connection, if they cannot be identified, or if they aren't routable among other reasons.
+      - UNTRACKED: Packets can be marked as UNTRACKED if they've been targeted in a raw table chain to bypass tracking.
+      - SNAT: A virtual state set when the source address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the source addresses back in reply packets.
+      - DNAT: A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
 
 
 
