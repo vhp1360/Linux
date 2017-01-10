@@ -4,7 +4,7 @@
 
 #### Packet Traveling
 1. Tables:
- - *PREROUTING*:left_right_arrow:**NF_IP_PRE_ROUTING** hook<div style:"font_size:50em"> will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made</div>
+ - *PREROUTING*:left_right_arrow:**NF_IP_PRE_ROUTING** hook<span font-size:small> will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made</span>
  - INPUT: Triggered by the NF_IP_LOCAL_IN hook.
  - FORWARD: Triggered by the NF_IP_FORWARD hook.
  - OUTPUT: Triggered by the NF_IP_LOCAL_OUT hook.
