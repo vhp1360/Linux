@@ -1,6 +1,6 @@
 <div dir="rtl">بنام خدا</div>
 ######## Top
--[Packet Traveling](#packet-routing)
+-[Packet Traveling](#packet-traveing)
 
 #### Packet Traveling
 [return to this article](https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture)
