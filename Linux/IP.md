@@ -1,8 +1,15 @@
 <div dir="rtl">بنام خدا</div>
 ######## Top
--[Packet Routing](#packet-routing)
+-[Packet Traveling](#packet-routing)
 
-#### Packet Routing
+#### Packet Traveling
+1. Tables:
+ [.] PREROUTING: Triggered by the NF_IP_PRE_ROUTING hook.
+ [.] INPUT: Triggered by the NF_IP_LOCAL_IN hook.
+ [.] FORWARD: Triggered by the NF_IP_FORWARD hook.
+ [.] OUTPUT: Triggered by the NF_IP_LOCAL_OUT hook.
+ [.] POSTROUTING: Triggered by the NF_IP_POST_ROUTING hook.
+
 Tables:arrow_down:/Chains:arrow_right:|**PREROUTING**|**INPUT**|**FORWARD**|**OUTPUT**|**POSTROUTING**
 :---:|:---:|:---:|:---:|:---:|:---:|
 (routing decision)||||:white_check_mark:||
