@@ -6,7 +6,7 @@
 - [IPV6](#ipv6)
 - [VPN Routes](#vpn-routes)
 - [Partitioning](#partitioning)
-- [Files Opearting](#files-operating)
+- [Files Operating](#files-operating)
 - [NetWork](#network)
 
 ##### Jobs
