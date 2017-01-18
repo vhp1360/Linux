@@ -85,75 +85,75 @@
 [Top](#top)
 #### Files Operating
 - rsync :
-  1. Only Drive your Code:
-  ```go
-    rsync --drive-run ...
-  ```
-  2. Copy/Sync Files and Directory Locally:
-  ```go
-    rsync -zhv SourceFILE Destination/
-    rsync -azhv SourceDIR Destination/
-    rsync -azhv [ssh] SourceDir root@IP:/Path
-    rsync -azhv [ssh] root@IP:/SourceDir Dest/
-  ```
-    1. -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
-          this option need *Root* Permission.
-    2. -z: compress files during transffering.
-    3. [ssh]: by this you have secure copy.
+   1.Only Drive your Code:
+   ```go
+     rsync --drive-run ...
+   ```
+   2.Copy/Sync Files and Directory Locally:
+   ```go
+     rsync -zhv SourceFILE Destination/
+     rsync -azhv SourceDIR Destination/
+     rsync -azhv [ssh] SourceDir root@IP:/Path
+     rsync -azhv [ssh] root@IP:/SourceDir Dest/
+   ```
+      1. -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
+            this option need *Root* Permission.
+      2. -z: compress files during transffering.
+      3. [ssh]: by this you have secure copy.
+      
+   3.Progrss bar:
+   ```go
+     rsync -azhv --progress SourceDir Destination/
+   ```
+   4.Include & Exclude:
+   ```go
+     rsync -azhv --include '*.R' --exclude '*e*.R' SourceDir/ Destination/
+   ```
+   5.delete source files or destination files
+   ```go
+     rsync -azhv --remove-source-files Source/ Destination/
+     rsync -azhv --delete Source/ Destination/
+   ```
+      1. --delete: if folder exist in dest but not remain in source will be delete from Dest.
+      2.you could use `--remove-source-files` instead of `mv` command.
   
-  3. Progrss bar:
-  ```go
-    rsync -azhv --progress SourceDir Destination/
-  ```
-  4. Include & Exclude:
-  ```go
-    rsync -azhv --include '*.R' --exclude '*e*.R' SourceDir/ Destination/
-  ```
-  5. delete source files or destination files
-  ```go
-    rsync -azhv --remove-source-files Source/ Destination/
-    rsync -azhv --delete Source/ Destination/
-  ```
-    1. --delete: if folder exist in dest but not remain in source will be delete from Dest.
-    2.you could use `--remove-source-files` instead of `mv` command.
-  
-  6. files size & Bandwidth limitation: will sync less or equeal than
-  ```go
-    rsync -azhv --max-size='20M' --bwlimit=100 ssh ...Source/ Destination/
-  ```
-  7. resumable:
-  ```vim
-    rsync --append ...
-  ```
-    1. depending your version may `--append-verify` command, that the same but with _checksum_ implementing.
-    2. `--append-no-verify` is in contract above.
-  8. commit partial copied:
-  ```vim
-    rsync --partial[-dir] ...
-  ```
-    1. `--partial-dir` used for directory.
-    2. `-P` equeal to `--partial --progress`
-  9. write directly: instead of default _rsync_ behavier, write updates directly to dest:
-  ```vim
-    rsync --inplace ...
-  ```
-  10. sync only Directories tree:
-  ```vim
-    rsync -d ...
-  ```
-  11. sync only existing files in destination:
-  ```vim
-    rsync --existing ...
-  ```
-  12.find different between source and destination:
-  ```vim
-    rsync -azvh -i ...
-  ```
-  13.Transfer the Whole File : it spped up transffering.
-  ```vim
-    rsync -azvh -W ...
-  ```
-  
+   6.files size & Bandwidth limitation: will sync less or equeal than
+   ```go
+     rsync -azhv --max-size='20M' --bwlimit=100 ssh ...Source/ Destination/
+   ```
+   7.resumable:
+   ```vim
+     rsync --append ...
+   ```
+      1. depending your version may `--append-verify` command, that the same but with _checksum_ implementing.
+      2. `--append-no-verify` is in contract above.
+   8.commit partial copied:
+   ```vim
+     rsync --partial[-dir] ...
+   ```
+      1. `--partial-dir` used for directory.
+      2. `-P` equeal to `--partial --progress`
+   9.write directly: instead of default _rsync_ behavier, write updates directly to dest:
+   ```vim
+     rsync --inplace ...
+   ```
+   10.sync only Directories tree:
+   ```vim
+     rsync -d ...
+   ```
+   11.sync only existing files in destination:
+   ```vim
+     rsync --existing ...
+   ```
+   12.find different between source and destination:
+   ```vim
+     rsync -azvh -i ...
+   ```
+   13.Transfer the Whole File : it spped up transffering.
+   ```vim
+     rsync -azvh -W ...
+   ```
+   
 [Top](#top)
 #### NetWork
 - ncat: to send data on machine port and listening.
