@@ -101,6 +101,15 @@
             this option need *Root* Permission.
       2. -z: compress files during transffering.
       3. [ssh]: by this you have secure copy.
+      4. _r_ ~ --recursive
+      5. _l_:copy symlinks as symlinks
+      6. _p_:preserve permissions
+      7. _t_:preserve modification times
+      8. _g_ ~ --group
+      9. _o_ ~ --owner
+      10. _D_:same as --devices --specials
+      11. _--devices_:preserve device files (super-user only)
+      12. _--specials_:preserve special files
       
    3.Progrss bar:
    ```go
