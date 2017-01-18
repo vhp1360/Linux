@@ -85,6 +85,12 @@
 [Top](#top)
 #### Files Operating
 - rsync :
+```go
+  rsync -a(~r(recusrsive)l(link)p(permission)o(owner)t(time modify)g(group)D(device,specials) -z(compress) \
+  -h(human) -v(verbose) --include --exclude --remove-source-files --delete -u(updated) -d(sync directory) \
+  --append(append to shorter files) -L(change symbol link to real) -W(copy file whole) --inplace(directly write) \
+  --max-size --bwlimit
+```
    
    1.Only Drive your Code:
    ```go
@@ -98,7 +104,7 @@
      rsync -azhv [ssh] root@IP:/SourceDir Dest/
    ```
       1. -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
-            this option need *Root* Permission.
+-            this option need *Root* Permission.
       2. -z: compress files during transffering.
       3. [ssh]: by this you have secure copy.
       4. _r_ ~ --recursive
