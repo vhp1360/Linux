@@ -1,6 +1,8 @@
 <div dir="rtl">بنام خدا</div>
 ######## Top
--[Packet Traveling](#packet-traveing)
+- [Packet Traveling](#packet-traveing)
+- [NetWork Commands](#netWork-commands)
+
 
 #### Packet Traveling
 [return to this article](https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture)
@@ -84,7 +86,18 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   ```vim
     iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT
   ```
-
+[top](#top)
+###NetWork Commands
+- NetCat
+  - scan ports: `nc -zv IP 1-56555`
+  - listen to the port : `nc -lk IP port`
+  - live Send to the port: nc -n IP port
+  - Send file: `nc IP Port < File`
+  - Save reciver in File: `nc -l Port > File`
+  - make simple server: `while true; do nc -l 8888 < index.html; done` & simply browse with `http://localhost:8888`
+  - zip and senf file : `dd if=/dev/sda | gzip -9 | nc -l 33`&untar in reciever: `nc localhost 3333 | tar -zf -`
+  - security connect to port: `ssh -f -L 233:127.0.0.1:33 me@IP sleep 10;nc localhost 233 | pv -b > backup.iso`
+  
 
 
 <div dir="rtl"></div>
