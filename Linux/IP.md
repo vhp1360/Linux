@@ -1,7 +1,7 @@
 <div dir="rtl">بنام خدا</div>
 ######## Top
-- [Packet Traveling](#packet-traveing)
-- [NetWork Commands](#netWork-commands)
+- [Packet Traveling](#packet-traveling)
+- [NetWork Commands](#network-commands)
 
 
 #### Packet Traveling
