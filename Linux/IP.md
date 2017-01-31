@@ -96,10 +96,12 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   - Save reciver in File: `nc -l Port > File`
   - make simple server: `while true; do nc -l 8888 < index.html; done` & simply browse with `http://localhost:8888`
   - zip and senf file : `dd if=/dev/sda | gzip -9 | nc -l 33`&untar in reciever: `nc localhost 3333 | tar -zf -`
-  - security connect to port: `ssh -f -L 233:127.0.0.1:33 me@IP sleep 10;nc localhost 233 | pv -b > backup.iso`
-  
+  - security connect to port: 
+  ```go
+    ssh -f -L 233:127.0.0.1:33 me@IP sleep 10;nc localhost 233 | pv -b > backup.iso
+  ```
 
-
+[top](#top)
 <div dir="rtl"></div>
 <div dir="rtl"></div>
 <div dir="rtl"></div>
