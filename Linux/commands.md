@@ -84,7 +84,10 @@
 
 [Top](#top)
 #### Files Operating
-- rsync :
+- [rsync](#rsync)
+- [find](#find)
+
+######## rsync:
 ```go
   rsync -a(~r(recusrsive)l(link)p(permission)o(owner)t(time modify)g(group)D(device,specials) -z(compress) \
   -h(human) -v(verbose) --include --exclude --remove-source-files --delete -u(updated) -d(sync directory) \
@@ -169,7 +172,32 @@
    ```vim
      rsync -azvh -W ...
    ```
-   
+######## find
+```go
+  find multiple paths -name "Pattern" -type Type  -not -name "Pattern" --exec SomeCommands {} SomeCommands \;
+```
+ 1.find in many Path
+ 2.find with specefic type: f-->file d-->directory
+ 3.find with extention: 
+ ```vim
+   find ... -type f \( -name "\*.cpp" -o -name "\*.csv" \)
+ ```
+ 4.Sample of commands:
+ ```go
+   find . -iname "cpp" -type f --exec cp {} /home/root/Bkp/ \;
+   find . -name "sample*.py" -type f --exec grep -B5 -A8 'function' {} \;
+ ```
+ 5.find by midification time:
+ ```vim
+   find . -mtime 1  <--24 hours
+   find . -mtime -5 <-- 5 days ago
+ ```
+ 6.find and tar:
+ ```go
+   find . -type f \( -name "*.py" \) print0 | xargs -0 tar cvf myPyFile.tar  <--print0 handle space in file name.
+ ```
+ 
+ 
 [Top](#top)
 #### NetWork
 - ncat: to send data on machine port and listening.
