@@ -77,8 +77,10 @@
 
 > _also we could generate them in one line_
 
-`openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout server.key -out server.crt`
-
+```go
+  openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:4096 -keyout Key.key -out Cert.crt
+```
+> [to check the security of certificate](https://shaaaaaaaaaaaaa.com/)
 
 - [Top](#top)
 #### SeLinux
