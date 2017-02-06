@@ -172,7 +172,7 @@
    ```vim
      rsync -azvh -W ...
    ```
-######## find
+########find
 ```go
   find multiple paths -name "Pattern" -type Type  -not -name "Pattern" --exec SomeCommands {} SomeCommands \;
 ```
