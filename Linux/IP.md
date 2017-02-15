@@ -2,10 +2,11 @@
 ######## Top
 - [Packet Traveling](#packet-traveling)
 - [NetWork Commands](#network-commands)
-
+- [IPTables Structure](#iptables-structure)
 
 #### Packet Traveling
 [return to this article](https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture)
+
 1. Tables:
  - *PREROUTING*:left_right_arrow:**NF_IP_PRE_ROUTING** hook
    
@@ -102,6 +103,51 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   ```
 
 [top](#top)
+###IPTables Structure
+1. CentOS
+
+2. Ubuntu
+```go
+ *filter
+ :INPUT DROP [0:0]
+ :FORWARD DROP [0:0]
+ :OUTPUT ACCEPT [0:0]
+
+ :UDP - [0:0]
+ :TCP - [0:0]
+ :ICMP - [0:0]
+ COMMIT
+
+ *raw
+ :PREROUTING ACCEPT [0:0]
+ :OUTPUT ACCEPT [0:0]
+ COMMIT
+
+ *nat
+ :PREROUTING ACCEPT [0:0]
+ :INPUT ACCEPT [0:0]
+ :OUTPUT ACCEPT [0:0]
+ :POSTROUTING ACCEPT [0:0]
+ COMMIT
+
+ *security
+ :INPUT ACCEPT [0:0]
+ :FORWARD ACCEPT [0:0]
+ :OUTPUT ACCEPT [0:0]
+ COMMIT
+
+ *mangle
+ :PREROUTING ACCEPT [0:0]
+ :INPUT ACCEPT [0:0]
+ :FORWARD ACCEPT [0:0]
+ :OUTPUT ACCEPT [0:0]
+ :POSTROUTING ACCEPT [0:0]
+ COMMIT
+```
+[Top](#top)
+
+
+
 <div dir="rtl"></div>
 <div dir="rtl"></div>
 <div dir="rtl"></div>
