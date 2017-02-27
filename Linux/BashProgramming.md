@@ -8,6 +8,12 @@
 
 
 ### Scripting
+- generate log of output:
+```go
+  exec 3>&1 4>&2
+  trap 'exec 2>&4 1>&3' 0 1 2 3
+  exec 1>log.out 2>&1
+```
 - define variable: `Var=Value` <-- be care _No Space_
 - defualt value for variable: `[ "$Var" == "" ] && Var=DefaultValue`
 - input Parameter : `Par1=$1` , ... <-- be care _No Space_
