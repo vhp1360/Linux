@@ -9,8 +9,8 @@
 
 ### OpenVPN
 [according this](https://www.unixmen.com/install-openvpn-centos-7/):
-1- `install openvpn easy-rsa`
-2- server side file config:
+1. `install openvpn easy-rsa`
+2. server side file config:
    - `cp /usr/share/doc/openvpn-*/sample/sample-config-files/server.conf  /etc/openvpn`
    - in _/etc/openvpn/server.conf_ file uncomment below:
      - port 1194
@@ -35,7 +35,7 @@
      - persist-tun
      - status openvpn-status.log
      - verb 3
-3- generating Server Keys:
+3. generating Server Keys:
    - `mkdir -p /etc/openvpn/easy-rsa/keys`
    - `cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa`
    - check _/etc/openvpn/easy-rsa/vars_ file and change as needed:
@@ -47,32 +47,31 @@
    - `./build-ca`
    - `./build-key-server server`
    - `./build-dh`
-4- generating Client Keys:
+4. generating Client Keys:
    - `cd /etc/openvpn/easy-rsa/keys`
    - `cp dh2048.pem ca.crt server.crt server.key /etc/openvpn`
-5- Iptables Configs:
+5. Iptables Configs and ip forwarding:
    - in nat table `-A POSTROUTING -s 192.110.96.0/24 -o enp4s0 -j MASQUERADE`
    - in filter table:
      - `-A INPUT -p tcp -m tcp -m state --state NEW --dport 1194 -j ACCEPT`
      - `-A INPUT -i tun0 -j ACCEPT`
      - `-A FORWARD -i tun0 -o enp4s0 -j ACCEPT`
      - `-A FORWARD -i enp4s0 -o tun0 -j ACCEPT`
-6- Enabling IP Forwarding:
    - `echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf`
    - `sysctl -p`
    - `service network restart` 
      - becareful if you use NetworkManager
-7- add pam authentication
+6. [add pam authentication](https://www.linuxsysadmintutorials.com/setup-pam-authentication-with-openvpns-auth-pam-module)
    - add `plugin /usr/lib64/openvpn/plugins/openvpn-plugin-auth-pam.so openvpn` to _/etc/openvpn/server.conf_ file
    - create _/etc/pam.d/openvpn_ file and add below:
    ```go
      auth    required        pam_unix.so    shadow    nodelay
      account required        pam_unix.so
    ```  
-7- add service to level and start
+7. add service to level and start
    - `chkconfig --level35 openvpn@server on`
    - `service openvpn@server start`
-8- client config:
+8. client config:
    - client
    - dev tun
    - proto tcp
