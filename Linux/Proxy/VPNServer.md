@@ -98,8 +98,8 @@
    - comp-lzo
    - verb 3
    - ca ./ca.crt
-   - cert ./client.crt
-   - key ./client.key
+   - cert ./ClientName.crt
+   - key ./ClientName.key
    - cipher AES-256-CBC
    - auth-user-pass
 10. run `sudo openvpn --config ./openvpn.ovpn`
