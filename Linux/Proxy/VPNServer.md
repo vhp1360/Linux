@@ -101,7 +101,8 @@
    - key ./client.key
    - cipher AES-256-CBC
    - auth-user-pass
-   
+9. finally we should issue ca.crt  ClientName.crt  ClientName.csr  ClientName.key to each clients.
+
 enjoy!
 
 [Top](#top)
