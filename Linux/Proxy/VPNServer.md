@@ -85,7 +85,8 @@
 7. add service to level and start
    - `chkconfig --level35 openvpn@server on`
    - `service openvpn@server start`
-8. client config:
+8. finally we should issue ca.crt  ClientName.crt  ClientName.csr  ClientName.key to each clients.
+9. client config:
    - client
    - dev tun
    - proto tcp
@@ -101,7 +102,7 @@
    - key ./client.key
    - cipher AES-256-CBC
    - auth-user-pass
-9. finally we should issue ca.crt  ClientName.crt  ClientName.csr  ClientName.key to each clients.
+10. run `sudo openvpn --config ./openvpn.ovpn`
 
 enjoy!
 
