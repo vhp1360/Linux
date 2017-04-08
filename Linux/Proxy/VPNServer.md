@@ -36,30 +36,44 @@
      - status openvpn-status.log
      - verb 3
 3. generating Server Keys:
-   - `mkdir -p /etc/openvpn/easy-rsa/keys`
-   - `cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa`
+   ```go
+     mkdir -p /etc/openvpn/easy-rsa/keys
+     cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa
+   ```
    - check _/etc/openvpn/easy-rsa/vars_ file and change as needed:
      - uncomment export KEY_CN
-   - `cp /etc/openvpn/easy-rsa/openssl-1.0.0.cnf /etc/openvpn/easy-rsa/openssl.cnf`
-   - `cd /etc/openvpn/easy-rsa`
-   - `source ./vars`
-   - `./clean-all`
-   - `./build-ca`
-   - `./build-key-server server`
-   - `./build-dh`
+   - Now
+     ```bash
+       cp /etc/openvpn/easy-rsa/openssl-1.0.0.cnf /etc/openvpn/easy-rsa/openssl.cnf
+       cd /etc/openvpn/easy-rsa
+       source ./vars
+       ./clean-all
+       ./build-ca
+       ./build-key-server server
+       ./build-dh
+     ```
 4. generating Client Keys:
-   - `cd /etc/openvpn/easy-rsa/keys`
-   - `cp dh2048.pem ca.crt server.crt server.key /etc/openvpn`
+   ```go
+     cd /etc/openvpn/easy-rsa/keys
+     cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
+     cd /etc/openvpn/easy-rsa
+     ./build-key ClientName
+   ```
 5. Iptables Configs and ip forwarding:
    - in nat table `-A POSTROUTING -s 192.110.96.0/24 -o enp4s0 -j MASQUERADE`
    - in filter table:
-     - `-A INPUT -p tcp -m tcp -m state --state NEW --dport 1194 -j ACCEPT`
-     - `-A INPUT -i tun0 -j ACCEPT`
-     - `-A FORWARD -i tun0 -o enp4s0 -j ACCEPT`
-     - `-A FORWARD -i enp4s0 -o tun0 -j ACCEPT`
-   - `echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf`
-   - `sysctl -p`
-   - `service network restart` 
+     ```bash
+       -A INPUT -p tcp -m tcp -m state --state NEW --dport 1194 -j ACCEPT
+       -A INPUT -i tun0 -j ACCEPT
+       -A FORWARD -i tun0 -o enp4s0 -j ACCEPT
+       -A FORWARD -i enp4s0 -o tun0 -j ACCEPT
+     ```
+   - Now:
+   ```go
+     echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
+     sysctl -p
+     service network restart
+   ```
      - becareful if you use NetworkManager
 6. [add pam authentication](https://www.linuxsysadmintutorials.com/setup-pam-authentication-with-openvpns-auth-pam-module)
    - add `plugin /usr/lib64/openvpn/plugins/openvpn-plugin-auth-pam.so openvpn` to _/etc/openvpn/server.conf_ file
