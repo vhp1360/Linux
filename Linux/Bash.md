@@ -309,6 +309,7 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
 - replace a word in file:
 ```vim
   sed -i 's/OldWord/NewWord/g' FileName
+  sed -i.bak ...   <- replace and get backup of original files
 ```
 - replace a word in Files
 ```vim
@@ -316,4 +317,5 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
 ```
 
 
+[Top](#top)
 
