@@ -1,5 +1,5 @@
 <div dir="rtl">بنام خدا</div><br/>
-remove last search highlight --> :noh<br/>
+- remove last search highlight --> :noh
 - Replace : 
   - inline: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_
   - globale: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_<kbd>/</kbd><kbd>g</kbd>
