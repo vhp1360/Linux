@@ -1,6 +1,7 @@
 <div dir="rtl">بنام خدا</div><br/>
 
-- remove last search highlight --> :noh
+- Text Highlight
+  - <kbd>:</kbd><kbd>n</kbd><kbd>o</kbd><kbd>h</kbd> <- remove last search highlight
 - Replace : 
   - inline: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_
   - globale: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_<kbd>/</kbd><kbd>g</kbd>
@@ -13,11 +14,11 @@
   :set syntax=php
 ```
 - Macro
-  - <kbd>qd</kbd>   -> to start macro
-  - ...  -> Doing your commands
-  - <kbd>q</kbd>    -> Exit macro
-  - <kbd>@</kbd><kbd>d</kbd>   -> to first run
-  - <kbd>n</kbd><kbd>@</kbd><kbd>@</kbd>  -> n times repeated
+  - <kbd>qd</kbd>   <- to start macro
+  - ...  <- Doing your commands
+  - <kbd>q</kbd>    <- Exit macro
+  - <kbd>@</kbd><kbd>d</kbd>   <- to first run
+  - <kbd>n</kbd><kbd>@</kbd><kbd>@</kbd>  <- n times repeated
 
 - Scroll
   - <kbd>z</kbd><kbd>z</kbd> - move current line to the middle of the screen 
