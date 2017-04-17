@@ -1,9 +1,9 @@
 <div dir="rtl">بنام خدا</div><br/>
 remove last search highlight --> :noh<br/>
-- search : 
-  - inline: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>OldWord<kbd>/</kbd>NewWord
-  - globale: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>OldWord<kbd>/</kbd>NewWord<kbd>/</kbd><kbd>g</kbd>
-  - special Lines: <kbd>:</kbd><kbd>N1</kbd><kbd>,</kbd><kbd>N2</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>OldWord<kbd>/</kbd>NewWord
+- Replace : 
+  - inline: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_
+  - globale: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_<kbd>/</kbd><kbd>g</kbd>
+  - special Lines: <kbd>:</kbd><kbd>_N1_</kbd><kbd>,</kbd><kbd>_N2_</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_
   - current word: <kbd>*</kbd>
 
 - Text Highlight
