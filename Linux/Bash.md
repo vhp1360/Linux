@@ -229,9 +229,9 @@
 - [Variable](#variable)
 - [Input Prameters](#input-parameters)
 - [Loop](#loop)
+- [Conditional](#conditional)
 
-
-
+[Top](#top)
 #### Logging
 - generate log of output:
 ```go
@@ -240,6 +240,7 @@
   exec 1>log.out 2>&1
 ```
 
+[Top](#top)
 #### Varisable
 - define variable: `Var=Value` <-- be care _No Space_
 - defualt value for variable: `[ "$Var" == "" ] && Var=DefaultValue`
@@ -248,6 +249,7 @@
   - incrementally assign: `VariableName="$VariableName ..."` <-- be care about <kbd>Space</kbd>
 
 
+[Top](#top)
 #### Input Parameters
 - input Parameter : `Par1=$1` , ... <-- be care _No Space_
 - input arguments:
@@ -255,10 +257,12 @@
  - `$#` : number of input arguments
 
 
+[Top](#top)
 #### Array
 - String to array: `IFS='sep' read -ra ListName <<< $1`
 - Length of Array: `${#ArrayName[@]}`
   
+[Top](#top)
 #### Loop
 - Loop:
   - for:
@@ -267,6 +271,7 @@
     for 1 in {1..100..10};do ...;done
     for ((i=0;i<No.;i++));do ...;done
   ```
+[Top](#top)
 #### Conditional
 - if : structure is:
 ```go
@@ -317,6 +322,7 @@ Primary|Meaning
 [ STRING1 > STRING2 ] |True if "STRING1" sorts after "STRING2" lexicographically in the current locale.
 [ ARG1 OP ARG2 ] |"OP" is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if "ARG1" is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to "ARG2", respectively. "ARG1" and "ARG2" are integers.
 
+[Top](#top)
   2. Combining expressions
 
 Operation	|Effect|
