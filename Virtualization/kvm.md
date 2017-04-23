@@ -4,6 +4,7 @@
 - [Convert Commands](#convert-commands)
 - [deal KVM with Command](#deal-kvm-with-command)
 
+[top](#top)
 
 ### Convert Commands
 - from vdi to raw next to qcow2: 
@@ -79,5 +80,9 @@
   virsh resume GuestID
 ```
 9. [Attaching Storage](http://www.thegeekstuff.com/2015/02/add-memory-cpu-disk-to-kvm-vm):
+```go
+  qemu-img create -f raw MyNewDisck.img No.G
+  virsh attach-disk GuestName --source /Path/to/MyNewDisck.img --target vdb --persistent
+```
 
-
+[top](#top)
