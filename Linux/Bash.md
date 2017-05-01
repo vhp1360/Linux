@@ -3,14 +3,31 @@
 
 - [Jobs](#jobs)
 - [Users](#users)
+  - [Change username](#changeusername)
+  - [useradd](#useradd)
 - [IPV6](#ipv6)
+  - [disabling IPv6](#disablingipv6)
 - [VPN Routes](#vpn-routes)
 - [Partitioning](#partitioning)
+  - [Parted](#parted)
 - [Files Operating](#files-operating)
+  - [rsync](#rsync)
+  - [find](#find)
 - [NetWork](#network)
+  - [ncat](#ncat)
+  - [wget](#wget)
 - [Scripting](#scripting)
+  - [Logging](#logging)
+  - [Variable](#variable)
+  - [Input Prameters](#input-parameters)
+  - [Loop](#loop)
+  - [Conditional](#conditional)
 - [BashProgramming](#bashprogramming)
-- [REGEX](#regex)
+  - [REGEX](#regex)
+  -  [Regex Table](#regex-table)
+  -  [AWK](#awk)
+  -  [CUT](#cut)
+  -  [SED](#sed)
 
 
 ##### Jobs
@@ -200,7 +217,10 @@
  ```go
    find . -type f \( -name "*.py" \) print0 | xargs -0 tar cvf myPyFile.tar  <--print0 handle space in file name.
  ```
- 
+ 7.find not a User as Owner:
+ ```go
+   find /Path \! -user UserName
+ ```
  
 [Top](#top)
 #### NetWork
