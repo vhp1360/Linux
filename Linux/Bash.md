@@ -108,7 +108,7 @@
 - [rsync](#rsync)
 - [find](#find)
 
-########rsync:
+###### rsync:
 ```go
   rsync -a(~r(recusrsive)l(link)p(permission)o(owner)t(time modify)g(group)D(device,specials) -z(compress) \
   -h(human) -v(verbose) --include --exclude --remove-source-files --delete -u(updated) -d(sync directory) \
@@ -193,7 +193,7 @@
    ```vim
      rsync -azvh -W ...
    ```
-######## find
+###### find
 ```go
   find multiple paths -name "Pattern" -type Type  -not -name "Pattern" -exec SomeCommands {} SomeCommands \;
 ```
