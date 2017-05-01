@@ -198,7 +198,9 @@
   find multiple paths -name "Pattern" -type Type  -not -name "Pattern" -exec SomeCommands {} SomeCommands \;
 ```
  1.find in many Path
+ 
  2.find with specefic type: f-->file d-->directory
+ 
  3.find with extention: 
  ```vim
    find ... -type f \( -name "\*.cpp" -o -name "\*.csv" \)
@@ -376,7 +378,9 @@ Character|Meaning|Example
 { }|Matches a specified number of<br/>occurrences|[0-9]{3} matches "315" but not "31"<br/>[0-9]{2,4} matches "12", "123", and "1234"<br/>[0-9]{2,} matches "1234567..."                          
 ^|Beginning of a string Or within a<br/>character range [] negation|^http matches strings that begin with http,such as a url<br/>[^0-9] matches any character not 0-9.                   
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
+
 [Top](#top)
+
 #### AWK
 - Kill Prossecc:
 ```vim
