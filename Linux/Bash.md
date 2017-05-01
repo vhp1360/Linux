@@ -193,9 +193,9 @@
    ```vim
      rsync -azvh -W ...
    ```
-########find
+######## find
 ```go
-  find multiple paths -name "Pattern" -type Type  -not -name "Pattern" --exec SomeCommands {} SomeCommands \;
+  find multiple paths -name "Pattern" -type Type  -not -name "Pattern" -exec SomeCommands {} SomeCommands \;
 ```
  1.find in many Path
  2.find with specefic type: f-->file d-->directory
@@ -205,8 +205,8 @@
  ```
  4.Sample of commands:
  ```go
-   find . -iname "cpp" -type f --exec cp {} /home/root/Bkp/ \;
-   find . -name "sample*.py" -type f --exec grep -B5 -A8 'function' {} \;
+   find . -iname "cpp" -type f -exec cp {} /home/root/Bkp/ \;
+   find . -name "sample*.py" -type f -exec grep -B5 -A8 'function' {} \;
  ```
  5.find by midification time:
  ```vim
