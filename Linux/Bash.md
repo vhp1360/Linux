@@ -41,7 +41,7 @@
 ##### Users
 * Change username:
  - becare first find OldName user and group ID.
-```go
+```vim
   usermod -l NewName OldName
   groupmod -n NewName oldName
   usermod -d /home/NewName -m NewName
@@ -49,7 +49,7 @@
   find / -user OldUserID -exec chown -h Newname {} \;
 ```
 * useradd
-```go
+```vim
   -e Account Expir Date
   -f Password Expire
   -M without Home Directory
@@ -62,7 +62,7 @@
 [Top](#top)
 ##### IPv6
 * disabling IPv6
-```go
+```vim
   vim /etc/sysctl.conf
   net.ipv6.conf.all.disable_ipv6 = 1
   net.ipv6.conf.default.disable_ipv6 = 1
@@ -77,13 +77,13 @@
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
  +  eth0 is device to gateway
-```go
+```vim
   ip rule add table 128 from 50.1.2.3
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
 ```
 * Scans
-```go
+```vim
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
@@ -109,7 +109,7 @@
 - [find](#find)
 
 ###### rsync:
-```go
+```vim
   rsync -a(~r(recusrsive)l(link)p(permission)o(owner)t(time modify)g(group)D(device,specials) -z(compress) \
   -h(human) -v(verbose) --include --exclude --remove-source-files --delete -u(updated) -d(sync directory) \
   --append(append to shorter files) -L(change symbol link to real) -W(copy file whole) --inplace(directly write) \
@@ -117,11 +117,11 @@
 ```
    
    1.Only Drive your Code:
-   ```go
+   ```vim
      rsync --drive-run ...
    ```
    2.Copy/Sync Files and Directory Locally:
-   ```go
+   ```vim
      rsync -zhv SourceFILE Destination/
      rsync -azhv SourceDIR Destination/
      rsync -azhv [ssh] SourceDir root@IP:/Path
@@ -142,15 +142,15 @@
       12. _--specials_:preserve special files
       
    3.Progrss bar:
-   ```go
+   ```vim
      rsync -azhv --progress SourceDir Destination/
    ```
    4.Include & Exclude:
-   ```go
+   ```vim
      rsync -azhv --include '*.R' --exclude '*e*.R' SourceDir/ Destination/
    ```
    5.delete source files or destination files
-   ```go
+   ```vim
      rsync -azhv --remove-source-files Source/ Destination/
      rsync -azhv --delete Source/ Destination/
    ```
@@ -158,7 +158,7 @@
       2.you could use `--remove-source-files` instead of `mv` command.
   
    6.files size & Bandwidth limitation: will sync less or equeal than
-   ```go
+   ```vim
      rsync -azhv --max-size='20M' --bwlimit=100 ssh ...Source/ Destination/
    ```
    7.resumable:
@@ -194,7 +194,7 @@
      rsync -azvh -W ...
    ```
 ###### find
-```go
+```vim
   find multiple paths -name "Pattern" -type Type  -not -name "Pattern" -exec SomeCommands {} SomeCommands \;
 ```
  1.find in many Path
@@ -204,7 +204,7 @@
    find ... -type f \( -name "\*.cpp" -o -name "\*.csv" \)
  ```
  4.Sample of commands:
- ```go
+ ```vim
    find . -iname "cpp" -type f -exec cp {} /home/root/Bkp/ \;
    find . -name "sample*.py" -type f -exec grep -B5 -A8 'function' {} \;
  ```
@@ -214,11 +214,11 @@
    find . -mtime -5 <-- 5 days ago
  ```
  6.find and tar:
- ```go
+ ```vim
    find . -type f \( -name "*.py" \) print0 | xargs -0 tar cvf myPyFile.tar  <--print0 handle space in file name.
  ```
  7.find not a User as Owner:
- ```go
+ ```vim
    find /Path \! -user UserName
  ```
  
@@ -230,7 +230,7 @@
 - wget: to download
   1. simple code: `wget http:/.... or ftp://... `
   2. Username&Pass: 
-  ```go
+  ```vim
     wget http://userName:Password@Address
     wget --http-user=User --http-password=Password http://...
     wget --ftp-user=User --ftp-password=Password ftp://...
@@ -240,8 +240,6 @@
   5. From Files: `wget -i /Path to Text File `
 
 [Top](#top)
-<div dir="rtl"></div>
-
 
 
 ### Scripting
@@ -254,7 +252,7 @@
 [Top](#top)
 #### Logging
 - generate log of output:
-```go
+```vim
   exec 3>&1 4>&2
   trap 'exec 2>&4 1>&3' 0 1 2 3
   exec 1>log.out 2>&1
@@ -294,7 +292,7 @@
 [Top](#top)
 #### Conditional
 - if : structure is:
-```go
+```vim
   if [ cluase ] 
   then
     Block
