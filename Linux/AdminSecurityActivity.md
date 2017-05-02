@@ -28,9 +28,9 @@
    ac -d -p username
    sa -u -m -c
    lastcome username ls
- ```go
+ ```vim
 - `find` command:
- ```go
+ ```vim
    find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; <-find and show contain, which text file modified in last 8 days
    find /home/you -iname "*.txt" -mtime -8 | wc -l <- count of above
    find /home/you -iname "*.pdf" -atime -8 -type -f <- files last accessed in 8 days ago
@@ -53,8 +53,9 @@
     type=SYSCALL,msg=audit(1434371271.277:135496):,arch=c000003e(cpu info),
     syscall=2(use `ausyscall 2` to unserstand),success=yes,ppid=6265,pid=6266,auid=1000,
     uid=0,comm="cat",exe="/usr/bin/cat",key="sshconfigchange"
- -go
-   ```ausearch -m LOGIN --start today -i
+ -
+   ```vim
+      ausearch -m LOGIN --start today -i
       ausearch -a 27020
       ausearch -f /etc/ssh/sshd_config -i
       aureport -x --summary
@@ -75,7 +76,7 @@
 [Top](#top)
 #### Certified Issues
 - generate Cert
-  ```go
+  ```vim
     openssl genrsa -des3 -out server.key 1024
     openssl req -new -key server.key -out server.csr
     cp server.key server.key.org && openssl rsa -in server.key.org -out server.key <- you may need remove pass phrase
@@ -83,7 +84,7 @@
   ```
 > _also we could generate them in one line_
 
-```go
+```vim
   openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:4096 -keyout Key.key -out Cert.crt
 ```
 > [to check the security of certificate](https://shaaaaaaaaaaaaa.com/)
@@ -101,31 +102,31 @@
   - sestatus
   - sealert -a /var/log/audit/audit.log > /path/to/mylogfile.txt
   - chcon:
-    ```go
+    ```vim
       chcon -v --type=httpd_sys_content_t /html
       chcon -Rv --type=httpd_sys_content_t /html <- recursively
     ```
   - restorecon :
-    ```go
+    ```vim
       restorecon -Rv /var/www/html
       restorecon -Rv -n /var/www/html --> only show the default
       touch /.autorelabel <- to automaticaly relabled FileSystem after reboot
     ```
   - semanage:
-    ```go
+    ```vim
       semanage port -a -t http_port_t -p tcp 81 <- open port
       semanage port -l <- Check Port is reserved
       semanage fcontext -a -t httpd_sys_content_t "/html(/.\*)?" <- add new labled for futurs files will be coming
     ```
   - Create SeModule:
     - Way 1:
-      ```go
+      ```vim
         grep smtpd_t /var/log/audit/audit.log | audit2allow -m postgreylocal > postgreylocal.te && cat postgreylocal.te
         grep smtpd_t /var/log/audit/audit.log | audit2allow -M postgreylocal 
         semodule -i postgreylocal.pp
       ```
     - Way 2:
-      ```go
+      ```vim
         grep postdrop /var/log/audit/audit.log | audit2allow -M postfixlocal
         cat postfixlocal.te
         dontaudit postfix_postdrop_t httpd_log_t:file getattr; <- in .te file
@@ -170,7 +171,7 @@
  - RSAAuthentication yes
  - PubkeyAuthentication yes
  - Specified Special Hosts: to make type of connect , Which Users Allowed , ... .
- ```go
+ ```vim
    Match Address IPAddress
      AlloewUsers UserName1 UserName2
      AuthenticationMethodes "publickey"|"authentication"
@@ -182,7 +183,7 @@
  2. ssh-copy-id -i PathToSSHKey User@Server
 - ssh_config
  - Special Host:
- ```go
+ ```vim
   Host Name
     HostName IP
     Port
@@ -190,12 +191,12 @@
     Port
  ```
 - config: to specify which Host should use wich Key to connect
-```go
+```vim
   Host HostName
     IdentityFile ~/.ssh/Host_Private_Key_Name
 ```
 - Save Key Passphrase:
-```go
+```vim
   ssh-agent
   ssh User@IP
   ssh-add /Path to Key
@@ -256,7 +257,7 @@ the Output like
   setfacl -k ...
 ```
 5. Set from File: the content of file would be like the output of `getfacl`
-```go
+```vim
   setfacl --restore=acl.txt
 ```
 
