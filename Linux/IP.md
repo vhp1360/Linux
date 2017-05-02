@@ -1,9 +1,14 @@
 <div dir="rtl">بنام خدا</div>
-######## Top
+
+###### Top
+
 - [Packet Traveling](#packet-traveling)
 - [NetWork Commands](#network-commands)
 - [IPTables Structure](#iptables-structure)
-
+- [dealing IP](#dealing-ip)
+  - [Disabling IPV6](#disabling-ipv6)
+  
+  
 #### Packet Traveling
 [return to this article](https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture)
 
@@ -107,7 +112,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 1. CentOS
 
 2. Ubuntu
-```go
+```vim
  *filter
  :INPUT DROP [0:0]
  :FORWARD DROP [0:0]
@@ -146,7 +151,32 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 ```
 [Top](#top)
 
+### dealing IP
+  - [Disabling IPV6](#disabling-ipv6)
 
+- Disabling IPV6:
+  1. In Redhat:
+    - first way: in _/etc/sysconfig/network_ file
+    ```vim
+      NETWORKING=yes
+      NETWORKING_IPV6=no
+    ```
+    - Second way: in _/etc/sysconfig/network-scripts/ifcfg-eth0_:
+    ```vim
+      IPV6INIT=no
+      IPV6_AUTOCONF=no
+      IPV6_DEFROUTE=no
+      IPV6_PEERDNS=no
+      IPV6_PEERROUTES=no
+      IPV6_FAILURE_FATAL=no
+    ```
+   2. In Ubuntu: in _/etc/sysctl.conf_ file:
+   ```vim
+     net.ipv6.conf.all.disable_ipv6 = 1
+     net.ipv6.conf.default.disable_ipv6 = 1
+     net.ipv6.conf.lo.disable_ipv6 = 1
+   ```
+   
 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
