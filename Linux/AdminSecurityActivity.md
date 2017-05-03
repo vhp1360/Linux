@@ -11,7 +11,7 @@
 - [Are you Under Attack](#are-you-under-attack)
 - [SSH](#ssh)
 - [Access List](#access-list)
-- [Encrypt and Decrypt Files](#encryptanddecryptfiles)
+- [Encrypt and Decrypt Files](#encrypt-and-decrypt-files)
   - [Gpg](#gpg)
 
 
@@ -265,7 +265,7 @@ the Output like
 
 [Top](#top)
 ### Encrypt and Decrypt Files
-- Gpg: 
+- ###### Gpg: 
 ```vim
   gpg -c FileName -> Create Encrypted file with Passphrase
   gpg -d FileName.gpg -> Output of File in StdOut
