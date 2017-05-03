@@ -11,6 +11,8 @@
 - [Are you Under Attack](#are-you-under-attack)
 - [SSH](#ssh)
 - [Access List](#access-list)
+- [Encrypt and Decrypt Files](#encryptanddecryptfiles)
+  - [Gpg](#gpg)
 
 
 [Top](#top)  
@@ -261,6 +263,14 @@ the Output like
   setfacl --restore=acl.txt
 ```
 
+[Top](#top)
+### Encrypt and Decrypt Files
+- Gpg: 
+```vim
+  gpg -c FileName -> Create Encrypted file with Passphrase
+  gpg -d FileName.gpg -> Output of File in StdOut
+  gpg -d FileName.gpg -o FileName -> SaveFile in Hard
+```
 
 [Top](#top)
 #### 
