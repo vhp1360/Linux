@@ -39,7 +39,7 @@
 
 [Top](#top)
 ##### Users
-* Change username:
+* ###### Change username:
  - becare first find OldName user and group ID.
 ```vim
   usermod -l NewName OldName
@@ -48,7 +48,7 @@
   find / -group OldGroupID -exec chgrp -h NewName {} \;
   find / -user OldUserID -exec chown -h Newname {} \;
 ```
-* useradd
+* ###### useradd
 ```vim
   -e Account Expir Date
   -f Password Expire
@@ -61,7 +61,7 @@
 
 [Top](#top)
 ##### IPv6
-* disabling IPv6
+* ###### disabling IPv6
 ```vim
   vim /etc/sysctl.conf
   net.ipv6.conf.all.disable_ipv6 = 1
@@ -72,7 +72,7 @@
 
 [Top](#top)
 ##### VPN Routes
-* [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
+* ###### [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
  + Public IP is 50.1.2.3
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
@@ -82,7 +82,7 @@
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
 ```
-* Scans
+* ###### Scans
 ```vim
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
@@ -90,7 +90,7 @@
 
 [Top](#top)
 ### Partitioning
-- [Parted](#parted)
+- ###### [Parted](#parted)
 
 
 ###### Parted
@@ -226,10 +226,10 @@
  
 [Top](#top)
 #### NetWork
-- ncat: to send data on machine port and listening.
+- ###### ncat: to send data on machine port and listening.
   1. listening: `nc -l PortNo.`
   2. sending: `cat File | nc IP PortNo.`
-- wget: to download
+- ###### wget: to download
   1. simple code: `wget http:/.... or ftp://... `
   2. Username&Pass: 
   ```vim
