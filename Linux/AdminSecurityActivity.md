@@ -268,7 +268,7 @@ the Output like
 - ###### Gpg: 
 ```vim
   gpg -c FileName -> Create Encrypted file with Passphrase
-  gpg -d FileName.gpg -> Output of File in StdOut
+  gpg FileName.gpg -> Output of File in StdOut
   gpg -d FileName.gpg -o FileName -> SaveFile in Hard
 ```
 
