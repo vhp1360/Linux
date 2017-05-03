@@ -53,8 +53,8 @@ _Limit_ *page cache dirty bytes*:<br/>
   sysctl vm.dirtywritebackcentisecs=length of the interval between kernel flusher threads waking and \
                                     writing eligible data to disk, _does not recommend tuning this parameter
 ```
-<div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div><br/>
-_Free_ out RAM:<br/>
+- <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div>
+- _Free_ out RAM:
 ```vim
   sync;echo 1 > /proc/sys/vm/drop_caches # free all page caches memory
   sync;echo 2 > /proc/sys/vm/drop_caches # free all unused slab caches memory
