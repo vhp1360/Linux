@@ -70,6 +70,7 @@
 ```
 8. [deal Guest with command](#https://www.ibm.com/support/knowledgecenter/linuxonibm/liaat/liaatkvmvirsh.htm):
 ```go
+  virsh list --all
   virsh start Guest{Name or ID}
   virsh reboot Guest{Name or ID}
   virsh shutdown Guest{Name or ID}
