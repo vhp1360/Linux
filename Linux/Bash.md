@@ -418,7 +418,7 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
 ```
 - No.th Line:
 ```vim
-  sed -n 'Nop;q' or sed 'Nop'
+  sed -n 'Nop' or sed 'No-1q;d'
 ```
 
 [Top](#top)
