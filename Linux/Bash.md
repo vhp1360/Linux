@@ -416,7 +416,10 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
 ```vim
   find ./ type f -ecex sed -i 's/OldWord/NewWord/g' {} \;
 ```
-
+- No.th Line:
+```vim
+  sed -n 'Nop;q' or sed 'Nop'
+```
 
 [Top](#top)
 
