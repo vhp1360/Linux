@@ -39,10 +39,14 @@ _Number_ of Huge Pages:<br/>
 _Number_ *of open Files*<br/>
 ulimite -n 8096<br/>
 
-<div dir="rtl">تنظیم مقدار فضای تصادفی جهت ذخیره اطلاعات  معروف به صفحات کثیف</div><br/>
-<div dir="rtl">ابتدا گزارش کلی از مقادیر تخصیص داده شده را بدست می آوریم</div><br/>
-_First_ report of Dirty Page<br/>
-_Limit_ *page cache dirty bytes*:<br/>
+<div dir="rtl">تنظیم مقدار فضای تصادفی جهت ذخیره اطلاعات  معروف به صفحات کثیف</div>
+
+<div dir="rtl">ابتدا گزارش کلی از مقادیر تخصیص داده شده را بدست می آوریم</div>
+
+_First_ report of Dirty Page
+
+_Limit_ *page cache dirty bytes*:
+
 ```vim
   sysctl vm.dirtyratio=percentage # Writeout of dirty data when riched to this value, \
                                         recommended a slightly lowerthan of 15
@@ -53,8 +57,11 @@ _Limit_ *page cache dirty bytes*:<br/>
   sysctl vm.dirtywritebackcentisecs=length of the interval between kernel flusher threads waking and \
                                     writing eligible data to disk, _does not recommend tuning this parameter
 ```
+
 - <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div>
+
 - _Free_ out RAM:
+
 ```vim
   sync;echo 1 > /proc/sys/vm/drop_caches # free all page caches memory
   sync;echo 2 > /proc/sys/vm/drop_caches # free all unused slab caches memory
