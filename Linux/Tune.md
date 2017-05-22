@@ -1,8 +1,8 @@
-<div dir="rtl">بنام خدا</div><br/>
+<div dir="rtl">بنام خدا</div>
 
-<div dir="rtl">این متن در مورد بهینه سازی حافظه تصادفی سیستم می باشد</div><br/>
+<div dir="rtl">این متن در مورد بهینه سازی حافظه تصادفی سیستم می باشد</div>
 
-<div dir="rtl">ابتدا می خواهیم گزارشی کامل از مقدار حافظه تصادی داشته باشیم</div><br/>
+<div dir="rtl">ابتدا می خواهیم گزارشی کامل از مقدار حافظه تصادی داشته باشیم</div>
 
 _First_ *find out memory size complete*<br/>
 `free -whlt`
@@ -15,29 +15,35 @@ High:|0B|0B|0B
 Swap:|3.9G|534M|3.4G
 Total:|11G|5.9G|4.0G
 
-<div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div><br/>
+<div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div>
+
 _Changing_ *Page cache size*:
 
 Page Cache:
 ```vim
   echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf
 ```
-<div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div><br/>
+<div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div>
+
 _Now_ *swap*:
 
-_swappiness_ value:
-`echo vm.swappiness=0 >> /etc/sysctl.conf`
+_swappiness_ value: `echo vm.swappiness=0 >> /etc/sysctl.conf`
 
-<div dir="rtl">مقدار حافظه ای که برای فایل های کلان درنظر گرفته شده است</div><br/>
-_There_ *is a setting to keep Huge File Pasge Size Cache*:<br/>
-_Number_ of Huge Pages:<br/>
+<div dir="rtl">مقدار حافظه ای که برای فایل های کلان درنظر گرفته شده است</div>
+
+_There_ *is a setting to keep Huge File Pasge Size Cache*:
+
+_Number_ of Huge Pages:
+
 ```vim
   echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo
 ```
 
-<div dir="rtl">چه تعداد فایل بتواند بطور همزمان در سیستم عامل باز باشد</div><br/>
-_Number_ *of open Files*<br/>
-ulimite -n 8096<br/>
+<div dir="rtl">چه تعداد فایل بتواند بطور همزمان در سیستم عامل باز باشد</div>
+
+_Number_ *of open Files*
+
+ulimite -n 8096
 
 <div dir="rtl">تنظیم مقدار فضای تصادفی جهت ذخیره اطلاعات  معروف به صفحات کثیف</div>
 
