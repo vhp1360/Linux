@@ -1,12 +1,19 @@
 <div dir="rtl">بنام خدا</div>
 
+###### top
+- [Free Command](#free-command)
+- [Cache](#cache)
+- [Limitaion](#limitation)
+- [Free Cache](#free-cache)
+
 <div dir="rtl">این متن در مورد بهینه سازی حافظه تصادفی سیستم می باشد</div>
 
 <div dir="rtl">ابتدا می خواهیم گزارشی کامل از مقدار حافظه تصادی داشته باشیم</div>
 
-_First_ *find out memory size complete*<br/>
-`free -whlt`
-
+- First *find out memory size complete*
+```vim
+  free -whlt <- w:Wide mode h:Human l:Low&Max t:Totaly s:Priodicly 
+```
 name|total|used|free|shared|buffers|cache|available
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
 Mem:|7.6G|5.4G|663M|2.7M|3.0M|1.6G|2.0G        
@@ -14,6 +21,9 @@ Low:|7.6G|7.0G|663M
 High:|0B|0B|0B
 Swap:|3.9G|534M|3.4G
 Total:|11G|5.9G|4.0G
+
+
+### Cache
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div>
 
@@ -39,6 +49,7 @@ _Number_ of Huge Pages:
   echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo
 ```
 
+### Limitaion
 <div dir="rtl">چه تعداد فایل بتواند بطور همزمان در سیستم عامل باز باشد</div>
 
 _Number_ *of open Files*
@@ -63,6 +74,7 @@ _Limit_ *page cache dirty bytes*:
   sysctl vm.dirtywritebackcentisecs=length of the interval between kernel flusher threads waking and \
                                     writing eligible data to disk, _does not recommend tuning this parameter
 ```
+### Free Cache
 
 - <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div>
 
@@ -74,6 +86,7 @@ _Limit_ *page cache dirty bytes*:
   sync;echo 3 > /proc/sys/vm/drop_caches # 1,2
   swapoff -a && swapon -a                # free all swap data
 ```
+
 . some other command:
   . `vmstate -s`
   . `iostate`
