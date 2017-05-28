@@ -1,10 +1,30 @@
 <div dir="rtl">بنام خدا</div>
 
 ###### top
-- [Free Command](#free-command)
+- [Top Command](#top-command)
+- [Free](#free)
 - [Cache](#cache)
 - [Limitaion](#limitation)
 - [Free Cache](#free-cache)
+
+[top](#top)
+### Top Command
+```go
+  top
+  top -O ColumnName <- Order By
+  top -u UserName <- Only this user
+  top -c  <- Absolute Process Path
+  top -d Secs   <- Set refresh interval
+  top -n 10  <- Finish after 10 times refreshing
+```
+- Some Key
+   - <kbd>Shift</kbd><kbd>p</kbd> : Sort on CPU
+   - <kbd>Shift</kbd><kbd>o</kbd> : then choose column to sort
+   - <kbd>z</kbd> : Coloring
+   - <kbd>k</kbd> : kill process
+
+[top](#top)
+### Free
 
 <div dir="rtl">این متن در مورد بهینه سازی حافظه تصادفی سیستم می باشد</div>
 
@@ -23,6 +43,7 @@ Swap:|3.9G|534M|3.4G
 Total:|11G|5.9G|4.0G
 
 
+[top](#top)
 ### Cache
 
 <div dir="rtl">دراین قسمت مقدار Page Cache سیستم را تغییر می دهیم</div>
@@ -49,6 +70,7 @@ _Number_ of Huge Pages:
   echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo
 ```
 
+[top](#top)
 ### Limitaion
 <div dir="rtl">چه تعداد فایل بتواند بطور همزمان در سیستم عامل باز باشد</div>
 
@@ -74,6 +96,7 @@ _Limit_ *page cache dirty bytes*:
   sysctl vm.dirtywritebackcentisecs=length of the interval between kernel flusher threads waking and \
                                     writing eligible data to disk, _does not recommend tuning this parameter
 ```
+[top](#top)
 ### Free Cache
 
 - <div dir="rtl">مراحل زیر مستقل از موارد فوق می باشد و با آنها می توان تمامی حافظه های سریع را ابتدا در حافظه پایدار نوشت و سپس خالی کرد</div>
