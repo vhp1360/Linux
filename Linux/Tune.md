@@ -6,6 +6,7 @@
 - [Cache](#cache)
 - [Limitaion](#limitation)
 - [Free Cache](#free-cache)
+- [Some Other Ram Monitoring Command](#some-other-ram-monitoring-command)
 
 [top](#top)
 ### Top Command
@@ -110,10 +111,22 @@ _Limit_ *page cache dirty bytes*:
   swapoff -a && swapon -a                # free all swap data
 ```
 
-. some other command:
-  . `vmstate -s`
-  . `iostate`
-  
+[top](#top)
+### Some Other Ram Monitoring Command
+- vmstate :
+```vim
+  vmstate -s
+```
+- iostate :
+- meminfo:
+```vim
+  cat /proc/meminfo
+```
+- Ram Information:
+```vim
+  dmidecode -t 17
+```
+
 
 
 
