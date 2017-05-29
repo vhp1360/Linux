@@ -114,21 +114,22 @@ _Limit_ *page cache dirty bytes*:
 [top](#top)
 ### Some Other Ram Monitoring Command
 - vmstate :
-```vim
+```go
   vmstate -s
 ```
 - iostate :
 - meminfo:
-```vim
+```go
   cat /proc/meminfo
 ```
 - Ram Information:
-```vim
+```go
   dmidecode -t 17
 ```
 
 
 
-
+[top](#top)
+### 
 
 
