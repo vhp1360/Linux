@@ -32,7 +32,7 @@
 <div dir="rtl">ابتدا می خواهیم گزارشی کامل از مقدار حافظه تصادی داشته باشیم</div>
 
 - First *find out memory size complete*
-```vim
+```go
   free -whlt <- w:Wide mode h:Human l:Low&Max t:Totaly s:Priodicly 
 ```
 name|total|used|free|shared|buffers|cache|available
@@ -52,7 +52,7 @@ Total:|11G|5.9G|4.0G
 _Changing_ *Page cache size*:
 
 Page Cache:
-```vim
+```go
   echo vm.min_free_kbytes=1024 >> /etc/sysctl.conf
 ```
 <div dir="rtl">حال نوبت به حافظه جایگزین می رسد</div>
@@ -67,7 +67,7 @@ _There_ *is a setting to keep Huge File Pasge Size Cache*:
 
 _Number_ of Huge Pages:
 
-```vim
+```go
   echo "vm.nr_hugepages=512" >> /etc/sysctl.conf --> to check it: grep Hugepagesize /proc/meminfo
 ```
 
@@ -87,7 +87,7 @@ _First_ report of Dirty Page
 
 _Limit_ *page cache dirty bytes*:
 
-```vim
+```go
   sysctl vm.dirtyratio=percentage # Writeout of dirty data when riched to this value, \
                                         recommended a slightly lowerthan of 15
   sysctl vm.dirtybackgroundratio=percentage # Writeout of dirty data in the background when ... ., \
@@ -104,7 +104,7 @@ _Limit_ *page cache dirty bytes*:
 
 - _Free_ out RAM:
 
-```vim
+```go
   sync;echo 1 > /proc/sys/vm/drop_caches # free all page caches memory
   sync;echo 2 > /proc/sys/vm/drop_caches # free all unused slab caches memory
   sync;echo 3 > /proc/sys/vm/drop_caches # 1,2
@@ -114,16 +114,16 @@ _Limit_ *page cache dirty bytes*:
 [top](#top)
 ### Some Other Ram Monitoring Command
 - vmstate :
-```vim
+```go
   vmstate -s
 ```
 - iostate :
 - meminfo:
-```vim
+```go
   cat /proc/meminfo
 ```
 - Ram Information:
-```vim
+```go
   dmidecode -t 17
 ```
 
