@@ -87,7 +87,7 @@ _First_ report of Dirty Page
 
 _Limit_ *page cache dirty bytes*:
 
-```go
+```vala
   sysctl vm.dirtyratio=percentage # Writeout of dirty data when riched to this value, \
                                         recommended a slightly lowerthan of 15
   sysctl vm.dirtybackgroundratio=percentage # Writeout of dirty data in the background when ... ., \
