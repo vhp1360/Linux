@@ -104,7 +104,7 @@ _Limit_ *page cache dirty bytes*:
 
 - _Free_ out RAM:
 
-```go
+```vala
   sync;echo 1 > /proc/sys/vm/drop_caches # free all page caches memory
   sync;echo 2 > /proc/sys/vm/drop_caches # free all unused slab caches memory
   sync;echo 3 > /proc/sys/vm/drop_caches # 1,2
