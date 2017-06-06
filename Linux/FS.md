@@ -2,10 +2,10 @@
 ###### Top
 
 - [GlusterFS](#glusterfs)
+- [Samba](#samba)
 
 
-
-#### Glusterfs
+### Glusterfs
 1. Installation : glusterfs-server gluster-client
 2. Make a Partition:
 	1. if you have new partition, nothing to do.
@@ -34,3 +34,22 @@
 	
 ***
 [Top](#top)
+### Samba
+- Securing from sambaCry attack.
+   - Which IP:
+   ```vim
+     hosts deny = ALL
+     hosts allow = 192.168.1.
+   ```
+   - Which version
+   ```vim
+     server min protocol = SMB2_10
+     client max protocol = SMB3
+     client min protocol = SMB2_10
+   ```
+
+
+
+
+[Top](#top)
+###
