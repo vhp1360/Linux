@@ -26,11 +26,11 @@
 [Top](#top)
 #### Some Commands
 - psacct
- ```
+ ```vala
    ac -d -p username
    sa -u -m -c
    lastcome username ls
- ```vim
+ ```
 - `find` command:
  ```vim
    find /home/you -iname "*.txt" -mtime -8 -exec cat {} \; <-find and show contain, which text file modified in last 8 days
