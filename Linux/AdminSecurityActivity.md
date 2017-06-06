@@ -26,7 +26,7 @@
 [Top](#top)
 #### Some Commands
 - psacct
- ```vala
+ ```vim
    ac -d -p username
    sa -u -m -c
    lastcome username ls
@@ -38,12 +38,15 @@
    find /home/you -iname "*.pdf" -atime -8 -type -f <- files last accessed in 8 days ago
  ```
 - netstate :
- - `netstat -tulpn`
- 
+```vim
+  netstat -tulpn
+```   
 - LSOF:
- - list of Established Connection : `lsof -i TCP:80 | grep ESTABLISHED` or `watch "lsof -i TCP:80"`
- 
- 
+ - list of Established Connection : 
+ ```vim
+   lsof -i TCP:80 | grep ESTABLISHED` or `watch "lsof -i TCP:80"
+ ```
+  
 [Top](#top)
 #### Audit Issues
 - Configuring Audit:
@@ -56,23 +59,35 @@
     syscall=2(use `ausyscall 2` to unserstand),success=yes,ppid=6265,pid=6266,auid=1000,
     uid=0,comm="cat",exe="/usr/bin/cat",key="sshconfigchange"
  -
-   ```vim
-      ausearch -m LOGIN --start today -i
-      ausearch -a 27020
-      ausearch -f /etc/ssh/sshd_config -i
-      aureport -x --summary
-      aureport --failed
-   ```
+ ```vim
+    ausearch -m LOGIN --start today -i
+    ausearch -a 27020
+    ausearch -f /etc/ssh/sshd_config -i
+    aureport -x --summary
+    aureport --failed
+ ```
 - remove Unnecessary packages: `yum erase inetd xinetd ypserv tftp-server telnet-server rsh-serve`
 - Password Policy
  - User Accounts and Strong Password Policy:
-  - Password Aging with `chage` command. Like `chage -M 60 -m 7 -W 7 userName`
+  - Password Aging with `chage` command. Like 
+  ```vim
+    chage -M 60 -m 7 -W 7 userName
+  ```
   - use >/etc/login.defs
-  - in ;/etc/shadow; file: {userName}:{password}:{lastpasswdchanged}:{Minimum_days}:{Maximum_days}:{Warn}:{Inactive}:{Expire}:
+  - in ;/etc/shadow; file:
+  ```vim
+    {userName}:{password}:{lastpasswdchanged}:{Minimum_days}:{Maximum_days}:{Warn}:{Inactive}:{Expire}:
+  ```
  - Restricting Use of Previous Passwords:
  - Locking User Accounts After Login Failures:
- - How Do I Verify No Accounts Have Empty Passwords?: `awk -F: '($2 == "") {print}' /etc/shadow` and Lock them `passwd -l UserName`
- - Make Sure No Non-Root Accounts Have UID Set To 0 : `awk -F: '($3 == "0") {print}' /etc/passwd`
+ - How Do I Verify No Accounts Have Empty Passwords?: 
+ ```vim
+   awk -F: '($2 == "") {print}' /etc/shadow` and Lock them `passwd -l UserName
+ ```
+ - Make Sure No Non-Root Accounts Have UID Set To 0 : 
+ ```vim
+   awk -F: '($3 == "0") {print}' /etc/passwd
+ ```
  
 
 [Top](#top)
@@ -101,20 +116,23 @@
       2. a process running under wrong selinux security context
       3. a bug in policy.an app needs acesses to a file that wasn't anticipaited
       4. an intrusion attempt
-  - sestatus
-  - sealert -a /var/log/audit/audit.log > /path/to/mylogfile.txt
-  - chcon:
+  - `sestatus`
+  - `sealert`:
+  ```vim
+    sealert -a /var/log/audit/audit.log > /path/to/mylogfile.txt
+  ```
+  - `chcon`:
     ```vim
       chcon -v --type=httpd_sys_content_t /html
       chcon -Rv --type=httpd_sys_content_t /html <- recursively
     ```
-  - restorecon :
+  - `restorecon` :
     ```vim
       restorecon -Rv /var/www/html
       restorecon -Rv -n /var/www/html --> only show the default
       touch /.autorelabel <- to automaticaly relabled FileSystem after reboot
     ```
-  - semanage:
+  - `semanage` :
     ```vim
       semanage port -a -t http_port_t -p tcp 81 <- open port
       semanage port -l <- Check Port is reserved
@@ -144,13 +162,19 @@
 [Top](#top)
 #### Fail2Ban:
   - Default:bantime,maxretry,enabled,banaction,action
-  - [ssh_d_]:filter,port,maxretry 
+  - [ssh _d_]:filter,port,maxretry 
   - [...]: filter=[...]
-- Check if you are under DDoS attack:`netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort –n`
+- Check if you are under DDoS attack:
+```vim
+  netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort –n
+```
 - Conntrack : track connections
  - is module loaded : `modeprobe nf_conntrack_ipv4`
  - installation `yum install conntrack-tools libnetfilter_conntrack`
- - report `conntrack -L -C  -E -e NEW  -p tcp --state ESTABLISHED --dport 22`
+ - report 
+ ```vim
+   conntrack -L -C  -E -e NEW  -p tcp --state ESTABLISHED --dport 22
+ ```
  - there is contrack app as daemon with _conntrackd_ name that you could find it's info.
  - go out from jail : 
   1. `iptables -L -n`
@@ -158,11 +182,26 @@
   
 [Top](#top)
 #### Are you Under Attack
-- DDoS Attack : `netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort`
-- DDoS on Port : netstat -n | grep :80 |wc -l
-- on Packet Type : netstat -n | grep :80 | grep SYN |wc -l
-- Under ICMP : `while :; do netstat -s| grep -i icmp | egrep 'received|sent' ; sleep 1; done`
-- Under a SYN flood : netstat -nap | grep SYN
+- DDoS Attack : 
+```vim
+  netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort
+```
+- DDoS on Port : 
+```vim
+  netstat -n | grep :80 |wc -l
+```
+- on Packet Type : 
+```vim
+  netstat -n | grep :80 | grep SYN |wc -l
+```
+- Under ICMP : 
+```vim
+  while :; do netstat -s| grep -i icmp | egrep 'received|sent' ; sleep 1; done
+```
+- Under a SYN flood : 
+```vim
+  netstat -nap | grep SYN
+```
 
 [Top](#top)
 #### SSH
@@ -215,10 +254,9 @@ the package is acl : `yum -y install acl`
   getfacl /Path
 ```
 the Output like
+***
 > getfacl: Removing leading '/' from absolute path names \
-
 > \# file: Path
-
 > \# owner: root
   
 > \# group: root
@@ -242,7 +280,7 @@ the Output like
 > default\:\mask\::r-x
 
 > default:other::---
-
+***
 2. Set or Remove Acl:
 ```vim
   setfacl -m [u|g|o]:RelativeName:(r,w,x) /Path
