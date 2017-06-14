@@ -47,7 +47,19 @@
      client max protocol = SMB3
      client min protocol = SMB2_10
    ```
-
+- [Samba And SeLinux](http://danwalsh.livejournal.com/14195.html):
+```vim
+  setsebool -P samba_domain_controller on
+  semanage fcontext -a -t samba_share_t '/<shared path>(/.*)?'
+  restorecon -R /<shared path>
+```
+- [Samba And Iptables](https://wiki.centos.org/HowTos/SetUpSamba#head-26340a1a2c9cb4d46d51b9429fd030239b57feb4):
+```vim
+-A INPUT -s 192.110.133.0/24 -p tcp -m state --state NEW -m tcp -m multiport --dports 139,445 -j ACCEPT
+-A INPUT -s 192.110.133.0/24 -p udp -m state --state NEW -m udp -m multiport --dports 137:138,445 -j ACCEPT
+```
+- Sharing Folder: to keep more security, we should set chmod ---- and also setfacl, the Kvm user is `qemu`.\
+	if we revoke other user acess, we should have same username userid gourpname and groupid.
 
 
 
