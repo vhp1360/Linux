@@ -80,17 +80,17 @@
   kpartx -dv /Path/to/Virtuals/ImgFile
 
 ```
-6. Find Guest IP Address:
+- Find Guest IP Address:
 ```go
   virsh net-list
   virsh net-dhcp-leases NetWorkName
 ```
-7. Add permanently guest to virsh:
+- Add permanently guest to virsh:
 ```go
   virsh dumpxml GueatName <- to create related XML file that created in /etc/libvirt/qemu/
   virsh create /etc/libvirt/qemu/GuestName.xml
 ```
-8. [deal Guest with command](#https://www.ibm.com/support/knowledgecenter/linuxonibm/liaat/liaatkvmvirsh.htm):
+- [deal Guest with command](#https://www.ibm.com/support/knowledgecenter/linuxonibm/liaat/liaatkvmvirsh.htm):
 ```go
   virsh list --all
   virsh start Guest{Name or ID}
@@ -106,10 +106,25 @@
   virsh suspend GuestID
   virsh resume GuestID
 ```
-9. [Attaching Storage](http://www.thegeekstuff.com/2015/02/add-memory-cpu-disk-to-kvm-vm):
+- [Attaching Storage](http://www.thegeekstuff.com/2015/02/add-memory-cpu-disk-to-kvm-vm):
 ```go
   qemu-img create -f raw MyNewDisck.img No.G
   virsh attach-disk GuestName --source /Path/to/MyNewDisck.img --target vdb --persistent
 ```
-
+- Set Ip Static for guest
+   1- One Solution:
+   ```vim
+     virsh net-update default add-last ip-dhcp-host '<host mac="52:54:00:6f:78:f3" ip="192.168.122.222"/>' \
+      --live --config --parent-index 0
+   ```
+   2- Another way: 
+      - find guest mac address with dumpxml command
+      - use `virsh net-edit NetName` and add __<host mac="52:54:00:6f:78:f3" ip="192.168.122.222"/>__ betwen 
+      ```html
+        <dhcp>
+           <range start="2001:db8::1000" end="2001:db8::1fff"/>
+        </dhcp>
+      ```   
+   ```vim
+     
 [top](#top)
