@@ -61,7 +61,15 @@
 - Sharing Folder: to keep more security, we should set chmod ---- and also setfacl, the Kvm user is `qemu`.\
 	if we revoke other user acess, we should have same username userid gourpname and groupid.
 
-
+- mounting:
+   - by command:
+   ```vim
+     mount -t cifs //servername/sharename  /media/windowsshare  username=UserName
+   ```
+   - put it in fstab:
+   ```vim
+     //servername/sharename  /media/windowsshare  cifs  username=UserName,password=Password,iocharset=utf8,sec=ntlm  0  0
+   ```
 
 [Top](#top)
 ###
