@@ -5,6 +5,7 @@
 - [Users](#users)
   - [Change username](#changeusername)
   - [useradd](#useradd)
+  - [usermod](#usermod)
 - [IPV6](#ipv6)
   - [disabling IPv6](#disablingipv6)
 - [VPN Routes](#vpn-routes)
@@ -57,6 +58,15 @@
   -N without Group
   -s specified shell
   -L without loggin permission
+```
+* ###### usermod
+- Change Primary Group:
+```vim
+  usermod -g GroupName UserName
+```
+- Change UserId:
+```vim
+  usermod -u UserId UserName
 ```
 
 [Top](#top)
