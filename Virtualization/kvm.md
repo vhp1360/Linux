@@ -48,7 +48,7 @@
    1. first way: edit the /mnt/grub2/grub.cfg file and add ‘console=ttyS0‘ at the end of every line containing /vmlinuz \
       (the linux kernel).
       
-   2. anotjer way:
+   2. another way:
       - first
         ```vim
           cp /etc/init/tty1.conf /etc/init/ttyS0.conf
