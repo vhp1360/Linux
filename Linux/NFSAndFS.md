@@ -3,6 +3,7 @@
 
 - [GlusterFS](#glusterfs)
 - [Samba](#samba)
+- [ISO](#iso)
 
 
 ### Glusterfs
@@ -70,6 +71,17 @@
    ```vim
      //servername/sharename  /media/windowsshare  cifs  username=UserName,password=Password,iocharset=utf8,sec=ntlm  0  0
    ```
+
+[Top](#top)
+### ISO
+- How to create usb bootable
+```vim
+  fdisk -l <-- to find device assume sdc
+  umount /dev/sdc
+  mkdosfs -I /dev/sdc -F 32
+  isohybrid /path/to/ISO.iso
+  dd if=/path/to/ISO.iso of=/dev/sdc bs=4; sync; eject /dev/sdc
+```
 
 [Top](#top)
 ###
