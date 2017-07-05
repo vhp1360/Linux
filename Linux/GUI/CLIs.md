@@ -22,17 +22,17 @@
   - <kbd>F3</kbd> and <kbd>F4</kbd> scroll left and right through the windows list.
   - <kbd>CTRL</kbd><kbd>+</kbd><kbd>SHIFT</kbd><kbd>+</kbd><kbd>F3</kbd>/<kbd>F4</kbd> moves a window left and right through the windows list.
 ##### Using Panes
-  - <kbd></kbd>F8 renames the current open window in the list.
-  - <kbd></kbd>F7 lets you view scrollback history in the current window.
-  - <kbd></kbd><kbd></kbd><kbd></kbd>SHIFT+F2 creates a horizontal pane; CTRL+F2 creates a vertical one.
-  - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>LEFT</kbd>/<kbd>RIGHT</kbd>/<kbd>UP</kbd>/<kbd>DOWN</kbd> or <kbd>SHIFT</kbd><kbd>+</kbd><kbd>F3</kbd>/<kbd></kbd>F4 switches between panes.
+  - <kbd>F8</kbd> renames the current open window in the list.
+  - <kbd>F7</kbd> lets you view scrollback history in the current window.
+  - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>F2</kbd> creates a horizontal pane; <kbd>CTRL</kbd><kbd>+</kbd><kbd>F2</kbd> creates a vertical one.
+  - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>LEFT</kbd>/<kbd>RIGHT</kbd>/<kbd>UP</kbd>/<kbd>DOWN</kbd> or <kbd>SHIFT</kbd><kbd>+</kbd><kbd>F3</kbd>/<kbd>F4</kbd> switches between panes.
   - <kbd>CTRL</kbd><kbd>+</kbd><kbd>F3</kbd>/<kbd>F4</kbd> moves the current pane up or down, respectively.
   - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>ALT</kbd><kbd>+</kbd><kbd>LEFT</kbd>/<kbd>RIGHT</kbd>/<kbd>UP</kbd>/<kbd>DOWN</kbd> resizes the current pane.
   - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>F11</kbd> toggles a pane to fill the whole window temporarily.
   - <kbd>ALT</kbd>+<kbd></kbd><kbd>F11</kbd> splits a pane into its own new window permanently.
 ##### Using Status Notifications
   - arch shows the system architecture, i.e. x86_64.
-      `battery shows the current battery level (for laptops).
+      `battery` shows the current battery level (for laptops).
   - date shows the current system date.
   - disk shows the current disk space usage.
   - hostname shows the current system hostname.
