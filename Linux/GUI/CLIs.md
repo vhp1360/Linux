@@ -29,7 +29,7 @@
   - <kbd>CTRL</kbd><kbd>+</kbd><kbd>F3</kbd>/<kbd>F4</kbd> moves the current pane up or down, respectively.
   - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>ALT</kbd><kbd>+</kbd><kbd>LEFT</kbd>/<kbd>RIGHT</kbd>/<kbd>UP</kbd>/<kbd>DOWN</kbd> resizes the current pane.
   - <kbd>SHIFT</kbd><kbd>+</kbd><kbd>F11</kbd> toggles a pane to fill the whole window temporarily.
-  - <kbd>ALT</kbd>+<kbd></kbd><kbd>F11</kbd> splits a pane into its own new window permanently.
+  - <kbd>ALT</kbd><kbd>+</kbd><kbd>F11</kbd> splits a pane into its own new window permanently.
 ##### Using Status Notifications
   - arch shows the system architecture, i.e. x86_64.
       `battery` shows the current battery level (for laptops).
@@ -48,5 +48,7 @@
   - whoami shows the currently logged in user.
 aftter *Apply* you may need <kbd>F5</kbd> to refresh
 
+
+[Top](#top)
 
 
