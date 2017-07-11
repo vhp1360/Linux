@@ -6,7 +6,9 @@
 - [PPTPd](#pptpd)
 - [OpenConnect](#openconnect)
 - [Squid](squid)
+- [Cautions](#caution)
 
+[Top](#top)
 ### OpenVPN
 [according this](https://www.unixmen.com/install-openvpn-centos-7/):
 1. `install openvpn easy-rsa`
@@ -107,3 +109,15 @@
 enjoy!
 
 [Top](#top)
+### Cautions
+1. if you tried to run next vpn into existing VpnServer, you should provide NAT and FORWARDING isseus in iptables.
+
+[Top](#top)
+### 
+
+[Top](#top)
+### 
+
+[Top](#top)
+### 
+
