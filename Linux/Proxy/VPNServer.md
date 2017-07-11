@@ -6,7 +6,7 @@
 - [PPTPd](#pptpd)
 - [OpenConnect](#openconnect)
 - [Squid](squid)
-- [Cautions](#caution)
+- [Cautions](#cautions)
 
 [Top](#top)
 ### OpenVPN
