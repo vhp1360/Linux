@@ -258,10 +258,6 @@
   ```vim
     tcpflow   -i Interface -C[Print On Console] -J[Show Coloring] port PortNo
   ```
-  ```vala
-    tcpflow   -i Interface -C[Print On Console] -J[Show Coloring] port PortNo
-  ```
- 
 
 [Top](#top)
 
