@@ -252,6 +252,12 @@
     3. Recursively of Web: `wget -r http://... or ftp://... `
     4. Resumable : `wget -c http://... or ftp://... `
     5. From Files: `wget -i /Path to Text File `
+- ###### tcpflow
+  - Listning on busy port:
+  ```vim
+    tcpflow   -i Interface -C[Print On Console] -J[Show Coloring] port PortNo
+  ```
+ 
 
 [Top](#top)
 
