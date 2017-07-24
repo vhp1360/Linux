@@ -1,3 +1,9 @@
+<html>
+  <head>
+    {% include head.html %}
+    {% seo %}
+  </head>
+</html>
 <div dir="rtl">بنام خدا</div>
 #### Top
 
