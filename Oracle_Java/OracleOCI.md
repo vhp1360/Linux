@@ -1,6 +1,11 @@
-
+<html>
+  <head>
+    {% include head.html %}
+    {% seo %}
+  </head>
+</html>
 <div dir='rtl' align='right'><h1>بنام خدا</h1></div>
-<div dir='rtl' align='right'></div>
+#### installing oracle library withou oracleclient
 
 <div dir='rtl' align='right'>نحوه نصب کتابخانه های لازم پایگاه داده اوراکل بدون نیاز به نصب آن</div>
 
