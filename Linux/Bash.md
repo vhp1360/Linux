@@ -135,7 +135,7 @@
    ```vim
      rsync -zhv SourceFILE Destination/
      rsync -azhv SourceDIR Destination/
-     rsync -azhv [ssh] SourceDir root@IP:/Path
+     rsync -azhv -e 'ssh' SourceDir root@IP:/Path
      rsync -azhv [ssh] root@IP:/SourceDir Dest/
    ```
       1. -a: preserve permissions,attributes,symblinks, and recursion mode. ~ -rlptgoD \
