@@ -1,9 +1,3 @@
-<html>
-  <head>
-    {% include head.html %}
-    {% seo %}
-  </head>
-</html>
 <div dir='rtl' align='right'><h1>بنام خدا</h1></div>
 #### installing oracle library withou oracleclient
 
