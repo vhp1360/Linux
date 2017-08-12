@@ -243,12 +243,9 @@
     IdentityFile ~/.ssh/Host_Private_Key_Name
 ```
 - Save Key Passphrase:
-```vim
-  ssh-agent
-  ssh User@IP
-  ssh-add /Path to Key
-```
-  > may you need ssh to destination before above commands.
+  1. First connect to your remote server.
+  2. in another terminal run `ssh-add` command
+  - may you need check `ssh-agent` app
 
 
 [Top](#top)
