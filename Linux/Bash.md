@@ -438,6 +438,10 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
 ```vim
   sed -n 'Nop' or sed 'No-1q;d'
 ```
+- Remove a Line Containing a pattern:
+ ```vim
+   sed '/Pattern/,+1 d' FileName
+ ```
 
 [Top](#top)
 
