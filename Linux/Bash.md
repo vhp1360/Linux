@@ -440,8 +440,12 @@ $|End of a string.|ing$ matches "exciting" but not "ingenious"
 ```
 - Remove a Line Containing a pattern:
  ```vim
-   sed '/Pattern/,+1 d' FileName
+   sed '/Pattern/d' FileName
  ```
+  - MultiLine
+   ```vim
+     sed '/Pattern/, +5 d' FileName
+   ```
 
 [Top](#top)
 
