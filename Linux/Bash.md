@@ -383,10 +383,10 @@ Operation	|Effect|
 
 
 #### Regex Table
-Character|Meaning|Example
+__Character|Meaning|Example__
 ---|---|---
 \*|Match zero, one or more of the previous|Ah\* matches "Ahhhhh" or "A"
-?|Match zero or one of the previous |Ah? matches "Al" or "Ah"
+?|Match zero or one of the previous but Optional |Ah? matches "Al" or "Ah"
 \+|Match one or more of the previous |Ah+ matches "Ah" or "Ahhh" but not "A"                                       
 \\|Used to escape a special character|Hungry\? matches "Hungry?"                                                   
 \.|Wildcard char,matches any character|do.\* matches "dog", "door", "dot", etc.                                     
@@ -396,6 +396,18 @@ Character|Meaning|Example
 { }|Matches a specified number of<br/>occurrences|[0-9]{3} matches "315" but not "31"<br/>[0-9]{2,4} matches "12", "123", and "1234"<br/>[0-9]{2,} matches "1234567..."                          
 ^|Beginning of a string Or within a<br/>character range [] negation|^http matches strings that begin with http,such as a url<br/>[^0-9] matches any character not 0-9.                   
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
+
+__Shorthand Character Sets__
+Shorthand|Description
+---|---
+.|Any character except new line
+\\w|Matches alphanumeric characters: [a-zA-Z0-9_]
+\\W|Matches non-alphanumeric characters: [^\w]
+\\d|Matches digit: [0-9]
+\\D|Matches non-digit: [^\d]
+\\s|Matches whitespace character: [\t\n\f\r\p{Z}]
+\\S|Matches non-whitespace character: [^\s]
+
 
 [Top](#top)
 
