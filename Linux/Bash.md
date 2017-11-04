@@ -384,9 +384,10 @@ Operation	|Effect|
 
 #### Regex Table
 __Character|Meaning|Example__
+
 ---|---|---
 \*|Match zero, one or more of the previous|Ah\* matches "Ahhhhh" or "A"
-?|Match zero or one of the previous but Optional |Ah? matches "Al" or "Ah"
+?|Match zero or one of the previous but Optional|Ah? matches "Al" or "Ah"
 \+|Match one or more of the previous |Ah+ matches "Ah" or "Ahhh" but not "A"                                       
 \\|Used to escape a special character|Hungry\? matches "Hungry?"                                                   
 \.|Wildcard char,matches any character|do.\* matches "dog", "door", "dot", etc.                                     
@@ -398,6 +399,7 @@ __Character|Meaning|Example__
 $|End of a string.|ing$ matches "exciting" but not "ingenious"
 
 __Shorthand Character Sets__
+
 Shorthand|Description
 ---|---
 .|Any character except new line
@@ -407,7 +409,6 @@ Shorthand|Description
 \\D|Matches non-digit: [^\d]
 \\s|Matches whitespace character: [\t\n\f\r\p{Z}]
 \\S|Matches non-whitespace character: [^\s]
-
 
 [Top](#top)
 
