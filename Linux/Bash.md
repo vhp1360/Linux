@@ -385,6 +385,7 @@ Operation	|Effect|
 
 #### Regex Table
 __First__ [this Site](https://regex101.com/r/dmRygT/1) is very greate for Online REgex Testing.
+
 Character|Meaning|Example
 ---|---|---
 \*|Match zero, one or more of the previous|[Ah\*](#Bash.md) _matches_ "Ahhhhh" or "A"
@@ -427,6 +428,11 @@ __Chanie Patterns followed__
 ```vim
     kill -9 `ps faux | grep Name | awk -F\  '{print $2}''`
 ```
+- Calculate total ram using with App:
+```vim
+  ps faux|grep App| awk '{Sum=+$6} END {print Sum/1024/1024 "G"}'
+```
+
 #### CUT
 
 - return carachters No1 to No2 for each line:
