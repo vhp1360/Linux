@@ -386,7 +386,7 @@ Operation	|Effect|
 #### Regex Table
 Character|Meaning|Example
 ---|---|---
-\*|Match zero, one or more of the previous|[Ah\*](#) matches "Ahhhhh" or "A"
+\*|Match zero, one or more of the previous|[Ah\*]() matches "Ahhhhh" or "A"
 ?|Match zero or one of the previous but Optional|Ah? matches "Al" or "Ah"
 \+|Match one or more of the previous |Ah+ matches "Ah" or "Ahhh" but not "A"                                       
 \\\|Used to escape a special character|Hungry\\? matches "Hungry?"                                                   
