@@ -384,7 +384,6 @@ Operation	|Effect|
 
 #### Regex Table
 __Character|Meaning|Example__
-
 ---|---|---
 \*|Match zero, one or more of the previous|Ah\* matches "Ahhhhh" or "A"
 ?|Match zero or one of the previous but Optional|Ah? matches "Al" or "Ah"
