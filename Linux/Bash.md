@@ -385,14 +385,14 @@ Operation	|Effect|
 
 
 #### Regex Table
-__First__ [this Site](https://regex101.com/r/dmRygT/1) is very greate for Online REgex Testing.
+__First__ [this Site](https://regex101.com/) is very greate for Online REgex Testing.
 
 Character|Meaning|Example
 ---|---|---
 \*|Match zero, one or more of the previous|[Ah\*](#Bash.md) _matches_ "Ahhhhh" or "A"
 ?|Match zero or one of the previous but Optional|[Ah?](#Bash.md) _matches_ "Al" or "Ah"
 \+|Match one or more of the previous |[Ah+](#Bash.md) _matches_ "Ah" or "Ahhh" but not "A"                                       
-\\\|Used to escape a special character|[Hungry\\?](#Bash.md) _matches_ "Hungry?"                                                   
+\\ |Used to escape a special character|[Hungry\\?](#Bash.md) _matches_ "Hungry?"                                                   
 \.|Wildcard char,matches any character|[do.\*](#Bash.md) _matches_ "dog", "door", "dot", etc.                                     
 ( )|Group characters and preserver sequences|(abc) _mathces_ [abc](#Bash.md) asdf bwefd cwef esr[abc](#Bash.md)ftuj.                                                                             
 [ ]|Matches a range of characters|[[cbf]ar](#Bash.md) _matches_ "car", "bar", or "far"<br/>[0-9]+ matches any positive integer<br/>[[a-zA-Z]](#Bash.md) _matches_ ascii letters a-z (UP and LO case)<br/>[[^0-9]](#Bash.md) _matches_ any character not 0-9.                                        
@@ -402,8 +402,8 @@ Character|Meaning|Example
 $|End of a string.|[ing$](#Bash.md) _matches_ "exciting" but not "ingenious"
 ?=|Positive Lookahead<br/>When you look a pattern that followed by some patterns|[(\w\+\|\d\+)his\s(?=Followed)](#Bash.md) _matches_ with [This](#) Followed but This one is not.
 ?!|Negative Lookahead<br/> Opposite of abive|[(\w\+\|\d\+)his\s(?=Followed)](#Bash.md) _matches_ with This Followed but [This](#) one is not.
-?<=|Positive Lookbehind<br/> Like Positive Lookahead but we looking for second pattern|(?<=(\w{1}|\d{1})his)\s(Followed) _matches_ This [Followed](#Bash.md) but " Followed " word not and this.
-?<!|Negative Lookbehind<br/> Like Positive Lookahead but we looking for second pattern|(?<!(\w{1}|\d{1})his)\s(Followed) _mathches_ This Followed but " [Followed](#Bash.md) " word not and this .
+?<=|Positive Lookbehind<br/> Like Positive Lookahead but we looking for second pattern|(?<=(\w{1}\|\d{1})his)\s(Followed) _matches_ This [Followed](#Bash.md) but " Followed " word not and this.
+?<!|Negative Lookbehind<br/> Like Positive Lookahead but we looking for second pattern|(?<!(\w{1}\|\d{1})his)\s(Followed) _mathches_ This Followed but " [Followed](#Bash.md) " word not and this .
 
 
 __Shorthand Character Sets__
