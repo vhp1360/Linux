@@ -33,6 +33,7 @@
   -  [CUT](#cut)
   -  [SED](#sed)
 - [Unicode](#unicode)
+  - [Convert to Ascii](#convrt-to-ascii)
   - [Convert to each Other](#convert-to-each-other)
   
 
@@ -489,9 +490,10 @@ __Chanie Patterns followed__
 [Top](#top)
 
 ### Unicode
+- [Convert to Ascii](#convrt-to-ascii)
 - [Convert to each other](#convert-to-each-other)
 
-###### native2ascii
+###### Convert to Ascii
 this command will convert FIn to FOut from FirstCoding to ascii:
 ```vim
   native2ascii -encoding FiratCoding -reverse FIn FOut
