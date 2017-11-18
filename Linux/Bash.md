@@ -12,6 +12,7 @@
 - [VPN Routes](#vpn-routes)
 - [Partitioning](#partitioning)
   - [Parted](#parted)
+  - [dd](#dd)
 - [Files Operating](#files-operating)
   - [rsync](#rsync)
   - [find](#find)
@@ -31,6 +32,9 @@
   -  [AWK](#awk)
   -  [CUT](#cut)
   -  [SED](#sed)
+- [Unicode](#unicode)
+  - [Convert to each Other](#convert-to-each-other)
+  
 
 [top](#top)
 ##### Jobs
@@ -102,8 +106,8 @@
 
 [Top](#top)
 ### Partitioning
-- ###### [Parted](#parted)
-
+- [Parted](#parted)
+- [dd](#dd)
 
 ###### Parted
 - add partition to existing free space(may raid) :
@@ -113,7 +117,13 @@
   4. `mkpart`  --> and go ahead and answer questions.
   5. `quit` --> goback to __bash__ mode.
   6. `mkfs. ... NewPartitionName`
-  
+[Top](#top)
+###### dd
+- create bootable usb:
+```vim
+  dd if=/Path/to/Image.iso of=/dev/sdx oflag=direct  bs=1048576 && sync
+```
+
 
 [Top](#top)
 #### Files Operating
@@ -476,6 +486,16 @@ __Chanie Patterns followed__
    ```vim
      sed '/Pattern/, +5 d' FileName
    ```
-
 [Top](#top)
+
+### Unicode
+- [Convert to each other](#convert-to-each-other)
+
+###### native2ascii
+this command will convert FIn to FOut from FirstCoding to ascii:
+```vim
+  native2ascii -encoding FiratCoding -reverse FIn FOut
+```
+[Top](#top)
+
 
