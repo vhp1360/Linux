@@ -490,7 +490,7 @@ __Chanie Patterns followed__
 [Top](#top)
 
 ### Unicode
-- [Convert to Ascii](#convrt-to-ascii)
+- [Convert to Ascii](#convert-to-ascii)
 - [Convert to each other](#convert-to-each-other)
 
 ###### Convert to Ascii
