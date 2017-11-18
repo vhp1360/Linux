@@ -33,7 +33,7 @@
   -  [CUT](#cut)
   -  [SED](#sed)
 - [Unicode](#unicode)
-  - [Convert to Ascii](#convrt-to-ascii)
+  - [Convert to Ascii](#convert-to-ascii)
   - [Convert to each Other](#convert-to-each-other)
   
 
