@@ -45,7 +45,7 @@
    - check _/etc/openvpn/easy-rsa/vars_ file and change as needed:
      - uncomment export KEY_CN
    - Now
-     ```bash
+     ```vim
        cp /etc/openvpn/easy-rsa/openssl-1.0.0.cnf /etc/openvpn/easy-rsa/openssl.cnf
        cd /etc/openvpn/easy-rsa
        source ./vars
@@ -55,7 +55,7 @@
        ./build-dh
      ```
 4. generating Client Keys:
-   ```go
+   ```vim
      cd /etc/openvpn/easy-rsa/keys
      cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
      cd /etc/openvpn/easy-rsa
@@ -64,7 +64,7 @@
 5. Iptables Configs and ip forwarding:
    - in nat table `-A POSTROUTING -s 192.110.96.0/24 -o enp4s0 -j MASQUERADE`
    - in filter table:
-     ```bash
+     ```vim
        -A INPUT -p tcp -m tcp -m state --state NEW --dport 1194 -j ACCEPT
        -A INPUT -i tun0 -j ACCEPT
        -A FORWARD -i tun0 -o enp4s0 -j ACCEPT
