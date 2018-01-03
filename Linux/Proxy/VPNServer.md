@@ -66,7 +66,6 @@
    - in filter table:
      ```vim
        -A INPUT -p tcp -m tcp -m state --state NEW --dport 1194 -j ACCEPT
-       -A INPUT -i tun0 -j ACCEPT
        -A FORWARD -i tun0 -o enp4s0 -j ACCEPT
        -A FORWARD -i enp4s0 -o tun0 -j ACCEPT
      ```
