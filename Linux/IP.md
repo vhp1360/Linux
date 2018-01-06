@@ -6,7 +6,8 @@
 - [NetWork Commands](#network-commands)
 - [IPTables](#iptables)
   - [IPTables Structure](#iptables-structure)
-  - [Creating Seperate Log File](#creating-seperate-log-file)
+  - [Make a Secure IPTables](#make-a-secure-iptables)
+  - [Logs and Creating Seperate Log File](#logs-and-creating-seperate-log-file)
 - [dealing IP](#dealing-ip)
   - [Disabling IPV6](#disabling-ipv6)
   
@@ -64,37 +65,8 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
       - DNAT: A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
 
 
-
-- Privent Ports Scan
-```vim
-  iptables -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
-  iptables -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
-```
-- Logs: Followed by a level number or name. Valid names are (case-insensitive) __debug__, __info__, __notice__, __warning__, __err__,
-        __crit__, __alert__ and __emerg__, corresponding to numbers 7 through 0
-  - to change log file save name 
-    1. 
-    ```vim
-      echo "kern.warning /var/log/iptables.log">>/etc/syslog.conf
-    ```
-    2. 
-    ```vim
-      service rsyslog restart
-    ```
-  - simple : `iptables -A INPUT -j LOG`
-  - next example : `iptables -A INPUT -s a.a.a.a -j LOG --log-prefix 'Source a.a.a.a **' --log-level 6`
-  - to prevent flooding log file, limit log line per 5 minutes for 7 bursts
-  ```vim
-    iptables -A INPUT -s a.a.a.a -m limit --limit 5/m --limit-burst 7 -j LOG --log-prefix \
-    'Source a.a.a.a **' --log-level 6
-  ```
-  - after logging you should tell iptables to what does do: `iptables -A INPUT -s a.a.a.a -j DROP`
- - connlimit:
-  - limit number of ssh connection:
-  ```vim
-    iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT
-  ```
 [top](#top)
+
 ###NetWork Commands
 - NetCat
   - scan ports: `nc -zv IP 1-56555`
@@ -154,43 +126,77 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 ```
 [Top](#top)
 
-### Creating Seperate Log File(#creating-seperate-log-file)
-- in CentOS
+### Make a Secure IPTables
+- Privent Ports Scan
 ```vim
-    cat << EOF > /etc/rsyslog.d/iptables.conf
-    :msg, contains, "iptables" -/var/log/iptables.log
-    &~
-    __EOF__
-    # Prepare file and manage Permission
-    touch /var/log/iptables.log
-    chown root:root /var/log/iptables.log
-    chmod 600 /var/log/iptables.log
-    # Finnally Config log rotate
-    service rsyslog reload
-    cat << EOF > /etc/logrotate.d/iptables
-    /var/log/iptables.log
-    {
-      rotate 7
-      daily
-      missingok
-      notifempty
-      delaycompress
-      compress
-      postrotate
-        /sbin/service rsyslog reload 2>&1 || true
-      endscript
-    }
-    EOF
+  iptables -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
+  iptables -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
-- Ubuntu:
-```vim
-  cat << EOF > /etc/rsyslog.d/10-iptables.conf
-  :msg, contains, "iptables: " -/var/log/iptables.log
-  & ~
-  EOF
-  service rsyslog restart
-  
-```
+- connlimit:
+  - limit number of ssh connection:
+  ```vim
+    iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT
+  ```
+ 
+[Top](#top)
+
+### Logs And Creating Seperate Log File
+- Logs: Followed by a level number or name. Valid names are (case-insensitive) :
+  __debug__, __info__, __notice__, __warning__, __err__,__crit__, __alert__ and __emerg__, 
+  corresponding to numbers 7 through 0
+  - to change log file save name:
+    - One Way:
+    ```vim
+      echo "kern.warning /var/log/iptables.log">>/etc/syslog.conf
+      service rsyslog restart
+    ```
+    - Second Way:
+      - in CentOS
+      ```vim
+          cat << EOF > /etc/rsyslog.d/iptables.conf
+          :msg, contains, "iptables" -/var/log/iptables.log
+          &~
+          __EOF__
+          # Prepare file and manage Permission
+          touch /var/log/iptables.log
+          chown root:root /var/log/iptables.log
+          chmod 600 /var/log/iptables.log
+          # Finnally Config log rotate
+          service rsyslog reload
+          cat << EOF > /etc/logrotate.d/iptables
+          /var/log/iptables.log
+          {
+            rotate 7
+            daily
+            missingok
+            notifempty
+            delaycompress
+            compress
+            postrotate
+              /sbin/service rsyslog reload 2>&1 || true
+            endscript
+          }
+          EOF
+      ```
+      - Ubuntu:
+      ```vim
+        cat << EOF > /etc/rsyslog.d/10-iptables.conf
+        :msg, contains, "iptables: " -/var/log/iptables.log
+        & ~
+        EOF
+        service rsyslog restart
+      
+      ```
+  - Generating Logs:
+    - simple : `iptables -A INPUT -j LOG`
+    - next example : `iptables -A INPUT -s a.a.a.a -j LOG --log-prefix 'Source a.a.a.a **' --log-level 6`
+    - to prevent flooding log file, limit log line per 5 minutes for 7 bursts
+    ```vim
+      iptables -A INPUT -s a.a.a.a -m limit --limit 5/m --limit-burst 7 -j LOG --log-prefix \
+      'Source a.a.a.a **' --log-level 6
+    ```
+    
+
 
 ### dealing IP
   - [Disabling IPV6](#disabling-ipv6)
