@@ -195,6 +195,15 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
       iptables -A INPUT -s a.a.a.a -m limit --limit 5/m --limit-burst 7 -j LOG --log-prefix \
       'Source a.a.a.a **' --log-level 6
     ```
+    - Logs everything:
+    ```vim
+      iptables -I INPUT 1 -j LOG
+      iptables -I FORWARD 1 -j LOG
+      iptables -I OUTPUT 1 -j LOG
+      iptables -t nat -I PREROUTING 1 -j LOG
+      iptables -t nat -I POSTROUTING 1 -j LOG
+      iptables -t nat -I OUTPUT 1 -j LOG
+    ```
     
 
 
