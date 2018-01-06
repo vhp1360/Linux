@@ -70,7 +70,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 [top](#top)
 
 ### NetWork Commands
-- [NetCat](#netcat)
+###### NetCat
   - scan ports: `nc -zv IP 1-56555`
   - listen to the port : `nc -lk IP port`
   - live Send to the port: nc -n IP port
@@ -82,7 +82,19 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   ```go
     ssh -f -L 233:127.0.0.1:33 me@IP sleep 10;nc localhost 233 | pv -b > backup.iso
   ```
-- Tcpdump
+###### Tcpdump
+```vim
+  tcpdump -D              --> List of available NICs
+  tcpdump -i NICName      --> Monitor a NIC
+  tcpdump -c 8 -i NICName --> Limit Number of packets
+  tcpdump -A              --> Print packets is ASCII
+  tcpdump -XX             --> Display in HEX too
+  tcpdump -n              --> Capture IP
+  tcpdump ProtocolName    --> Capture Only this Protocol
+  tcpdump src/dst IP      --> Log Only Packets from this IP Source/Destination
+  
+```
+
 
 [top](#top)
 ## IPTables
