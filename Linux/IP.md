@@ -70,7 +70,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 [top](#top)
 
 ### NetWork Commands
-- NetCat
+- [NetCat](#netcat)
   - scan ports: `nc -zv IP 1-56555`
   - listen to the port : `nc -lk IP port`
   - live Send to the port: nc -n IP port
