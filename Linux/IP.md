@@ -4,6 +4,8 @@
 
 - [Packet Traveling](#packet-traveling)
 - [NetWork Commands](#network-commands)
+  - [NetCat](#netcat)
+  - [tcpdump](#tcpdump)
 - [IPTables](#iptables)
   - [IPTables Structure](#iptables-structure)
   - [Make a Secure IPTables](#make-a-secure-iptables)
@@ -67,7 +69,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 
 [top](#top)
 
-###NetWork Commands
+### NetWork Commands
 - NetCat
   - scan ports: `nc -zv IP 1-56555`
   - listen to the port : `nc -lk IP port`
@@ -80,6 +82,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   ```go
     ssh -f -L 233:127.0.0.1:33 me@IP sleep 10;nc localhost 233 | pv -b > backup.iso
   ```
+- Tcpdump
 
 [top](#top)
 ## IPTables
