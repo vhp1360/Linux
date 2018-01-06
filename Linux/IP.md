@@ -4,7 +4,9 @@
 
 - [Packet Traveling](#packet-traveling)
 - [NetWork Commands](#network-commands)
-- [IPTables Structure](#iptables-structure)
+- [IPTables](#iptables)
+  - [IPTables Structure](#iptables-structure)
+  - [Creating Seperate Log File](#creating-seperate-log-file)
 - [dealing IP](#dealing-ip)
   - [Disabling IPV6](#disabling-ipv6)
   
@@ -108,7 +110,8 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   ```
 
 [top](#top)
-###IPTables Structure
+## IPTables
+### IPTables Structure
 1. CentOS
 
 2. Ubuntu
@@ -150,6 +153,44 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
  COMMIT
 ```
 [Top](#top)
+
+### Creating Seperate Log File(#creating-seperate-log-file)
+- in CentOS
+```vim
+    cat << EOF > /etc/rsyslog.d/iptables.conf
+    :msg, contains, "iptables" -/var/log/iptables.log
+    &~
+    __EOF__
+    # Prepare file and manage Permission
+    touch /var/log/iptables.log
+    chown root:root /var/log/iptables.log
+    chmod 600 /var/log/iptables.log
+    # Finnally Config log rotate
+    service rsyslog reload
+    cat << EOF > /etc/logrotate.d/iptables
+    /var/log/iptables.log
+    {
+      rotate 7
+      daily
+      missingok
+      notifempty
+      delaycompress
+      compress
+      postrotate
+        /sbin/service rsyslog reload 2>&1 || true
+      endscript
+    }
+    EOF
+```
+- Ubuntu:
+```vim
+  cat << EOF > /etc/rsyslog.d/10-iptables.conf
+  :msg, contains, "iptables: " -/var/log/iptables.log
+  & ~
+  EOF
+  service rsyslog restart
+  
+```
 
 ### dealing IP
   - [Disabling IPV6](#disabling-ipv6)
