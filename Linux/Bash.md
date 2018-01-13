@@ -477,7 +477,11 @@ __Chanie Patterns followed__
 ```
 - No.th Line:
 ```vim
-  sed -n 'Nop' or sed 'No-1q;d'
+  sed -n 'No.p' or sed 'No.-1q;d' FileName
+```
+- Multiple Line:
+```vala
+  sed -n 'No1.,No2p' FileName
 ```
 - Remove a Line Containing a pattern:
  ```vim
