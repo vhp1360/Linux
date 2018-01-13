@@ -77,64 +77,96 @@
    ```
    
 ### VSFTP
-1-
+
+1. First:
 ```vim
 	yum install vsftpd
 	cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.default
 ```
-2- two type of installation:
-
-	1- Without Anonymouse User:
+2. two type of installation:
 	
-	```vim
-		anonymous_enable=NO       	# disable  anonymous login
-		local_enable=YES						# permit local logins
-		write_enable=YES						# enable FTP commands which change the filesystem
-		local_umask=022		     			# value of umask for file creation for local users
-		dirmessage_enable=YES	  		# enable showing of messages when users first enter a new directory
-		xferlog_enable=YES					# a log file will be maintained detailing uploads and downloads
-		connect_from_port_20=YES  	# use port 20 (ftp-data) on the server machine for PORT style connections
-		xferlog_std_format=YES    	# keep standard log file format
-		listen=YES   								# only one of listen or listen_ipv6 sould uncommented ,this for running in standalone mode
-		listen_ipv6=YES		        	# vsftpd will listen on an IPv6 socket instead of an IPv4 one
-		pam_service_name=vsftpd   	# name of the PAM service vsftpd will use
-		userlist_enable=YES  	    	# enable vsftpd to load a list of usernames
-		tcp_wrappers=YES  					# turn on tcp wrappers
-		chroot_local_user=YES				# for OS user this only loging users to their home and they have regulare access like SSH
-		allow_writeable_chroot=YES	#		
-		ssl_enable=YES							# more secure and we use this, when try connect from terminal we should use 'sftp' command
-		ssl_tlsv1_2=YES
-		ssl_sslv2=NO
-		ssl_sslv3=NO
-		allow_anon_ssl=NO
-		force_local_data_ssl=YES
-		force_local_logins_ssl=YES
-		require_ssl_reuse=NO
-		ssl_ciphers=HIGH
-		debug_ssl=YES
-		rsa_cert_file=/Path/vsftpd.pem
-		rsa_private_key_file=/Path/vsftpd.pem
-		pasv_min_port=40000					# to active passive mode
-		pasv_max_port=50000
-	```
-	- if you'd like restrict all user from _ftp_ you:
-	```vim
-		userlist_enable=YES                   # vsftpd will load a list of usernames, from the filename given by userlist_file
-		userlist_file=/etc/vsftpd.userlist    # stores usernames.
-		userlist_deny=NO	
-	```
-	- SELinux:
-	```vim
-		setsebool -P ftp_home_dir on								# in redhat before 7
-		setsebool -P tftp_home_dir on								# in redhat 7
-		semanage boolean -m ftpd_full_access --on
-	```
-	- IPTables:
-	```vim
-		-A INPUT -p tcp -m tcp -m state --state NEW -m nultiport --dports 20,21 -j ACCEPT
+	1. Without Anonymouse User:
+		- vim /etc/vsftpd/vsftpd.conf
+		```vala
+			anonymous_enable=NO # disable  anonymous login
+			local_enable=YES	# permit local logins
+			write_enable=YES	# enable FTP commands which change the filesystem
+			local_umask=022		# value of umask for file creation for local users
+			dirmessage_enable=YES	# enable showing of messages when users first enter a new directory
+			xferlog_enable=YES	# a log file will be maintained detailing uploads and downloads
+			connect_from_port_20=YES # use port 20 (ftp-data) on the server machine for PORT style connections
+			xferlog_std_format=YES # keep standard log file format
+			listen=YES # only one of listen or listen_ipv6 sould uncommented ,this for running in standalone mode
+			listen_ipv6=YES	# vsftpd will listen on an IPv6 socket instead of an IPv4 one
+			pam_service_name=vsftpd # name of the PAM service vsftpd will use
+			userlist_enable=YES # enable vsftpd to load a list of usernames
+			tcp_wrappers=YES # turn on tcp wrappers
+			chroot_local_user=YES # for OS user this only loging users to their home and they have regulare access like SSH
+			allow_writeable_chroot=YES		
+			secure_chroot_dir=/var/run/vsftpd
+			######################################
+			ssl_enable=YES	# more secure and we use this, when try connect from terminal we should use 'sftp' command
+			ssl_tlsv1_2=YES
+			ssl_sslv2=NO
+			ssl_sslv3=NO
+			allow_anon_ssl=NO
+			force_local_data_ssl=YES
+			force_local_logins_ssl=YES
+			require_ssl_reuse=NO
+			ssl_ciphers=HIGH
+			debug_ssl=YES
+			rsa_cert_file=/Path/vsftpd.pem
+			rsa_private_key_file=/Path/vsftpd.pem
+			#######################################
+			pasv_min_port=40000 # to active passive mode
+			pasv_max_port=50000
+		```
+		* if you'd like restrict all user from _ftp_ you:
+			1. in Redhat Base: in /etc/sshd_config
+			```vala
+				Subsystem sftpGroup internal-sftp
+				Match Group sftpgroup
+				ChrootDirectory /home
+				ForceCommand internal-sftp
+				X11Forwarding no
+				AllowTcpForwarding no				
+			```			
+			2. in Debian Base: in /etc/vsftpd/vsftpd.conf
+			```vala
+				userlist_enable=YES # vsftpd will load a list of usernames, from the filename given by userlist_file
+				userlist_file=/etc/vsftpd.userlist # stores usernames.
+				userlist_deny=NO	
+			```
+		- SELinux:
+		```vim
+			setsebool -P ftp_home_dir on								# in redhat before 7
+			setsebool -P tftp_home_dir on								# in redhat 7
+			semanage boolean -m ftpd_full_access --on
+		```
+		- IPTables:
+		```vala
+			-A INPUT -p tcp -m tcp -m state --state NEW -m nultiport --dports 20,21 -j ACCEPT
+		```
+	
+	2. With different user home directory:
+		- vim /etc/vsftpd/vsftpd.conf
+		```vala
+			allow_writeable_chroot=NO
+			user_sub_token=$USER         			# inserts the username in the local root directory 
+			local\_root=/PathToNewHome/$USER   # defines any users local root directory
+		```
+		- Create Related Homes and assignes Permission
+		```vala
+			mkdir /PatjNewHome/USerName
+			chown UserName:UserName /PatjNewHome/USerName
+			chmod 0700 /PatjNewHome/USerName
+		```
+	3. Bind Another File to User Home:
+	```vala
+		mkdir /home/UserName/BundlePath
+		mount --bind /Path/BundlePath /home/UserName/BundlePath
 	```
 	
-	2/2-
 	
 [Top](#top)
 # Files System
