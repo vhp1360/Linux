@@ -73,7 +73,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
 ###### NetCat
   - scan ports: `nc -zv IP 1-56555`
   - listen to the port : `nc -lk IP port`
-  - live Send to the port: nc -n IP port
+  - live Send to the port: `nc -n IP port`
   - Send file: `nc IP Port < File`
   - Save reciver in File: `nc -l Port > File`
   - make simple server: `while true; do nc -l 8888 < index.html; done` & simply browse with `http://localhost:8888`
@@ -92,6 +92,7 @@ nat(SNAT)||:white_check_mark:|||:white_check_mark:|
   tcpdump -n              --> Capture IP
   tcpdump ProtocolName    --> Capture Only this Protocol
   tcpdump src/dst IP      --> Log Only Packets from this IP Source/Destination
+  tcpdump port No.        --> Sniff used port
   
 ```
 
