@@ -246,8 +246,9 @@
   2. in another terminal run `ssh-add` command
   - may you need check `ssh-agent` app
 - Scape SSH without disconnecting:
-  - type <kbd>\~<kbd> and press <kbd>Ctrl<kbd><kbd>Z<kbd>, it take you back to your local.
+  - type <kbd>\~</kbd> and press <kbd>Ctrl<kbd/><kbd>Z</kbd>, it take you back to your local.
   - for return to _ssh_ check the _jobs_ in your terminal :smile:
+
 
 [Top](#top)
 # Access List
