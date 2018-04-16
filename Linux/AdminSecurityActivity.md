@@ -5,7 +5,6 @@
   </head>
 </html>
 <div dir="rtl">بنام خدا</div>
-#### Top
 
 - [Who Login](#who-login)
 - [Some Logs](#some-logs)
@@ -22,7 +21,7 @@
 
 
 [Top](#top)  
-#### Who Login
+# Who Login
 - who: who connected.
 - w: who are connected and what is last command
 - last: last commands for each users
@@ -30,7 +29,7 @@
 - cat /var/log/messages
 
 [Top](#top)
-#### Some Commands
+# Some Commands
 - psacct
  ```vim
    ac -d -p username
@@ -54,7 +53,7 @@
  ```
   
 [Top](#top)
-#### Audit Issues
+# Audit Issues
 - Configuring Audit:
  - num_logs=No.
  - max_log_file = No. --> in MB
@@ -97,7 +96,7 @@
  
 
 [Top](#top)
-#### Certified Issues
+# Certified Issues
 - generate Cert
   ```vim
     openssl genrsa -des3 -out server.key 1024
@@ -113,7 +112,7 @@
 > [to check the security of certificate](https://shaaaaaaaaaaaaa.com/)
 
 [Top](#top)
-#### SeLinux
+# SeLinux
   - Note:
     + SELinux Access Control : 1-Type Enforcement (TE) 2-Role-Based Access Control (RBAC) 3-Multi-Level Security (MLS)
     + ls -Z --> user:role:type:mls
@@ -166,7 +165,7 @@
   
   
 [Top](#top)
-#### Fail2Ban:
+# Fail2Ban:
   - Default:bantime,maxretry,enabled,banaction,action
   - [ssh _d_]:filter,port,maxretry 
   - [...]: filter=[...]
@@ -187,7 +186,7 @@
   2. `fail2ban-client set YOURJAILNAMEHERE unbanip IPADDRESSHERE`
   
 [Top](#top)
-#### Are you Under Attack
+# Are you Under Attack
 - DDoS Attack : 
 ```vim
   netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort
@@ -209,10 +208,10 @@
   netstat -nap | grep SYN
 ```
 
-[Top](#top)
-#### SSH
+[top](#top)
+# SSH
 - sshd_config:
- - Port:
+ - Port: _must Change it_
  - PermitRootLogin yes|no
  - AuthenticationMethods "publickey,password" "publickey,keyboard-interactive"
  - RSAAuthentication yes
@@ -226,8 +225,8 @@
      AuthenticationMethodes 
  ```
 - Key:
- 1. ssh-keygen -t RSA
- 2. ssh-copy-id -i PathToSSHKey User@Server
+ 1. `ssh-keygen -t RSA`
+ 2. `ssh-copy-id -i PathToSSHKey User@Server`
 - ssh_config
  - Special Host:
  ```vim
@@ -246,10 +245,12 @@
   1. First connect to your remote server.
   2. in another terminal run `ssh-add` command
   - may you need check `ssh-agent` app
-
+- Scape SSH without disconnecting:
+  - type <kbd>\~<kbd> and press <kbd>Ctrl<kbd><kbd>Z<kbd>, it take you back to your local.
+  - for return to _ssh_ check the _jobs_ in your terminal :smile:
 
 [Top](#top)
-#### Access List
+# Access List
 
 the package is acl : `yum -y install acl`
 1. get the Access List:
@@ -307,7 +308,7 @@ the Output like
 ```
 
 [Top](#top)
-### Encrypt and Decrypt Files
+# Encrypt and Decrypt Files
 - ###### Gpg: 
 ```vim
   gpg -c FileName -> Create Encrypted file with Passphrase
@@ -316,7 +317,7 @@ the Output like
 ```
 
 [Top](#top)
-#### 
+# 
 <div dir="rtl"></div>
 <div dir="rtl"></div>
 <div dir="rtl"></div>
