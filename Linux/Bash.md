@@ -1,7 +1,6 @@
 <div dir="rtl">بنام خدا</div>
 
-##### top
-
+- [Enviroments](#enviroments)
 - [Jobs](#jobs)
 - [Users](#users)
   - [Change username](#changeusername)
@@ -36,9 +35,22 @@
   - [Convert to Ascii](#convert-to-ascii)
   - [Convert to each Other](#convert-to-each-other)
   
+# Enviroments  
+### PATH
+you know it.
+### CDPATH
+like [PATH](#path) just for _`cd`_ command.
+```vim
+  CDPATH=/etc:/var:...
+```
+### mkdir and cd to that
+use below code in your bash file
+```vim
+  mkcd() { mkdir -p "$@" && cd "$@" }
+```
 
 [top](#top)
-##### Jobs
+# Jobs
 - \& :
 - fg :
 - bg :
@@ -46,8 +58,8 @@
   `run command`,<kbd>Ctrl</kbd><kbd>Z</kbd>,`disown -h Job-ID`
 
 [Top](#top)
-##### Users
-* ###### Change username:
+# Users
+* ### Change username:
  - becare first find OldName user and group ID.
 ```vim
   usermod -l NewName OldName
@@ -56,7 +68,7 @@
   find / -group OldGroupID -exec chgrp -h NewName {} \;
   find / -user OldUserID -exec chown -h Newname {} \;
 ```
-* ###### useradd
+* ### useradd
 ```vim
   -e Account Expir Date
   -f Password Expire
@@ -66,7 +78,7 @@
   -s specified shell
   -L without loggin permission
 ```
-* ###### usermod
+* ### usermod
 - Change Primary Group:
 ```vim
   usermod -g GroupName UserName
@@ -77,8 +89,9 @@
 ```
 
 [Top](#top)
-##### IPv6
-* ###### disabling IPv6
+
+# IPv6
+* ### disabling IPv6
 ```vim
   vim /etc/sysctl.conf
   net.ipv6.conf.all.disable_ipv6 = 1
@@ -86,10 +99,10 @@
   sysctl -p
 ```
 
-
 [Top](#top)
-##### VPN Routes
-* ###### [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
+
+# VPN Routes
+* ### [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
  + Public IP is 50.1.2.3
  +  Public IP Subnet is 50.1.2.0/24
  +  Default Gateway is x.x.x.1
@@ -99,18 +112,19 @@
   ip route add table 128 to 50.1.2.0/24 dev eth0
   ip route add table 128 default via x.x.x.1
 ```
-* ###### Scans
+* ### Scans
 ```vim
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --set
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
 
 [Top](#top)
-### Partitioning
+
+# Partitioning
 - [Parted](#parted)
 - [dd](#dd)
 
-###### Parted
+### Parted
 - add partition to existing free space(may raid) :
   1. `# parted` --> so you intered in (parted) mode.
   2. `select /dev/md100` --> inside of disk.
@@ -119,7 +133,7 @@
   5. `quit` --> goback to __bash__ mode.
   6. `mkfs. ... NewPartitionName`
 [Top](#top)
-###### dd
+### dd
 - create bootable usb:
 ```vim
   dd if=/Path/to/Image.iso of=/dev/sdx oflag=direct  bs=1048576 && sync
@@ -127,11 +141,11 @@
 
 
 [Top](#top)
-#### Files Operating
+# Files Operating
 - [rsync](#rsync)
 - [find](#find)
 
-###### rsync:
+### rsync:
 ```vim
   rsync -a(~r(recusrsive)l(link)p(permission)o(owner)t(time modify)g(group)D(device,specials) -z(compress) \
   -h(human) -v(verbose) --include --exclude --remove-source-files --delete -u(updated) -d(sync directory) \
@@ -216,7 +230,7 @@
    ```vim
      rsync -azvh -W ...
    ```
-###### find
+### find
 ```vim
   find multiple paths -name "Pattern" -type Type  -not -name "Pattern" -exec SomeCommands {} SomeCommands \;
 ```
@@ -248,12 +262,12 @@
  ```
  
 [Top](#top)
-#### NetWork
+# NetWork
 - ###### ncat
   - to send data on machine port and listening.
     1. listening: `nc -l PortNo.`
     2. sending: `cat File | nc IP PortNo.`
-- ###### wget
+- ### wget
   - to download
     1. simple code: `wget http:/.... or ftp://... `
     2. Username&Pass: 
@@ -265,16 +279,14 @@
     3. Recursively of Web: `wget -r http://... or ftp://... `
     4. Resumable : `wget -c http://... or ftp://... `
     5. From Files: `wget -i /Path to Text File `
-- ###### tcpflow
+- ### tcpflow
   - Listning on busy port:
   ```vim
     tcpflow   -i Interface -C[Print On Console] -J[Show Coloring] port PortNo
   ```
 
 [Top](#top)
-
-
-### Scripting
+# Scripting
 - [Logging](#logging)
 - [Variable](#variable)
 - [Input Prameters](#input-parameters)
@@ -282,7 +294,7 @@
 - [Conditional](#conditional)
 
 [Top](#top)
-#### Logging
+### Logging
 - generate log of output:
 ```vim
   exec 3>&1 4>&2
@@ -291,7 +303,7 @@
 ```
 
 [Top](#top)
-#### Varisable
+### Varisable
 - define variable: `Var=Value` <-- be care _No Space_
 - defualt value for variable: `[ "$Var" == "" ] && Var=DefaultValue`
 - Variable dealing:
@@ -300,7 +312,7 @@
 
 
 [Top](#top)
-#### Input Parameters
+### Input Parameters
 - input Parameter : `Par1=$1` , ... <-- be care _No Space_
 - input arguments:
  - `$@` : a list of all input arguments
@@ -308,12 +320,12 @@
 
 
 [Top](#top)
-#### Array
+### Array
 - String to array: `IFS='sep' read -ra ListName <<< $1`
 - Length of Array: `${#ArrayName[@]}`
   
 [Top](#top)
-#### Loop
+### Loop
 - Loop:
   - for:
   ```sh
@@ -322,7 +334,7 @@
     for ((i=0;i<No.;i++));do ...;done
   ```
 [Top](#top)
-#### Conditional
+### Conditional
 - if : structure is:
 ```vim
   if [ cluase ] 
@@ -384,10 +396,10 @@ Operation	|Effect|
 [ EXPR1 -o EXPR2 ]	|True if either EXPR1 or EXPR2 is true.|
 
 [Top](#top)
-### BashProgramming
+# BashProgramming
 
 
-### REGEX
+# REGEX
 -  [Regex Table](#regex-table)
 -  [AWK](#awk)
 -  [CUT](#cut)
@@ -395,7 +407,7 @@ Operation	|Effect|
 
 
 
-#### Regex Table
+### Regex Table
 __First__ [this Site](https://regex101.com/) is very greate for Online REgex Testing.
 
 Character|Meaning|Example
@@ -435,7 +447,7 @@ __Chanie Patterns followed__
 
 [Top](#top)
 
-#### AWK
+### AWK
 - Kill Prossecc:
 ```vim
     kill -9 `ps faux | grep Name | awk -F\  '{print $2}''`
@@ -445,7 +457,7 @@ __Chanie Patterns followed__
   ps faux|grep App| awk '{Sum=+$6} END {print Sum/1024/1024 "G"}'
 ```
 
-#### CUT
+### CUT
 
 - return carachters No1 to No2 for each line:
 ```vim
@@ -465,7 +477,7 @@ __Chanie Patterns followed__
 ```
 
 [Top](#top)
-#### SED
+### SED
 - replace a word in file:
 ```vim
   sed -i 's/OldWord/NewWord/g' FileName
@@ -493,11 +505,11 @@ __Chanie Patterns followed__
    ```
 [Top](#top)
 
-### Unicode
+# Unicode
 - [Convert to Ascii](#convert-to-ascii)
 - [Convert to each other](#convert-to-each-other)
 
-###### Convert to Ascii
+### Convert to Ascii
 this command will convert FIn to FOut from FirstCoding to ascii:
 ```vim
   native2ascii -encoding FiratCoding -reverse FIn FOut
