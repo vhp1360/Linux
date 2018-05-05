@@ -1,5 +1,4 @@
 <div dir=rtl>بنام خدا</div>
-###### top
 
 - [ByoBu](#byobu)
 
