@@ -7,7 +7,7 @@
 - [Editing](editing)
 - [Change Character Case](change-character-case)
 - [Run Shell Command](run-shell-command)
-- [Multiple File](multiple-file)
+- [Multiple Files](multiple-files)
 
 ### Text Highlight
 1- Text Highlight
