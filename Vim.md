@@ -9,6 +9,7 @@
 - [Run Shell Command](#run-shell-command)
 - [Multiple Files](#multiple-files)
 
+[top](#top)
 ### Text Highlight
 1- Text Highlight
 ```vim
@@ -18,12 +19,14 @@
 2- <kbd>:</kbd><kbd>n</kbd><kbd>o</kbd><kbd>h</kbd> <- remove last search highlight
 
 
+[top](#top)
 ### Replace : 
   - inline: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_
   - globale: <kbd>:</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_<kbd>/</kbd><kbd>g</kbd>
   - special Lines: <kbd>:</kbd><kbd>_N1_</kbd><kbd>,</kbd><kbd>_N2_</kbd><kbd>%</kbd><kbd>s</kbd><kbd>/</kbd>_OldWord_<kbd>/</kbd>_NewWord_
   - current word: <kbd>*</kbd>
 
+[top](#top)
 ### Macro
   - <kbd>qd</kbd>   <- to start macro
   - ...  <- Doing your commands
@@ -31,11 +34,13 @@
   - <kbd>@</kbd><kbd>d</kbd>   <- to first run
   - <kbd>n</kbd><kbd>@</kbd><kbd>@</kbd>  <- n times repeated
 
+[top](#top)
 ### Scroll
   - <kbd>z</kbd><kbd>z</kbd> - move current line to the middle of the screen 
   - <kbd>z</kbd><kbd>t</kbd> - move current line to the top of the screen 
   - <kbd>z</kbd><kbd>b</kbd> - move current line to the bottom of the screen
 
+[top](#top)
 ### Editing :
   - edit a word : 
     - <kbd>c</kbd><kbd>i</kbd>\{<kbd>w</kbd>|<kbd>[</kbd>|<kbd>(</kbd>|<kbd>{</kbd>} --> change inner word|all between ()|...
@@ -44,6 +49,8 @@
   - edit line :
     - <kbd>Shift</kbd><kbd>c</kbd> --> change current line to end
     - <kbd>c</kbd><kbd>c</kbd> --> change whole of current line
+
+[top](#top)
 ### Change Character Case
   - change case of current char : <kbd>~</kbd>
   - change case of current word from cursor : <kbd>g</kbd><kbd>~</kbd><kbd>w</kbd>
@@ -51,6 +58,7 @@
   - to upper/lower current word : <kbd>g</kbd><kbd>U/u</kbd><kbd>i</kbd><kbd>w</kbd>
   - you can use visualy, <kbd>v</kbd> select word and use <kbd>~</kbd>
 
+[top](#top)
 ### Run Shell Command
 - run one command: <kbd>:</kbd><kbd>!</kbd>_Command_
 - go in __Shell__ mode: <kbd>:</kbd><kbd>s</kbd><kbd>h</kbd>
@@ -59,4 +67,5 @@
 ### Multiple Files
 
 
+[top](#top)
 
