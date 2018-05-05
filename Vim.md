@@ -1,4 +1,5 @@
 <div dir="rtl">بنام خدا</div><br/>
+
 - [Text Highlight](text-highlight)
 - [Replace](eplace)
 - [Macro](macro)
@@ -53,7 +54,7 @@
 ### Run Shell Command
 - run one command: <kbd>:</kbd><kbd>!</kbd>_Command_
 - go in __Shell__ mode: <kbd>:</kbd><kbd>s</kbd><kbd>h</kbd>
-- get return back to current opened file by vim: <kbd>:</kbd><kbd>r</kbd><kbd><kbd>!</kbd>Command
+- get return back to current opened file by vim: <kbd>:</kbd><kbd>r</kbd><kbd>!</kbd>Command
   
 ### Multiple Files
 
