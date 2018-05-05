@@ -1,13 +1,13 @@
 <div dir="rtl">بنام خدا</div><br/>
 
-- [Text Highlight](text-highlight)
-- [Replace](eplace)
-- [Macro](macro)
-- [Scroll](scroll)
-- [Editing](editing)
-- [Change Character Case](change-character-case)
-- [Run Shell Command](run-shell-command)
-- [Multiple Files](multiple-files)
+- [Text Highlight](#text-highlight)
+- [Replace](#replace)
+- [Macro](#macro)
+- [Scroll](#scroll)
+- [Editing](#editing)
+- [Change Character Case](#change-character-case)
+- [Run Shell Command](#run-shell-command)
+- [Multiple Files](#multiple-files)
 
 ### Text Highlight
 1- Text Highlight
