@@ -15,10 +15,6 @@
 - [Files Operating](#files-operating)
   - [rsync](#rsync)
   - [find](#find)
-- [NetWork](#network)
-  - [ncat](#ncat)
-  - [wget](#wget)
-  - [tcpflow](#tcpflow)
 - [Scripting](#scripting)
   - [Logging](#logging)
   - [Variable](#variable)
@@ -34,7 +30,10 @@
 - [Unicode](#unicode)
   - [Convert to Ascii](#convert-to-ascii)
   - [Convert to each Other](#convert-to-each-other)
-  
+- [ulimit](#ulimit)
+
+
+[top](#top)
 # Enviroments  
 ### PATH
 you know it.
@@ -261,30 +260,6 @@ use below code in your bash file
    find /Path \! -user UserName
  ```
  
-[Top](#top)
-# NetWork
-- ###### ncat
-  - to send data on machine port and listening.
-    1. listening: `nc -l PortNo.`
-    2. sending: `cat File | nc IP PortNo.`
-- ### wget
-  - to download
-    1. simple code: `wget http:/.... or ftp://... `
-    2. Username&Pass: 
-    ```vim
-      wget http://userName:Password@Address
-      wget --http-user=User --http-password=Password http://...
-      wget --ftp-user=User --ftp-password=Password ftp://...
-    ```
-    3. Recursively of Web: `wget -r http://... or ftp://... `
-    4. Resumable : `wget -c http://... or ftp://... `
-    5. From Files: `wget -i /Path to Text File `
-- ### tcpflow
-  - Listning on busy port:
-  ```vim
-    tcpflow   -i Interface -C[Print On Console] -J[Show Coloring] port PortNo
-  ```
-
 [Top](#top)
 # Scripting
 - [Logging](#logging)
@@ -515,5 +490,6 @@ this command will convert FIn to FOut from FirstCoding to ascii:
   native2ascii -encoding FiratCoding -reverse FIn FOut
 ```
 [Top](#top)
-
+# ulimit
+[this](https://serverfault.com/a/487641/209634)is a good explanation
 
