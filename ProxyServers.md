@@ -6,14 +6,14 @@
 # Nginx
 
 - in http:
-```ruby
+```nginx
     map $http_upgrade $connection_upgrade {
         default upgrade;
         ''      close;
     }
 ```
 - some server config:
-```ruby
+```nginx
    ssl    on;
    server_tokens off;
    ssl_session_timeout  5m;
@@ -25,7 +25,7 @@
    ssl_certificate_key    /Path to .key;
 ```
 - some location:
-```json
+```nginx
     location /WebApp/ {
      auth_basic "Restricted";
      auth_basic_user_file /Path to passwd;
