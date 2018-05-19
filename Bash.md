@@ -21,12 +21,18 @@
   - [Input Prameters](#input-parameters)
   - [Loop](#loop)
   - [Conditional](#conditional)
-- [BashProgramming](#bashprogramming)
+- [Text Processing](#text-processing)
   - [REGEX](#regex)
-  -  [Regex Table](#regex-table)
-  -  [AWK](#awk)
-  -  [CUT](#cut)
-  -  [SED](#sed)
+    - [Regex Table](#regex-table)
+  - [AWK](#awk)
+  - [CUT](#cut)
+  - [SED](#sed)
+  - [Sort](#sort)
+  - [Uniq](#uniq)
+  - [Head and Tail](#head-and-tail)
+  - [Grep](#grep)
+  - [Wc](#wc)
+  
 - [Unicode](#unicode)
   - [Convert to Ascii](#convert-to-ascii)
   - [Convert to each Other](#convert-to-each-other)
@@ -323,7 +329,7 @@ use below code in your bash file
   fi
 ```
   1. Switchs:
-  
+  A Taxonomy of Data Science
 Primary|Meaning
 ---|---  
 [ -a FILE ]	|True if FILE exists.
@@ -371,19 +377,10 @@ Operation	|Effect|
 [ EXPR1 -o EXPR2 ]	|True if either EXPR1 or EXPR2 is true.|
 
 [Top](#top)
-# BashProgramming
-
-
-# REGEX
--  [Regex Table](#regex-table)
--  [AWK](#awk)
--  [CUT](#cut)
--  [SED](#sed)
-
-
-
+# Text Processing
+## REGEX
 ### Regex Table
-__First__ [this Site](https://regex101.com/) is very greate for Online REgex Testing.
+__First__ [this Site](https://regex101.com/) is very A Taxonomy of Data Sciencegreate for Online REgex Testing.
 
 Character|Meaning|Example
 ---|---|---
@@ -419,10 +416,9 @@ Shorthand|Description
 __Chanie Patterns followed__
 
 
-
 [Top](#top)
 
-### AWK
+## AWK
 - Kill Prossecc:
 ```vim
     kill -9 `ps faux | grep Name | awk -F\  '{print $2}''`
@@ -432,7 +428,7 @@ __Chanie Patterns followed__
   ps faux|grep App| awk '{Sum=+$6} END {print Sum/1024/1024 "G"}'
 ```
 
-### CUT
+## CUT
 
 - return carachters No1 to No2 for each line:
 ```vim
@@ -452,7 +448,7 @@ __Chanie Patterns followed__
 ```
 
 [Top](#top)
-### SED
+## SED
 - replace a word in file:
 ```vim
   sed -i 's/OldWord/NewWord/g' FileName
@@ -479,6 +475,11 @@ __Chanie Patterns followed__
      sed '/Pattern/, +5 d' FileName
    ```
 [Top](#top)
+## Sort
+## Uniq
+## Head and Tail
+## Grep
+## Wc
 
 # Unicode
 - [Convert to Ascii](#convert-to-ascii)
