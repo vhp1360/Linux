@@ -63,7 +63,7 @@ use below code in your bash file
 - disown :
   `run command`,<kbd>Ctrl</kbd><kbd>Z</kbd>,`disown -h Job-ID`
 
-[Top](#top)
+[top](#top)
 # Users
 * ### Change username:
  - becare first find OldName user and group ID.
@@ -94,7 +94,7 @@ use below code in your bash file
   usermod -u UserId UserName
 ```
 
-[Top](#top)
+[top](#top)
 
 # IPv6
 * ### disabling IPv6
@@ -105,7 +105,7 @@ use below code in your bash file
   sysctl -p
 ```
 
-[Top](#top)
+[top](#top)
 
 # VPN Routes
 * ### [coonect client to server which will connected to vpn:](http://unix.stackexchange.com/questions/237460/ssh-into-a-server-which-is-connected-to-a-vpn-service)
@@ -124,7 +124,7 @@ use below code in your bash file
   IPTABLES -A INPUT -p tcp -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
 ```
 
-[Top](#top)
+[top](#top)
 
 # Partitioning
 - [Parted](#parted)
@@ -138,7 +138,7 @@ use below code in your bash file
   4. `mkpart`  --> and go ahead and answer questions.
   5. `quit` --> goback to __bash__ mode.
   6. `mkfs. ... NewPartitionName`
-[Top](#top)
+[top](#top)
 ### dd
 - create bootable usb:
 ```vim
@@ -146,7 +146,7 @@ use below code in your bash file
 ```
 
 
-[Top](#top)
+[top](#top)
 # Files Operating
 - [rsync](#rsync)
 - [find](#find)
@@ -267,7 +267,7 @@ use below code in your bash file
    find /Path \! -user UserName
  ```
  
-[Top](#top)
+[top](#top)
 # Scripting
 - [Logging](#logging)
 - [Variable](#variable)
@@ -275,7 +275,7 @@ use below code in your bash file
 - [Loop](#loop)
 - [Conditional](#conditional)
 
-[Top](#top)
+[top](#top)
 ### Logging
 - generate log of output:
 ```vim
@@ -284,7 +284,7 @@ use below code in your bash file
   exec 1>log.out 2>&1
 ```
 
-[Top](#top)
+[top](#top)
 ### Varisable
 - define variable: `Var=Value` <-- be care _No Space_
 - defualt value for variable: `[ "$Var" == "" ] && Var=DefaultValue`
@@ -293,7 +293,7 @@ use below code in your bash file
   - incrementally assign: `VariableName="$VariableName ..."` <-- be care about <kbd>Space</kbd>
 
 
-[Top](#top)
+[top](#top)
 ### Input Parameters
 - input Parameter : `Par1=$1` , ... <-- be care _No Space_
 - input arguments:
@@ -301,12 +301,12 @@ use below code in your bash file
  - `$#` : number of input arguments
 
 
-[Top](#top)
+[top](#top)
 ### Array
 - String to array: `IFS='sep' read -ra ListName <<< $1`
 - Length of Array: `${#ArrayName[@]}`
   
-[Top](#top)
+[top](#top)
 ### Loop
 - Loop:
   - for:
@@ -315,7 +315,7 @@ use below code in your bash file
     for 1 in {1..100..10};do ...;done
     for ((i=0;i<No.;i++));do ...;done
   ```
-[Top](#top)
+[top](#top)
 ### Conditional
 - if : structure is:
 ```vim
@@ -367,7 +367,7 @@ Primary|Meaning
 [ STRING1 > STRING2 ] |True if "STRING1" sorts after "STRING2" lexicographically in the current locale.
 [ ARG1 OP ARG2 ] |"OP" is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if "ARG1" is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to "ARG2", respectively. "ARG1" and "ARG2" are integers.
 
-[Top](#top)
+[top](#top)
 
   2. Combining expressions
 
@@ -378,7 +378,7 @@ Operation	|Effect|
 [ EXPR1 -a EXPR2 ]	|True if both EXPR1 and EXPR2 are true.|
 [ EXPR1 -o EXPR2 ]	|True if either EXPR1 or EXPR2 is true.|
 
-[Top](#top)
+[top](#top)
 # Text Processing
 ## REGEX
 ### Regex Table
@@ -418,7 +418,7 @@ Shorthand|Description
 __Chanie Patterns followed__
 
 
-[Top](#top)
+[top](#top)
 
 ## AWK
 - Kill Prossecc:
@@ -449,7 +449,7 @@ __Chanie Patterns followed__
   cut ... --output-delimiter=$'\n'
 ```
 
-[Top](#top)
+[top](#top)
 ## SED
 - replace a word in file:
 ```vim
@@ -477,16 +477,19 @@ __Chanie Patterns followed__
    ```vim
      sed '/Pattern/, +5 d' FileName
    ```
-[Top](#top)
+[top](#top)
 ## Sort
 
+[top](#top)
 ## Uniq
 
+[top](#top)
 ## Head and Tail
 ```vim
   head -n No. File
   tail tail -n No. File
 ```
+[top](#top)
 ## Grep
 ```vim
   grep -n ... # show line number of match
@@ -500,6 +503,8 @@ __Chanie Patterns followed__
 ```
   - In basic regular expressions(BRE) the meta-characters ?,+,{,|,(,) lose their special meaning; 
     instead use the backslashed versions \\?,\\+,\\{,\\|,\\(,\\),but not in extended regular experssion(ERE)
+
+[top](#top)
 ## Wc
 ```vim
   wc -l File # Number Lines
@@ -507,13 +512,15 @@ __Chanie Patterns followed__
   wc -m File # NUmber Characters
   wc -L File # lengest line width 
 ```
+[top](#top)
 ## Tr
 it is useful to make nice the output of processing:
 ```vim
   tr -d [:punct:] <inFileName > outFileName
   tr [:upper:] [:lower:] ...
-  
+```  
 
+[top](#top)
 # Unicode
 - [Convert to Ascii](#convert-to-ascii)
 - [Convert to each other](#convert-to-each-other)
@@ -523,7 +530,7 @@ this command will convert FIn to FOut from FirstCoding to ascii:
 ```vim
   native2ascii -encoding FiratCoding -reverse FIn FOut
 ```
-[Top](#top)
+[top](#top)
 # ulimit
 [this](https://serverfault.com/a/487641/209634)is a good explanation
 
