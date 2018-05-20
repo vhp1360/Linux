@@ -32,6 +32,7 @@
   - [Head and Tail](#head-and-tail)
   - [Grep](#grep)
   - [Wc](#wc)
+  - [Tr](#tr)
   
 - [Unicode](#unicode)
   - [Convert to Ascii](#convert-to-ascii)
@@ -330,6 +331,7 @@ use below code in your bash file
 ```
   1. Switchs:
   A Taxonomy of Data Science
+  
 Primary|Meaning
 ---|---  
 [ -a FILE ]	|True if FILE exists.
@@ -466,9 +468,10 @@ __Chanie Patterns followed__
 ```vala
   sed -n 'No1.,No2p' FileName
 ```
-- Remove a Line Containing a pattern:
+- Remove (a) Lines:
  ```vim
-   sed '/Pattern/d' FileName
+   sed '/Pattern/d' FileName # Containing a pattern
+   sed 'No1..No2d' FileName
  ```
   - MultiLine
    ```vim
@@ -476,10 +479,40 @@ __Chanie Patterns followed__
    ```
 [Top](#top)
 ## Sort
+
 ## Uniq
+
 ## Head and Tail
+```vim
+  head -n No. File
+  tail tail -n No. File
+```
 ## Grep
+```vim
+  grep -n ... # show line number of match
+  grep [-e|-E] "Pattern" ... # Search in file for BRE|ERE pattern
+  grep -w "Word" ... # Find whole of word
+  grep [-A|-B|-C] No. .... # Print No. Lines After|Before Match|both of before
+  grep -c ... # Count of matvh
+  grep -r -v ... # recursively search with reverse search
+  grep -l ... # display only file name that match
+  grep -o ... # showing only matched string
+```
+  - In basic regular expressions(BRE) the meta-characters ?,+,{,|,(,) lose their special meaning; 
+    instead use the backslashed versions \\?,\\+,\\{,\\|,\\(,\\),but not in extended regular experssion(ERE)
 ## Wc
+```vim
+  wc -l File # Number Lines
+  wc -w File # NUmber Words
+  wc -m File # NUmber Characters
+  wc -L File # lengest line width 
+```
+## Tr
+it is useful to make nice the output of processing:
+```vim
+  tr -d [:punct:] <inFileName > outFileName
+  tr [:upper:] [:lower:] ...
+  
 
 # Unicode
 - [Convert to Ascii](#convert-to-ascii)
