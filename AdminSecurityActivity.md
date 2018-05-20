@@ -210,7 +210,7 @@
 
 [top](#top)
 # SSH
-- sshd_config:
+## sshd_config:
  - Port: _must Change it_
  - PermitRootLogin yes|no
  - AuthenticationMethods "publickey,password" "publickey,keyboard-interactive"
@@ -224,10 +224,13 @@
    Match User Name1,Name2 Address IP
      AuthenticationMethodes 
  ```
-- Key:
+[top](#top)
+## Key:
  1. `ssh-keygen -t RSA`
  2. `ssh-copy-id -i PathToSSHKey User@Server`
-- ssh_config
+
+[top](#top)
+## ssh_config
  - Special Host:
  ```vim
   Host Name
@@ -241,7 +244,8 @@
   Host HostName
     IdentityFile ~/.ssh/Host_Private_Key_Name
 ```
-- Save Key Passphrase:
+[top](#top)
+## Save Key Passphrase:
   1. First connect to your remote server.
   2. in another terminal run `ssh-add` command
   - may you need check `ssh-agent` app
@@ -249,6 +253,21 @@
   - type <kbd>\~</kbd> and press <kbd>Ctrl<kbd/><kbd>Z</kbd>, it take you back to your local.
   - for return to _ssh_ check the _jobs_ in your terminal :smile:
 
+[top](#top)
+## [Restrict access by time](https://www.techrepublic.com/article/using-pam-to-restrict-access-based-on-time/)
+1. first we should define or policy in _time.conf_ pam file:
+```vim
+  sshd;*;UserName;AlTime1-Time2
+```
+  - in explanation:
+    - first column indicates _the Service Name_ here is __sshd__
+    - second column indicates _TTY Number_ here is __all ttys__
+    - third indicates UserName
+    - fourd indicates _StartTime2EndTime_, we should use ___Al___ at the first
+2. we should tell to sshd service to use thid __PAM__ module, then add below to _/etc/pam.d/__sshd___ file:
+```vim
+  account required pam_time.so
+```
 
 [Top](#top)
 # Access List
