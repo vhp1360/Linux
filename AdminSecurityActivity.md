@@ -211,11 +211,11 @@
 [top](#top)
 # SSH
 ## sshd_config:
- - Port: _must Change it_
- - PermitRootLogin yes|no
- - AuthenticationMethods "publickey,password" "publickey,keyboard-interactive"
- - RSAAuthentication yes
- - PubkeyAuthentication yes
+ - __Port__ _must Change it_
+ - __PermitRootLogin__ _yes|no_
+ - __AuthenticationMethods__ "_publickey,password_" "_publickey,keyboard-interactive_"
+ - __RSAAuthentication__ _yes_
+ - __PubkeyAuthentication__ _yes_
  - Specified Special Hosts: to make type of connect , Which Users Allowed , ... .
  ```vim
    Match Address IPAddress
@@ -232,7 +232,7 @@
 [top](#top)
 ## ssh_config
  - Special Host:
- ```vim
+ ```vala
   Host Name
     HostName IP
     Port
@@ -240,17 +240,33 @@
     Port
  ```
 - config: to specify which Host should use wich Key to connect
-```vim
+```vala
   Host HostName
     IdentityFile ~/.ssh/Host_Private_Key_Name
 ```
+* if you'd like to prevent ssh connection time out issue, you have two way:
+  - Client side:<br>
+    1- permanent: add below to _.ssh/config_:
+    ```vala
+      ServerAliveInterval 120
+    ```
+    2- runtime:
+    ```vala
+      ssh -o ""ServerAliveInterval 60" user@...
+    ```
+  - Server Side: add below into _/etc/sshd?sshd_cinfig_:
+  ```vala
+    ClientAliveInterval 120
+    ClientAliveCountMax 720
+  ```
+
 [top](#top)
 ## Save Key Passphrase:
   1. First connect to your remote server.
   2. in another terminal run `ssh-add` command
   - may you need check `ssh-agent` app
 - Scape SSH without disconnecting:
-  - type <kbd>\~</kbd> and press <kbd>Ctrl<kbd/><kbd>Z</kbd>, it take you back to your local.
+  - type <kbd>\~</kbd> and press <kbd>Ctrl</kbd><kbd>Z</kbd>, it take you back to your local.
   - for return to _ssh_ check the _jobs_ in your terminal :smile:
 
 [top](#top)
